@@ -39,6 +39,6 @@ problem:
 {
     "type": "https://problem.api.bunnings.com.au?type=invalidAuthorisationToken",
     "title": "Access Token provided by the client was found not valid for this request",
-    "status": 400
+    "status": 401
 }
 ```	
