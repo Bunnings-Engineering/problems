@@ -8,7 +8,7 @@ type = https://problem.api.bunnings.com.au?type=invalidAuthorisationToken
 
 ## Specification
 
-The invalid server state problem includes no additional properties on the base [RFC 7807](https://tools.ietf.org/html/rfc7807) problem.
+The invalid authorisation token problem includes no additional properties on the base [RFC 7807](https://tools.ietf.org/html/rfc7807) problem.
 so uses the base specification
 
 ```yaml
@@ -38,7 +38,7 @@ problem:
 ```json
 {
     "type": "https://problem.api.bunnings.com.au?type=invalidAuthorisationToken",
-    "title": "Server state provided by the client is invalid",
+    "title": "Access Token provided by the client was found not valid for this request",
     "status": 400
 }
-```
+```	

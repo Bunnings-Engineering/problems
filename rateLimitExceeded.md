@@ -38,7 +38,7 @@ problem:
 ```json
 {
     "type": "https://problem.api.bunnings.com.au?type=rateLimitExceeded",
-    "title": "Server state provided by the client is invalid",
-    "status": 400
+     "title": "Too Many messages from the client",
+    "status": 429
 }
 ```
