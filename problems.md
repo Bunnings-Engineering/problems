@@ -1,6 +1,6 @@
-# Spike Arrest Limit excedded 
+# Application problems found
 
-The number of request sent to server have exceeded the permitted rate limit. 
+Application problems have been found that are unlikely to be resolved by immediately repeating the request.
 
 ## Problem Type
 
@@ -49,7 +49,7 @@ problem:
 {
     "type": "https://problem.api.bunnings.com.au?type=problems",
     "title": "Bad Request",
-    "status": 429
+    "status": 400
     "errors": {
         "problems": [
             {
