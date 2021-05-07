@@ -25,11 +25,6 @@ problem:
             type: string
         status:
             type: integer
-        detail:
-            type: string
-        instance:
-            type: string
-            format: uri
 ```
 [Problem Specification](./problem.yaml)
 
@@ -38,7 +33,7 @@ problem:
 ```json
 {
     "type": "https://problem.api.bunnings.com.au?type=rateLimitExceeded",
-     "title": "Too Many messages from the client",
+    "title": "Too Many messages from the client",
     "status": 429
 }
 ```
