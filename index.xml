@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="./index.xsl"?>
 <index>
+<problem title="Request Error" href="./?type=requestError" />
+<problem title="Validation Error" href="./?type=validationError" />
+<problem title="Problems" href="./?type=problems" />
+<problem title="Marketplace Error" href="./?type=marketplaceError" />
 <problem title="Invalid Server State" href="./?type=invalidServerState" />
+<problem title="Invalid Authorisation Token" href="./?type=invalidAuthorisationToken" />
+<problem title="Missing Resource" href="./?type=missingResource" />
+<problem title="Dirty Resource" href="./?type=dirtyResource" />
+<problem title="Unhandled Error" href="./?type=unhandled" />
 </index>

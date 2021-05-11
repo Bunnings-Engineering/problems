@@ -1,11 +1,12 @@
-# Application problems found
+# Marketplace problems found
 
-Application problems have been found that are unlikely to be resolved by immediately repeating the request. They can represent
-issues such as misconfigured prices or store settings.
+An external Marketplace API raised an error. Bunnings integrates with external APIs to manage its Marketplace,
+these errors encapsulate problems caused due to deliberate decisions (limits on shipping) or configuration
+problems.
 
 ## Problem Type
 
-type = https://problem.api.bunnings.com.au?type=problems
+type = https://problem.api.bunnings.com.au?type=marketplaceError
 
 ## Specification
 
@@ -48,14 +49,14 @@ problem:
 
 ```json
 {
-    "type": "https://problem.api.bunnings.com.au?type=problems",
+    "type": "https://problem.api.bunnings.com.au?type=marketplaceError",
     "title": "Bad Request",
     "status": 400
     "errors": {
         "problems": [
             {
-                "message": "Pricing API did not find a price for item: 3314001",
-                "code": "E-CHK-0027"
+                "message": "Marketplace shipping zone VIC_MELBOURNE_METRO not allowed",
+                "code": "E-CHK-0037"
             }
         ]
     }

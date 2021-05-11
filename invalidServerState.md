@@ -1,6 +1,8 @@
 # Invalid Server State
 
-The server state path parameter passed to the operation is not valid. server state is an opaque string returned by the server as part of an objects _meta and should be used to fill into a links href template it should be copied directly into http resource request. server state is part of the way the api implement the HATEOAS patten and is used by the server to manage workflow state.
+The server state path parameter passed to the operation is not valid. 
+
+Server state is an opaque string returned by the server as part of an objects _meta and should be used to fill into a links href template. It should be copied directly into an http resource request. Server state is part of the way the API implements the HATEOAS pattern and is used by the server to manage workflow state.
 
 ## Problem Type
 
