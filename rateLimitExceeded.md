@@ -26,7 +26,7 @@ problem:
         status:
             type: integer
 ```
-[Problem Specification](./problem.yaml)
+[Specification](./problem.yaml)
 
 ## Example
 

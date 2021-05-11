@@ -1,0 +1,29 @@
+problems:
+  type: object
+  description: RFC 7807 compliant problem.
+  required:
+  - type
+  properties:
+    type:
+        type: string
+        format: uri
+    title:
+        type: string
+    status:
+        type: integer
+    detail:
+        type: string
+    instance:
+        type: string
+        format: uri
+    errors:
+        type: object
+        properties:
+            grouping:
+                type: array
+                properties:
+                    code:
+                        type: string
+                    message:
+                        type: string
+        

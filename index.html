@@ -23,7 +23,6 @@
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-typescript.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@1/src/zero-md.min.js"></script>
-    
 
     <!--<script src="https://cdn.jsdelivr.net/gh/PrismJS/prism@1/plugins/autoloader/prism-autoloader.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/PrismJS/prism@1/components/prism-csharp.min.js"></script>-->
@@ -40,7 +39,7 @@
         header { font-size: 15px; }
         body { padding: 15px; }
       }
-      iframe { margin: 0em; padding: 0em; border: 0em;}
+      iframe { margin: 0em; padding: 1em; border: 0em;}
     </style>
   </head>
   <body>
@@ -49,8 +48,11 @@
         <!--<zero-md id="docPort" src="./index.md"></zero-md>-->
     </div>
     <p>
-        <div id="index">
-
+        <div id="index" class="markdown-body">
+        </div>
+        <div id="errorCodesHeading" class="md-html">
+        </div>
+        <div id="errorCodes" class="md-html">
         </div>
     </p>
 
@@ -64,12 +66,18 @@
     if(urlParams.has('type')){
         var doc = "./" + urlParams.get('type') + ".md";
     }
+    if(urlParams.has('codes')){
+        var doc = "./" + urlParams.get('codes') + ".md";
+    }
     var docContainer = document.getElementById('docContainer');
     docContainer.innerHTML = "<zero-md src='"+doc+"'></zero-md>";
 
-    if(!urlParams.has('type')){
+    if(!urlParams.has('type') && !urlParams.has('codes')){
         var index = document.getElementById('index');
         index.innerHTML = "<iframe src='./index.xml'/>"
+		document.getElementById('errorCodesHeading').innerHTML = "<zero-md src='errorCodes.md'></zero-md>";;
+        var errorCodes = document.getElementById('errorCodes');
+        errorCodes.innerHTML = "<iframe src='./errorCodes.xml'/>"
     }
 
   </script>
