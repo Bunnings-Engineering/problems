@@ -42,7 +42,7 @@ problem:
                         message:
                             type: string
 ```
-[Problem Specification](./problem.yaml)
+[Problem Specification](./problems.yaml)
 
 ## Example
 
