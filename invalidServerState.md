@@ -33,7 +33,7 @@ problem:
             type: string
             format: uri
 ```
-[Problem Specification](./problem.yaml)
+[Problem Specification](./invalidServerState.yaml)
 
 ## Example
 

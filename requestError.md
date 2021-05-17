@@ -43,7 +43,7 @@ problem:
                         message:
                             type: string
 ```
-[Specification](./problems.yaml)
+[Specification](./requestError.yaml)
 
 ## Example
 

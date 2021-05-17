@@ -32,7 +32,7 @@ problem:
             type: string
             format: uri
 ```
-[Specification](./problem.yaml)
+[Specification](./unhandled.yaml)
 
 ## Example
 

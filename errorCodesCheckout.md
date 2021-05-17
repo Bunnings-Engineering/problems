@@ -1,73 +1,70 @@
 # Checkout API error codes
 
-| Code | Name |
-| -------- | -------- |
-| E-CHK-0001 | InvalidStreetType |
-| E-CHK-0002 | EstimateAndAddressMutuallyExclusive |
-| E-CHK-0003 | MarketplaceNotValidForNZ |
-| E-CHK-0004 | MarketplaceNotValidForInstore |
-| E-CHK-0005 | MarketplaceWithoutDetail |
-| E-CHK-0006 | PreferredDeliveryTypeInvalidForContext |
-| E-CHK-0007 | PreferredDateInvalidForContext |
-| E-CHK-0008 | EstimateAndAddressMutuallyExclusiveInRequest |
-| E-CHK-0009 | MarketplaceMustBeDelivery |
-| E-CHK-0010 | InvalidAddressRef |
-| E-CHK-0011 | DuplicateFulfilmentIds |
-| E-CHK-0012 | DuplicateDeliveryAddressIds |
-| E-CHK-0013 | InvalidFulfilmentRef |
-| E-CHK-0014 | InvalidQuantity |
-| E-CHK-0015 | InvalidGiftQuantity |
-| E-CHK-0016 | MissingQuantity |
-| E-CHK-0017 | InvalidSize |
-| E-CHK-0018 | MissingFulfilmentRequirementRef |
-| E-CHK-0019 | MissingItemNumber |
-| E-CHK-0020 | DuplicateLineIds |
-| E-CHK-0021 | CustomerDetailsAlsoHasAsMe |
-| E-CHK-0022 | CustomerMemberOrCustomerMustBeSet |
-| E-CHK-0023 | CustomerMemberIdMissing |
-| E-CHK-0024 | CustomerMemberCantBePowerpass |
-| E-CHK-0025 | CustomerSegmentsRequireMemberOrPowerpass |
-| E-CHK-0026 | LogisticsApiCantDeliverToSuburb |
-| E-CHK-0027 | PricingApiHasNoItemPrice | 
-| E-CHK-0029 | LineNumberInvalid |
-| E-CHK-0030 | StreetOrLotMustBeProvided |
-| E-CHK-0031 | DeliveryAddressRequired |
-| E-CHK-0032 | EstimatePostcodeRequired |
-| E-CHK-0033 | ItemApiNotFound |
-| E-CHK-0034 | MiraklApiNotFound |
-| E-CHK-0035 | MiraklApiOfferNotFound |
-| E-CHK-0036 | MiraklApiShippingZoneNotAllowed |
-| E-CHK-0037 | MiraklApiShippingTypeNotAllowed |
-| E-CHK-0038 | MiraklApiShippingZoneNotFound |
-| E-CHK-0039 | LocationApiNotFound |
-| E-CHK-0040 | LogisticsApiNotFound |
-| E-CHK-0041 | PricingApiNotFound |
-| E-CHK-0042 | ItemApiDetailNotReturned |
-| E-CHK-0043 | LocationCodeNotCached |
-| E-CHK-0044 | LocationConfigurationErrorsFound |
-| E-CHK-0045 | PreferredDeliveryNotAllowedForDirect |
-| E-CHK-0046 | ItemDeliveryOnly |
-| E-CHK-0047 | ItemHasSizeButIsWholeUnitOnly |
-| E-CHK-0048 | ItemLacksSizeButIsWholeUnitOnly |
-| E-CHK-0049 | ItemHasNoValidSupplier |
-| E-CHK-0050 | ItemHasNoZoningInformation |
-| E-CHK-0051 | CantCheckoutUsingClosedInactiveStore |
-| E-CHK-0052 | CantCheckoutRestrictedItem |
-| E-CHK-0053 | CantCheckoutExclusiveItem |
-| E-CHK-0054 | CantCheckoutItemTooLong |
-| E-CHK-0055 | CantCheckoutItemTooMany |
-| E-CHK-0056 | LocationNotCached |
+| Short&nbsp;error&nbsp;code | Name | Description |
+| -------- | -------- | -------- |
+| E-CHK-0001 | InvalidStreetType | The address' street type is not one of the standard values. Note that both full and abbreviated names can be used, for example: "st" or "street." |
+| E-CHK-0002 | EstimateAndAddressMutuallyExclusive | The request received specified both a delivery address as well an requested an estimate for a postcode. These are mutually exclusive. |
+| E-CHK-0003 | MarketplaceNotValidForNZ | Marketplace purchases are not supported in New Zealand. |
+| E-CHK-0004 | MarketplaceNotValidForInstore | Marketplace purchases can only be made on-line and not in-store. |
+| E-CHK-0005 | MarketplaceWithoutDetail | Marketplace orders must include the details of the specified offer. |
+| E-CHK-0006 | PreferredDeliveryTypeInvalidForContext | It is not possile to specify this preffered delivery type for this context, for example: courier delivery with on-line orders. |
+| E-CHK-0007 | PreferredDateInvalidForContext | It is not possile to specify a preferred delivery date for this context, for example: on-line. |
+| E-CHK-0009 | MarketplaceMustBeDelivery | Marketplace items must have a delivery fulfilment type. |
+| E-CHK-0010 | InvalidAddressRef | A fulfilment requirements has an invalid address references. |
+| E-CHK-0011 | DuplicateFulfilmentIds | Multiple fulfilment requirements share the same ID. |
+| E-CHK-0012 | DuplicateDeliveryAddressIds | Multiple addresses share the same ID. |
+| E-CHK-0013 | InvalidFulfilmentRef | A line has an invalid fulfilment requirements references. |
+| E-CHK-0014 | InvalidQuantity | The line's quantity was less than 1. | 
+| E-CHK-0015 | InvalidGiftQuantity | The line's quantity must be 1 for gifts. | 
+| E-CHK-0016 | MissingQuantity | The quantity field is required for the line type. |
+| E-CHK-0017 | InvalidSize | The size value is less than 0. |
+| E-CHK-0018 | MissingFulfilmentRequirementRef | The line requires a fulfilment requirement reference. |
+| E-CHK-0019 | MissingItemNumber | The line requires an item number. |
+| E-CHK-0020 | DuplicateLineIds | Multiple lines share the same ID. |
+| E-CHK-0021 | CustomerDetailsAlsoHasAsMe | The customer details have AsMe set but also include a PowerPassAccountNumber or TeamMemberId. Furthermore, it is not valid to pass TeamMemberCustomer or segments. |
+| E-CHK-0022 | CustomerMemberOrCustomerMustBeSet | The call must include a TeamMemberId or TeamMemberCustomer. |
+| E-CHK-0023 | CustomerMemberIdMissing | If a TeamMemberCustomer is passed then a TeamMemberId is required. |
+| E-CHK-0024 | CustomerMemberCantBePowerpass | If a TeamMemberID is passed it cannot have a PowerPassAccountNumber. |
+| E-CHK-0025 | CustomerSegmentsRequireMemberOrPowerpass | If segments are passed then either a TeamMemberID or PowerPassAccountNumber must be passed. |
+| E-CHK-0026 | BunningsDoesNotDeliverToSuburb | Bunnings does not delivery to the requested suburb. |
+| E-CHK-0027 | ItemHasNoItemPrice | No price can be found for the item. |
+| E-CHK-0029 | LineNumberInvalid | The line number is must be greater than 0. |
+| E-CHK-0030 | StreetOrLotMustBeProvided | A street or lot number must be included with an address. |
+| E-CHK-0031 | DeliveryAddressRequired | An address is required for delivery fulfilments unless they are an estimate. |
+| E-CHK-0032 | EstimatePostcodeRequired | If an estimate is requested then a EstimatePostcodeRequired must be provided. | 
+| E-CHK-0033 | ItemNotFound | The item was not found. |
+| E-CHK-0035 | MarketplaceOfferNotFound | The Offer passed was not found in the Marketplace. |
+| E-CHK-0036 | MarketplaceShippingZoneNotAllowed | The Offer cannot be delivered to the requested address. |
+| E-CHK-0037 | MarketplaceShippingTypeNotAllowed | The Offer cannot be delivered using the shipping type. |
+| E-CHK-0038 | MarketplaceShippingZoneNotFound | A shipping zone has not been set up for the postcode. |
+| E-CHK-0039 | LocationNotFound | The location could not be found. |
+| E-CHK-0040 | LogisticsApiNotFound | Delivery response could not be found. |
+| E-CHK-0041 | ItemPriceNotFound | A price could not found for the item. |
+| E-CHK-0042 | ItemDetailsNotFound | An item could be found with an item location but details were not available for it. |
+| E-CHK-0043 | LocationCodeNotCached | The locationCode could not be found. |
+| E-CHK-0044 | LocationConfigurationErrorsFound | The location was found but has configuration errors. |
+| E-CHK-0045 | PreferredDeliveryNotAllowedForDirect | The item has a preferred delivery type of direct delivery however the item is not set for direct delivery. |
+| E-CHK-0046 | ItemDeliveryOnly | The item is marked as delivery only at the location. |
+| E-CHK-0047 | ItemHasSizeButIsWholeUnitOnly | The item has specified a size, but the item is whole unit only. |
+| E-CHK-0048 | ItemLacksSizeButIsWholeUnitOnly | The item requires a size since the item is not whole unit only. |
+| E-CHK-0049 | ItemHasNoValidSupplier | The item has no Suppliers for the location. |
+| E-CHK-0050 | ItemHasNoZoningInformation | Zoning information could not be fgoud for the item. |
+| E-CHK-0051 | CantCheckoutUsingClosedInactiveStore | A checkout was attempted on a closed or inactive store. |
+| E-CHK-0052 | CantCheckoutRestrictedItem | A checkout was attempted for a restricted item. |
+| E-CHK-0053 | CantCheckoutExclusiveItem | A checkout was attempted for an exclusive item. |
+| E-CHK-0054 | CantCheckoutItemTooLong | The item exceeds the maximum length. |
+| E-CHK-0055 | CantCheckoutItemTooMany | The item order exceeds the maximum quantity. |
 
-### Shipment call:
+# Shipment call:
 
-| Code | Name |
-| -------- | -------- |
-| E-CHK-0200 | ShipmentsMissing |
-| E-CHK-0201 | ShipmentsMissingMismatchCount |
-| E-CHK-0202 | ShipmentsJwtInvalid |
+| Short&nbsp;error&nbsp;code | Name | Description |
+| -------- | -------- | -------- |
+| E-CHK-0200 | ShipmentsMissing | Shipments must be passed to the API. |
+| E-CHK-0201 | ShipmentsMissingMismatchCount | Mismatch between the number of shipments and tokens. |
+| E-CHK-0202 | ShipmentsJwtInvalid | Something was wrong with the token. Refer to logs for more details. |
 
-### General:
+# General:
 
-| Code | Name |
-| -------- | -------- |
-| E-CHK-0300 | InvalidRequest |
+| Short&nbsp;error&nbsp;code | Name | Description |
+| -------- | -------- | -------- |
+| E-CHK-0300 | InvalidRequest | A bad request was passed. One or more fields wre invalid. |
