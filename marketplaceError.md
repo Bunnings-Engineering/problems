@@ -35,7 +35,7 @@ problem:
         errors:
             type: object
             properties:
-                problems:
+                <offerId>:
                     type: array
                     properties:
                         code:
@@ -43,7 +43,7 @@ problem:
                         message:
                             type: string
 ```
-[Problem Specification](./problems.yaml)
+[Problem Specification](./marketplaceError.yaml)
 
 ## Example
 
@@ -51,15 +51,20 @@ problem:
 {
     "type": "https://problem.api.bunnings.com.au?type=marketplaceError",
     "title": "Bad Request",
-    "status": 400
+    "status": 400,
     "errors": {
-        "problems": [
+        "3010": [
             {
-                "message": "Marketplace shipping zone VIC_MELBOURNE_METRO not allowed",
-                "code": "E-CHK-0037"
+                "message": "Marketplace shipping zone WA_PERTH_METRO not allowed",
+                "code": "E-CHK-0036"
+            }
+        ],
+        "3012": [
+            {
+                "message": "Invalid Marketplace Offer ID",
+                "code": "E-CHK-0035"
             }
         ]
     }
-  }
 }
 ```

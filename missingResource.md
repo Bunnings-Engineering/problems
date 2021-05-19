@@ -31,7 +31,7 @@ problem:
             type: string
             format: uri
 ```
-[Specification](./problem.yaml)
+[Specification](./missingResource.yaml)
 
 ## Example
 

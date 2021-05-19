@@ -46,7 +46,7 @@ problem:
                         message:
                             type: string
 ```
-[Specification](./problems.yaml)
+[Specification](./validationError.yaml)
 
 ## Example
 
