@@ -3,4 +3,5 @@
 <index>
 <problem title="Checkout API" href="./?codes=errorCodesCheckout" />
 <problem title="Transaction API" href="./?codes=errorCodesTransaction" />
+<problem title="CommercialCustomer API" href="./?codes=errorCodesCommercialCustomer" />
 </index>
