@@ -7,7 +7,7 @@
 | E-CHK-0003 | MarketplaceNotValidForNZ | Marketplace purchases are not supported in New Zealand. |
 | E-CHK-0004 | MarketplaceNotValidForInstore | Marketplace purchases can only be made on-line and not in-store. |
 | E-CHK-0005 | MarketplaceWithoutDetail | Marketplace orders must include the details of the specified offer. |
-| E-CHK-0006 | PreferredDeliveryTypeInvalidForContext | It is not possile to specify this preffered delivery type for this context, for example: courier delivery with on-line orders. |
+| E-CHK-0006 | PreferredDeliveryTypeInvalidForContext | It is not possible to specify this prefferred delivery type for this context, for example: courier delivery with on-line orders. |
 | E-CHK-0007 | PreferredDateInvalidForContext | It is not possile to specify a preferred delivery date for this context, for example: on-line. |
 | E-CHK-0009 | MarketplaceMustBeDelivery | Marketplace items must have a delivery fulfilment type. |
 | E-CHK-0010 | InvalidAddressRef | A fulfilment requirements has an invalid address references. |
@@ -45,10 +45,10 @@
 | E-CHK-0044 | LocationConfigurationErrorsFound | The location was found but has configuration errors. |
 | E-CHK-0045 | PreferredDeliveryNotAllowedForDirect | The item has a preferred delivery type of direct delivery however the item is not set for direct delivery. |
 | E-CHK-0046 | ItemDeliveryOnly | The item is marked as delivery only at the location. |
-| E-CHK-0047 | ItemHasSizeButIsWholeUnitOnly | The item has specified a size, but the item is whole unit only. |
-| E-CHK-0048 | ItemLacksSizeButIsWholeUnitOnly | The item requires a size since the item is not whole unit only. |
+| E-CHK-0047 | ItemHasSizeButIsWholeUnitOnly | The item has specified a size, but the item is a whole unit only. |
+| E-CHK-0048 | ItemLacksSizeButIsWholeUnitOnly | The item requires a size since the item is not a whole unit only. |
 | E-CHK-0049 | ItemHasNoValidSupplier | The item has no Suppliers for the location. |
-| E-CHK-0050 | ItemHasNoZoningInformation | Zoning information could not be fgoud for the item. |
+| E-CHK-0050 | ItemHasNoZoningInformation | Zoning information could not be found for the item. |
 | E-CHK-0051 | CantCheckoutUsingClosedInactiveStore | A checkout was attempted on a closed or inactive store. |
 | E-CHK-0052 | CantCheckoutRestrictedItem | A checkout was attempted for a restricted item. |
 | E-CHK-0053 | CantCheckoutExclusiveItem | A checkout was attempted for an exclusive item. |
