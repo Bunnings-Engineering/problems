@@ -10,4 +10,5 @@
 <problem title="Missing Resource" href="./?type=missingResource" />
 <problem title="Dirty Resource" href="./?type=dirtyResource" />
 <problem title="Unhandled Error" href="./?type=unhandled" />
+<problem title="Unsupported Character" href="./?type=unsupportedCharacter" />
 </index>
