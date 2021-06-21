@@ -1,6 +1,6 @@
 # Unsupported Character detected in request
 
-Unsupported character detected in request sent to server. 
+Unsupported character detected in request sent to server. Supported charset are Windows-1252 and ISO8859-1
 
 ## Problem Type
 
@@ -38,7 +38,7 @@ problem:
 ```json
 {
     "type": "https://problem.api.bunnings.com.au?type=unsupportedCharacter",
-     "title": "Invalid encoded character detected.",
+    "title": "Invalid encoded character detected.",
     "status": 415
 }
 ```
