@@ -1,14 +1,14 @@
-# Spike Arrest Limit excedded 
+# Invalid Scope 
 
-The number of request sent to server have exceeded the permitted rate limit. 
+Scope present in token does not match to API scope.
 
 ## Problem Type
 
-type = https://problem.api.bunnings.com.au?type=rateLimitExceeded
+type = https://problem.api.bunnings.com.au?type=invalidScope
 
 ## Specification
 
-The rate limit exceeded problem includes no additional properties on the base [RFC 7807](https://tools.ietf.org/html/rfc7807) problem.
+The invalid Scope problem includes no additional properties on the base [RFC 7807](https://tools.ietf.org/html/rfc7807) problem.
 so uses the base specification
 
 ```yaml
@@ -37,8 +37,8 @@ problem:
 
 ```json
 {
-    "type": "https://problem.api.bunnings.com.au?type=rateLimitExceeded",
-    "title": "Too Many messages from the client",
-    "status": 429
+    "type": "https://problem.api.bunnings.com.au?type=invalidScope",
+    "title": "Scope present in token does not match to API scope.",
+    "status": 400
 }
 ```
