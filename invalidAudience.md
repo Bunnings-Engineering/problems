@@ -1,14 +1,14 @@
-# Spike Arrest Limit excedded 
+# Invalid Audience 
 
-The number of request sent to server have exceeded the permitted rate limit. 
+Audience present in token does not match to API audience.
 
 ## Problem Type
 
-type = https://problem.api.bunnings.com.au?type=rateLimitExceeded
+type = https://problem.api.bunnings.com.au?type=invalidAudience
 
 ## Specification
 
-The rate limit exceeded problem includes no additional properties on the base [RFC 7807](https://tools.ietf.org/html/rfc7807) problem.
+The invalid audience problem includes no additional properties on the base [RFC 7807](https://tools.ietf.org/html/rfc7807) problem.
 so uses the base specification
 
 ```yaml
@@ -37,8 +37,8 @@ problem:
 
 ```json
 {
-    "type": "https://problem.api.bunnings.com.au?type=rateLimitExceeded",
-    "title": "Too Many messages from the client",
-    "status": 429
+    "type": "https://problem.api.bunnings.com.au?type=invalidAudience",
+    "title": "Audience present in token does not match to API audience.",
+    "status": 400
 }
 ```
