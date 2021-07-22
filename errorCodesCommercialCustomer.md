@@ -8,6 +8,10 @@
 | E-CUC-0004 | UsernameNotAvailable | Username is not available. |
 | E-CUC-0005 | PasswordStrength | Password strength is not strong enough. |
 | E-CUC-0006 | InvalidStreetNumber | Ether a Lot Number or a Street Number is required. |
-| E-CHK-0007 | InvalidStreetType | The address' street type is not one of the standard values. Note that both full and abbreviated names can be used, for example: "st" or "street." |
 | E-CUC-0008 | InvalidCountry | Country is not supported. |
-| E-CUC-0009 | InvalidContactType | ContactType is invalid, ContactType must be 'Business'. |
+| E-CUC-0010 | InvalidRegistrationServerState | Invalid registration server state. |
+| E-CUC-0011 | EmailAlreadyRegistered | This email address is already registered in the system. |
+| E-CUC-0012 | InvalidCardNumber | Card number is invalid. |
+| E-CUC-0013 | InvalidAccountNumber | Account number is invalid. |
+| E-CUC-0014 | InvalidCardOrAccountNumber | Card number or account number is invalid. |
+| E-CUC-0015 | InvalidSecurityAnswer | The answer to a security question cannot be the user's password or user name, and cannot contain part of the question. |
