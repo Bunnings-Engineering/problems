@@ -48,7 +48,7 @@
 | E-CHK-0047 | ItemHasSizeButIsWholeUnitOnly | The item has specified a size, but the item is whole unit only. |
 | E-CHK-0048 | ItemLacksSizeButIsWholeUnitOnly | The item requires a size since the item is not whole unit only. |
 | E-CHK-0049 | ItemHasNoValidSupplier | The item has no Suppliers for the location. |
-| E-CHK-0050 | ItemHasNoZoningInformation | Zoning information could not be fgoud for the item. |
+| E-CHK-0050 | ItemHasNoZoningInformation | Zoning information could not be found for the item. |
 | E-CHK-0051 | CantCheckoutUsingClosedInactiveStore | A checkout was attempted on a closed or inactive store. |
 | E-CHK-0052 | CantCheckoutRestrictedItem | A checkout was attempted for a restricted item. |
 | E-CHK-0053 | CantCheckoutExclusiveItem | A checkout was attempted for an exclusive item. |
@@ -73,7 +73,7 @@
 | E-CHK-0072 | MarketplaceNotSupportedByUser | Marketplace items are not supported for this type of user |
 | E-CHK-0073 | InvalidStateForCountry | The state is invalid for the country |
 | E-CHK-0074 | SpecifiedItemNotSellable | The item is not sellable |
-| E-CHK-0075 | ActualItemNotSellable | The item mapped to {0} is not sellable |
+| E-CHK-0075 | ActualItemNotSellable | The item mapped is not sellable |
 
 # Shipment call:
 
