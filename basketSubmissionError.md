@@ -1,15 +1,15 @@
-# Validation problems found
+# Basket submission problems found
 
-A request failed to pass validation stage of processing. Typically, this is after the request is accepted by the API and further
-validation is performed. This can include checks like:
-- Mutually exclusive fields
-- Conditionally mandatory fields
-- Field value range checks
+A request failed to successfuly process an order submission. Typically, this is after the request is accepted by the API and further
+processing is performed. This can include failures like:
+- Invalid prices
+- Invalid account details
+- Invalid items
 
 
 ## Problem Type
 
-type = https://problem.api.bunnings.com.au?type=validationError
+type = https://problem.api.bunnings.com.au?type=basketSubmissionError
 
 ## Specification
 
@@ -52,24 +52,17 @@ problem:
 
 ```json
 {
-    "type": "https://problem.api.bunnings.com.au?type=validationError",
-    "title": "Bad Request",
+    "type": "https://problem.api.bunnings.com.au?type=basketSubmissionError",
+    "title": "Basket submission error",
     "status": 400,
-    "errors": {
-        "errors": {
-            "CheckoutAttempt.Basket.FulfilmentRequirements[0].EstimateForPostCode": [
-                {
-                    "message": "EstimateForPostCode and DeliveryAddressRef are mutually exclusive",
-                    "code": "E-CHK-0002"
-                }
-            ],
-            "Line": [
-                {
-                    "message": "EstimateForPostCode and DeliveryAddressRef cannot be mixed in one request",
-                    "code": "E-CHK-0008"
-                }
-            ]
-        }
+    "detail": "Please refer to the errors for additional details.",
+    "errors": {        
+        "submissionAttempt": [                    
+            {
+                "message": "Duplicate Order Number",
+                "code": "E-ORD-1010"
+            }
+        ]
     }
 }
 ```
