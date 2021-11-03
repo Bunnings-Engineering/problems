@@ -14,4 +14,5 @@
 <problem title="Resource Not Found" href="./?type=resourceNotFound" />
 <problem title="Invalid Scope" href="./?type=invalidScope" />
 <problem title="Invalid Audience" href="./?type=invalidAudience" />
+<problem title="Basket Submission Error" href="./?type=basketSubmissionError" />
 </index>
