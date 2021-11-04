@@ -1,7 +1,7 @@
 # Validation problems found
 
-A request failed to pass validation stage of processing. Typically, this is after the request is accepted by the API and further
-validation is performed. This can include checks like:
+A request didn't pass validation stage of processing. Typically, this is after the request was accepted by the API and further
+validation was performed. This can include checks like:
 - Mutually exclusive fields
 - Conditionally mandatory fields
 - Field value range checks
