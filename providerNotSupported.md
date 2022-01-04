@@ -1,15 +1,10 @@
-# Not Supported
+# Provider Not Supported
 
-This is used to indicate the requested operation was not supported.
+This is used to indicate the requested operation was not supported by the provider.
 
 ## Problem Type
 
-type = https://problem.api.bunnings.com.au?type=notSupported
-
-## Specification
-
-The problem includes no additional properties on the base [RFC 7807](https://tools.ietf.org/html/rfc7807) problem.
-so uses the base specification
+type = https://problem.api.bunnings.com.au?type=providerNotSupported
 
 ```yaml
 problem:
@@ -27,18 +22,17 @@ problem:
             type: integer
         detail:
             type: string
-        instance:
+        traceId:
             type: string
-            format: uri
 ```
-[Specification](./notSupported.yaml)
+[Specification](./providerNotSupported.yaml)
 
 ## Example
 
 ```json
 {
-    "type": "https://problem.api.bunnings.com.au?type=notSupported",
-    "title": "Not Supported",
+    "type": "https://problem.api.bunnings.com.au?type=providerNotSupported",
+    "title": "Provider Not Supported",
     "detail": "Provider type is not supported for this operation",
     "status": 400,
     "traceId": "|<id>."

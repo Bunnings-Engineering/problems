@@ -15,5 +15,5 @@
 <problem title="Invalid Scope" href="./?type=invalidScope" />
 <problem title="Invalid Audience" href="./?type=invalidAudience" />
 <problem title="Basket Submission Error" href="./?type=basketSubmissionError" />
-<problem title="Not Supported" href="./?type=notSupported" />
+<problem title="Provider Not Supported" href="./?type=providerNotSupported" />
 </index>

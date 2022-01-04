@@ -1,4 +1,4 @@
-notSupported:
+providerNotSupported:
   type: object
   description: RFC 7807 compliant problem.
   required:
@@ -13,6 +13,5 @@ notSupported:
         type: integer
     detail:
         type: string
-    instance:
+    traceId:
         type: string
-        format: uri
