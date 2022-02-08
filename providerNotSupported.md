@@ -9,7 +9,12 @@ type = https://problem.api.bunnings.com.au?type=providerNotSupported
 ```yaml
 problem:
     type: object
-    description: RFC 7807 compliant problem.
+    description: >|
+This problem is used to describe the error received when a user
+did an invalid operation against an API. The instance will provide
+the url, the title the error and specific details around the invalid
+operation that occurred.
+This problem is based off the RFC 7807 compliant problem type.
     required:
     - type
     properties:
