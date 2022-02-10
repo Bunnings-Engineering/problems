@@ -1,6 +1,6 @@
-# Invalid Audience 
+# Potential Threats 
 
-Json is invalid and one or more potential threats were detected.
+JSON is invalid and one or more potential threats were detected.
 
 ## Problem Type
 
@@ -39,6 +39,7 @@ problem:
 {
     "type": "https://problem.api.bunnings.com.au?type=protectionError",
     "title": "One or more potential threats were detected.",
-    "status": 500
+    "status": 500,
+	"details: "JSONThreatProtection[global-json-threat-protection]"
 }
 ```

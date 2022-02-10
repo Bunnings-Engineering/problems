@@ -1,6 +1,6 @@
 protectionError:
   type: object
-  description: RFC 7807 compliant problem.
+  description: JSON is invalid and one or more potential threats were detected.
   required:
   - type
   properties:
