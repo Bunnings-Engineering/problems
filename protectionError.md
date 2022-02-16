@@ -40,6 +40,7 @@ problem:
     "type": "https://problem.api.bunnings.com.au?type=protectionError",
     "title": "One or more potential threats were detected.",
     "status": 500,
-	"details: "JSONThreatProtection[global-json-threat-protection]"
+    "details": "JSONThreatProtection[global-json-threat-protection]",
+    "instance": "/discovery"
 }
 ```
