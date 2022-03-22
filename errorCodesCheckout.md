@@ -74,6 +74,12 @@
 | E-CHK-0073 | InvalidStateForCountry | The state is invalid for the country |
 | E-CHK-0074 | SpecifiedItemNotSellable | The item is not sellable |
 | E-CHK-0075 | ActualItemNotSellable | The item mapped is not sellable |
+| E-CHK-0076 | DeliveryAddressNotSupportedByUser | Delivery addresses are not supported for this user |
+| E-CHK-0077 | ItemNotFoundAtLocation | The item is not found at Location |
+| E-CHK-0078 | ItemNotFoundForCountry | The item is not found in the country |
+| E-CHK-0079 | StoresNotFoundForCountry | Stores not found for Country |
+| E-CHK-0080 | ServerStateNotFoundForLocation | Exceptional Trading Hours details cannot be fetched |
+| E-CHK-0081 | MiraklOrdersNotFoundForMarketLine | Mirakl order not found for market line |
 
 # Shipment call:
 
