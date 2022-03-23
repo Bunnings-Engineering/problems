@@ -8,7 +8,6 @@
 | E-CHK-0004 | MarketplaceNotValidForInstore | Marketplace purchases can only be made on-line and not in-store. |
 | E-CHK-0005 | MarketplaceWithoutDetail | Marketplace orders must include the details of the specified offer. |
 | E-CHK-0006 | PreferredDeliveryTypeInvalidForContext | It is not possile to specify this preffered delivery type for this context, for example: courier delivery with on-line orders. |
-| E-CHK-0007 | PreferredDateInvalidForContext | It is not possile to specify a preferred delivery date for this context, for example: on-line. |
 | E-CHK-0009 | MarketplaceMustBeDelivery | Marketplace items must have a delivery fulfilment type. |
 | E-CHK-0010 | InvalidAddressRef | A fulfilment requirements has an invalid address references. |
 | E-CHK-0011 | DuplicateFulfilmentIds | Multiple fulfilment requirements share the same ID. |
@@ -74,6 +73,12 @@
 | E-CHK-0073 | InvalidStateForCountry | The state is invalid for the country |
 | E-CHK-0074 | SpecifiedItemNotSellable | The item is not sellable |
 | E-CHK-0075 | ActualItemNotSellable | The item mapped is not sellable |
+| E-CHK-0076 | DeliveryAddressNotSupportedByUser | Delivery addresses are not supported for this user |
+| E-CHK-0077 | ItemNotFoundAtLocation | The item is not found at Location |
+| E-CHK-0078 | ItemNotFoundForCountry | The item is not found in the country |
+| E-CHK-0079 | StoresNotFoundForCountry | Stores not found for Country |
+| E-CHK-0080 | ServerStateNotFoundForLocation | Exceptional Trading Hours details cannot be fetched |
+| E-CHK-0081 | MiraklOrdersNotFoundForMarketLine | Mirakl order not found for market line |
 
 # Shipment call:
 
@@ -88,3 +93,4 @@
 | Short&nbsp;error&nbsp;code | Name | Description |
 | -------- | -------- | -------- |
 | E-CHK-0300 | InvalidRequest | A bad request was passed. One or more fields wre invalid. |
+| E-CHK-0301 | SystemError | External API resonded with Problem details |
