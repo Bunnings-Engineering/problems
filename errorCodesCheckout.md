@@ -8,7 +8,6 @@
 | E-CHK-0004 | MarketplaceNotValidForInstore | Marketplace purchases can only be made on-line and not in-store. |
 | E-CHK-0005 | MarketplaceWithoutDetail | Marketplace orders must include the details of the specified offer. |
 | E-CHK-0006 | PreferredDeliveryTypeInvalidForContext | It is not possile to specify this preffered delivery type for this context, for example: courier delivery with on-line orders. |
-| E-CHK-0007 | PreferredDateInvalidForContext | It is not possile to specify a preferred delivery date for this context, for example: on-line. |
 | E-CHK-0009 | MarketplaceMustBeDelivery | Marketplace items must have a delivery fulfilment type. |
 | E-CHK-0010 | InvalidAddressRef | A fulfilment requirements has an invalid address references. |
 | E-CHK-0011 | DuplicateFulfilmentIds | Multiple fulfilment requirements share the same ID. |
@@ -94,3 +93,4 @@
 | Short&nbsp;error&nbsp;code | Name | Description |
 | -------- | -------- | -------- |
 | E-CHK-0300 | InvalidRequest | A bad request was passed. One or more fields wre invalid. |
+| E-CHK-0301 | SystemError | External API resonded with Problem details |
