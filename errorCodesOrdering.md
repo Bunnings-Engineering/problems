@@ -9,6 +9,7 @@
 | E-ORD-2000 | BasketSubmission | Basket processing has failed. Please check the error message or investigate the logs for futher information. |
 | E-ORD-1030 | DataStore | Basket processing has failed due to an error in the downstream data store. Please check the error message or investigate the logs for futher information. |
 | E-ORD-0025 | FlybuysValidation | Flybuys information is incorrect for order, please reverify and try again. |
+| E-ORD-0026 | OnePassValidation | OnePass information is incorrect for order, please reverify and try again. |
 
 # General:
 
