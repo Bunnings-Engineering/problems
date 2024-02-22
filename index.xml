@@ -16,4 +16,5 @@
 <problem title="Invalid Audience" href="./?type=invalidAudience" />
 <problem title="Basket Submission Error" href="./?type=basketSubmissionError" />
 <problem title="Provider Not Supported" href="./?type=providerNotSupported" />
+<problem title="Payment Provider Error" href="./?type=paymentProviderError" />
 </index>

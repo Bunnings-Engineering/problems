@@ -1,6 +1,6 @@
 # Basket submission problems found
 
-A request failed to successfuly process an order submission. Typically, this is after the request is accepted by the API and further
+A request failed to successfully process an order submission. Typically, this is after the request is accepted by the API and further
 processing is performed. This can include failures like:
 - Invalid prices
 - Invalid account details
