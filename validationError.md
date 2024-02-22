@@ -75,5 +75,8 @@ problem:
 ```
 ## Links
 
+[E+*](https://problem.api.bunnings.com.au/?codes=errorCodesModel)
 [E-ORD-*](https://problem.api.bunnings.com.au/?codes=errorCodesOrdering)
 [E-CHK-*](https://problem.api.bunnings.com.au/?codes=errorCodesCheckout)
+[E-TRA-*](https://problem.api.bunnings.com.au/?codes=errorCodesTransaction)
+[E-CUC-*](https://problem.api.bunnings.com.au/?codes=errorCodesCommercialCustomer)
