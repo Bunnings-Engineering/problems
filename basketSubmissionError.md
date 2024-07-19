@@ -68,5 +68,5 @@ problem:
 ```
 ## Links
 
-[E-ORD-*](https://problem.api.bunnings.com.au/?codes=errorCodesOrdering)
-[E-CHK-*](https://problem.api.bunnings.com.au/?codes=errorCodesCheckout)
+[E-ORD-*](./?codes=errorCodesOrdering)
+[E-CHK-*](./?codes=errorCodesCheckout)

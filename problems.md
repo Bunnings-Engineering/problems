@@ -13,7 +13,7 @@ The problems response is based on the base [RFC 7807](https://tools.ietf.org/htm
 This is extended to include code/description collection
 
 ```yaml
-problem:
+problems:
     type: object
     description: RFC 7807 superset problem.
     required:
@@ -50,7 +50,7 @@ problem:
 {
     "type": "https://problem.api.bunnings.com.au?type=problems",
     "title": "Bad Request",
-    "status": 400
+    "status": 400,
     "errors": {
         "problems": [
             {
@@ -59,6 +59,5 @@ problem:
             }
         ]
     }
-  }
 }
 ```
