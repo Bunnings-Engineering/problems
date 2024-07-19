@@ -53,18 +53,24 @@ problem:
     "title": "One or more validation errors occurred",
     "status": 400,
     "errors": {
-        "checkoutRequest": [
+        "code": [
             {
-                "message": "The checkoutRequest field is required.",
-                "code": "E-CHK-0300"
+                "message": "The required field was not provided",
+                "code": "E-0006"
             }
         ],
-        "$.basket.customer.teamMemberId": [
+        "name": [
             {
-                "message": "The JSON value could not be converted to System.String. Path: $.basket.customer.teamMemberId | LineNumber: 29 | BytePositionInLine: 34.",
-                "code": "E-CHK-0300"
+                "message": "The field is under its minimum length",
+                "code": "E-0003"
             }
         ]
     }
 }
 ```
+
+
+
+## Links
+
+[E-PAY-*](./?codes=errorCodesInputSchemaErrors)

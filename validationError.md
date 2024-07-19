@@ -56,24 +56,41 @@ problem:
     "title": "Bad Request",
     "status": 400,
     "errors": {
-        "errors": {
-            "CheckoutAttempt.Basket.FulfilmentRequirements[0].EstimateForPostCode": [
-                {
-                    "message": "EstimateForPostCode and DeliveryAddressRef are mutually exclusive",
-                    "code": "E-CHK-0002"
-                }
-            ],
-            "Line": [
-                {
-                    "message": "EstimateForPostCode and DeliveryAddressRef cannot be mixed in one request",
-                    "code": "E-CHK-0008"
-                }
-            ]
-        }
+        "Basket.FulfilmentRequirements[0].EstimateForPostCode": [
+            {
+                "message": "EstimateForPostCode and DeliveryAddressRef are mutually exclusive",
+                "code": "E-CHK-0002"
+            }
+        ],
+        "Basket.Lines[4].Quantity": [
+            {
+                "message": "The line's quantity was less than 1.",
+                "code": "E-CHK-0014"
+            }
+        ]
     }
 }
 ```
+
+```json
+{
+    "type": "https://problem.api.bunnings.com.au?type=validationError",
+    "title": "Bad Request",
+    "status": 400,
+    "detail": "Please refer to the errors for additional details.",
+    "errors": {
+        "Currency": [
+            {
+                "message": "Currency must be either aud or nzd and is not case sensitive. The input provided did not match.",
+                "code": "E-PAY-0001"
+            }
+        ]
+    }
+}
+```
+
 ## Links
 
-[E-ORD-*](https://problem.api.bunnings.com.au/?codes=errorCodesOrdering)
-[E-CHK-*](https://problem.api.bunnings.com.au/?codes=errorCodesCheckout)
+[E-CHK-*](./?codes=errorCodesCheckout)
+[E-ORD-*](./?codes=errorCodesOrdering)
+[E-PAY-*](./?codes=errorCodesPayment)
