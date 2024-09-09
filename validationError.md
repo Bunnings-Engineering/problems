@@ -94,3 +94,4 @@ problem:
 [E-CHK-*](./?codes=errorCodesCheckout)
 [E-ORD-*](./?codes=errorCodesOrdering)
 [E-PAY-*](./?codes=errorCodesPayment)
+[E-VCH-*](./?codes=errorCodesVoucher)
