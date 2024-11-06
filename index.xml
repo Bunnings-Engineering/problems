@@ -7,6 +7,7 @@
 <problem title="Marketplace Error" href="./?type=marketplaceError" />
 <problem title="Invalid Server State" href="./?type=invalidServerState" />
 <problem title="Invalid Authorisation Token" href="./?type=invalidAuthorisationToken" />
+<problem title="Forbidden" href="./?type=forbidden" />
 <problem title="Missing Resource" href="./?type=missingResource" />
 <problem title="Dirty Resource" href="./?type=dirtyResource" />
 <problem title="Unhandled Error" href="./?type=unhandled" />
