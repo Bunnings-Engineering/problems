@@ -1,5 +1,7 @@
 # Payment Provider Error
 
+**This error definition type has been deprecated and replaced by [paymentProviderErrors](./paymentProviderErrors.md)**
+
 The requested operation returned error by the payment provider.
 
 ## Problem Type
