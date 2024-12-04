@@ -95,3 +95,4 @@ problem:
 [E-ORD-*](./?codes=errorCodesOrdering)
 [E-PAY-*](./?codes=errorCodesPayment)
 [E-VCH-*](./?codes=errorCodesVoucher)
+[E-BSK-*](./?codes=errorCodesBasket)
