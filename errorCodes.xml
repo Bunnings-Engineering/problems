@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="./index.xsl"?>
 <index>
+<problem title="Basket API" href="./?codes=errorCodesBasket" />
 <problem title="Checkout API" href="./?codes=errorCodesCheckout" />
 <problem title="CommercialCustomer API" href="./?codes=errorCodesCommercialCustomer" />
 <problem title="Input Schema Errors" href="./?codes=errorCodesInputSchemaErrors" />

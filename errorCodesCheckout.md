@@ -87,6 +87,18 @@
 | E-CHK-0200 | ShipmentsMissing | Shipments must be passed to the API. |
 | E-CHK-0201 | ShipmentsMissingMismatchCount | Mismatch between the number of shipments and tokens. |
 | E-CHK-0202 | ShipmentsJwtInvalid | Something was wrong with the token. Refer to logs for more details. |
+| E-CHK-0203 | ShipmentsTokensMixLocations | Shipment request's tokens mix shopping locations. |
+
+# Validation call:
+
+| Short&nbsp;error&nbsp;code | Name | Description |
+| -------- | -------- | -------- |
+| E-CHK-0250 | ValidationFulfilmentsMissing | Fulfilments must be passed to the API. |
+| E-CHK-0251 | ValidationFulfilmentMissingMismatchCount | Fulfilment counts mismatch. |
+| E-CHK-0252 | ValidationFulfilmentsJwtInvalid | There was an error with the fulfilment token. |
+| E-CHK-0253 | ValidationFulfilmentLinesMissing | Fulfilment lines must be passed to the API. |
+| E-CHK-0254 | PriceNotFound | Price was not found for a specified PriceId |
+| E-CHK-0255 | ValidationFulfilmentLinesDuplicated | Duplicate line numbers have been provided for fulfilfment lines. |
 
 # General:
 
