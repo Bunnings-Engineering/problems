@@ -1,0 +1,29 @@
+providerErrors:
+  type: object
+  description: RFC 7807 compliant problem.
+  required:
+  - type
+  properties:
+    type:
+        type: string
+        format: uri
+    title:
+        type: string
+    status:
+        type: integer
+    detail:
+        type: string
+    traceid:
+        type: string
+        format: uri
+    providerErrors:
+        type: array
+        properties:
+            ref:
+                type: string
+            statusCode:
+                type: string
+            errorCode:
+                type: string
+            errorDetail:
+                type: string

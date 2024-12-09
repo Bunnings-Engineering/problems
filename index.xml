@@ -13,10 +13,12 @@
 <problem title="Unhandled Error" href="./?type=unhandled" />
 <problem title="Unsupported Character" href="./?type=unsupportedCharacter" />
 <problem title="Resource Not Found" href="./?type=resourceNotFound" />
+<problem title="Resource Error" href="./?type=resourceError" />
 <problem title="Invalid Scope" href="./?type=invalidScope" />
 <problem title="Invalid Audience" href="./?type=invalidAudience" />
 <problem title="Basket Submission Error" href="./?type=basketSubmissionError" />
 <problem title="Provider Not Supported" href="./?type=providerNotSupported" />
 <problem title="Payment Provider Error" href="./?type=paymentProviderError" />
+<problem title="Payment Provider Errors" href="./?type=paymentProviderErrors" />
 <problem title="Voucher Validation" href="./?type=voucherValidationError" />
 </index>
