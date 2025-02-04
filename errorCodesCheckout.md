@@ -79,6 +79,17 @@
 | E-CHK-0079 | StoresNotFoundForCountry | Stores not found for Country |
 | E-CHK-0080 | ServerStateNotFoundForLocation | Exceptional Trading Hours details cannot be fetched |
 | E-CHK-0081 | MiraklOrdersNotFoundForMarketLine | Mirakl order not found for market line |
+| E-CHK-0082 | VoucherSellingTypeUnknown | Item number selected is a voucher. The item number provided matched to a voucher/sellingType enum of ‘Unknown’. This cannot be processed by Checkout |
+| E-CHK-0083 | GiftCardSettableAmountMissing | The giftcard settable amount is not populated, when the item number requires a voucher settable value |
+| E-CHK-0084 | GiftCardSettableAmountNotExpected | The giftcard settable amount is populated, when the item number does not permit this value |
+| E-CHK-0085 | GiftCardBothCardNumberAndDesignTokenPopulated | Item number selected is a voucher. Only one option can be populated for a gift card either cardNumber or designToken. |
+| E-CHK-0086 | GiftCardDesignTokenAndCardNumberNotPopulated | Item number selected is a voucher. Either cardNumber or designToken should be populated in gift card. |
+| E-CHK-0087 | GiftCardInvalidAmount | Invalid data entry, must convert to a decimal number |
+| E-CHK-0088 | GiftCardDetailsMissing | Gift card detail is not provided. |
+| E-CHK-0089 | GiftCardDigitalDeliveryNotPermitted | Item number selected is not a Digital voucher. The fulfilmentRequirement of DigitalDeliveryToCustomer is not permitted |
+| E-CHK-0090 | GiftCardDigitalDeliveryRequired | Item number selected is a Digital voucher. The fulfilmentRequirement must equal DigitalDeliveryToCustomer. |
+| E-CHK-0091 | PickedByCustomerCartTotalItems | Exceeds maximum number of products in the cart. Current maximum value: 58 |
+| E-CHK-0092 | PickedByCustomerCartTotalPrice | Exceeds cart total price. Current maximum value: 999999.99 |
 
 # Shipment call:
 
