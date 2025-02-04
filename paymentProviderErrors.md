@@ -63,7 +63,7 @@ problem:
             "errorDetail": "activityDateTime must be in datetime format using offset"
         },
         {
-            "ref": "AfterPay",
+            "ref": "Voucher",
             "statusCode": 400,
             "errorCode": "E-VCH-0216",
             "errorDetail": "posTerminalNumber is required"
