@@ -13,4 +13,6 @@
 | E-CUC-0015 | InvalidSecurityAnswer | The answer to a security question cannot be the user's password or user name, and cannot contain part of the question. |
 | E-CUC-0016 | InvalidAssociationAccountNotSame | Invalid association. The card and the user do not belong to the same account |
 | E-CUC-0017 | AssociationExists | Association already exists |
-| E-CUC-0018 | AssociationDoesntExist | Association does not exist |
+| E-CUC-0018 | AccessTokenExpired| Access token has expired |
+| E-CUC-0019 | InvalidAccessToken| Invalid access token |
+| E-CUC-0020 | AssociationDoesntExist | Association does not exist |
