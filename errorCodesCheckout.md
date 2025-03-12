@@ -90,6 +90,9 @@
 | E-CHK-0090 | GiftCardDigitalDeliveryRequired | Item number selected is a Digital voucher. The fulfilmentRequirement must equal DigitalDeliveryToCustomer. |
 | E-CHK-0091 | PickedByCustomerCartTotalItems | Exceeds maximum number of products in the cart. Current maximum value: 58 |
 | E-CHK-0092 | PickedByCustomerCartTotalPrice | Exceeds cart total price. Current maximum value: 999999.99 |
+| E-CHK-0093 | MaxLineTotalPrice | Exceeds total price for line item in cart. Current maximum value: 99999.99 |
+| E-CHK-0094 | MaxLineQuantity | Exceeds maximum quantity for line item. Current maximum value: 999.99 |
+| E-CHK-0095 | MaxLineQuantityTimesLength | This is additional validation when selected length or packet for timber or PktSplit product. Current maximum value: 9999.99 |
 
 # Shipment call:
 
