@@ -1,14 +1,14 @@
-# Spike Arrest Limit Exceeded 
+# Quota Limit Exceeded 
 
-The number of requests sent to the server have exceeded the permitted rate limit. 
+The number of requests sent to the server have exceeded the permitted quota limit. 
 
 ## Problem Type
 
-type = https://problem.api.bunnings.com.au?type=rateLimitExceeded
+type = https://problem.api.bunnings.com.au?type=quotaLimitExceeded
 
 ## Specification
 
-The rate limit exceeded problem includes no additional properties on the base [RFC 7807](https://tools.ietf.org/html/rfc7807) problem, so it uses the base specification.
+The quota limit exceeded problem includes no additional properties on the base [RFC 7807](https://tools.ietf.org/html/rfc7807) problem, so it uses the base specification.
 
 ```yaml
 problem:
@@ -36,7 +36,7 @@ problem:
 
 ```json
 {
-    "type": "https://problem.api.bunnings.com.au?type=rateLimitExceeded",
+    "type": "https://problem.api.bunnings.com.au?type=quotaLimitExceeded",
     "title": "Too many messages from the client",
     "status": 429
 }

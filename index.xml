@@ -21,4 +21,6 @@
 <problem title="Payment Provider Error" href="./?type=paymentProviderError" />
 <problem title="Payment Provider Errors" href="./?type=paymentProviderErrors" />
 <problem title="Voucher Validation" href="./?type=voucherValidationError" />
+<problem title="Spike Arrest Limit Exceeded" href="./?type=rateLimitExceeded" />
+<problem title="Quota Limit Exceeded" href="./?type=quotaLimitExceeded" />
 </index>
