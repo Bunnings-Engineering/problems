@@ -93,6 +93,7 @@
 | E-CHK-0093 | MaxLineTotalPrice | Exceeds total price for line item in cart. Current maximum value: 99999.99 |
 | E-CHK-0094 | MaxLineQuantity | Exceeds maximum quantity for line item. Current maximum value: 999.99 |
 | E-CHK-0095 | MaxLineQuantityTimesLength | This is additional validation when selected length or packet for timber or PktSplit product. Current maximum value: 9999.99 |
+| E-CHK-0096 | ItemMissingSellingTaxCodeConfiguration | An item in the basket has a purchasing tax code which is not mapped to a selling tax code in Checkout |
 
 # Shipment call:
 
