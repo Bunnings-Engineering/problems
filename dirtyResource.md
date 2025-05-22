@@ -1,6 +1,6 @@
 # Dirty Resource
 
-This is used to indicate the requested action passed out-of-date information.
+This is used to indicate that the requested action passed out-of-date information.
 
 ## Problem Type
 
@@ -8,8 +8,7 @@ type = https://problem.api.bunnings.com.au?type=dirtyResource
 
 ## Specification
 
-The problem includes no additional properties on the base [RFC 7807](https://tools.ietf.org/html/rfc7807) problem.
-so uses the base specification
+The problem includes no additional properties on the base [RFC 7807](https://tools.ietf.org/html/rfc7807) problem, so it uses the base specification
 
 ```yaml
 problem:
@@ -31,6 +30,7 @@ problem:
             type: string
             format: uri
 ```
+
 [Specification](./dirtyResource.yaml)
 
 ## Example
@@ -43,4 +43,4 @@ problem:
     "status": 422,
     "traceId": "|<id>."
 }
-```	
+```

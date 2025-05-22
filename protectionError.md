@@ -1,6 +1,6 @@
-# Potential Threats 
+# Potential Threats Detected
 
-JSON is invalid and one or more potential threats were detected.
+The submitted JSON is invalid, and one or more potential security threats were detected.
 
 ## Problem Type
 
@@ -8,8 +8,7 @@ type = https://problem.api.bunnings.com.au?type=protectionError
 
 ## Specification
 
-One or more potential threats were detected, problem includes no additional properties on the base [RFC 7807](https://tools.ietf.org/html/rfc7807) problem.
-so uses the base specification
+This problem type indicates that one or more potential threats were detected. It includes no additional properties beyond the base [RFC 7807](https://tools.ietf.org/html/rfc7807) problem and therefore uses the base specification.
 
 ```yaml
 problem:
@@ -31,6 +30,7 @@ problem:
             type: string
             format: uri
 ```
+
 [Specification](./problem.yaml)
 
 ## Example

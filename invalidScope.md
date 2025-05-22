@@ -1,6 +1,6 @@
-# Invalid Scope 
+# Invalid Scope
 
-Scope present in token does not match to API scope.
+The scope present in the token does not match the API scope.
 
 ## Problem Type
 
@@ -8,8 +8,7 @@ type = https://problem.api.bunnings.com.au?type=invalidScope
 
 ## Specification
 
-The invalid Scope problem includes no additional properties on the base [RFC 7807](https://tools.ietf.org/html/rfc7807) problem.
-so uses the base specification
+The invalid scope problem includes no additional properties on the base [RFC 7807](https://tools.ietf.org/html/rfc7807) problem and therefore uses the base specification.
 
 ```yaml
 problem:
@@ -31,6 +30,7 @@ problem:
             type: string
             format: uri
 ```
+
 [Specification](./problem.yaml)
 
 ## Example

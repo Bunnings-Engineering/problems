@@ -2,7 +2,7 @@
 
 **This error definition type has been deprecated and replaced by [paymentProviderErrors](./paymentProviderErrors.md)**
 
-The requested operation returned error by the payment provider.
+The requested operation returned an error from the payment provider.
 
 ## Problem Type
 
@@ -10,8 +10,7 @@ type = https://problem.api.bunnings.com.au?type=paymentProviderError
 
 ## Specification
 
-The problems response is based on the base [RFC 7807](https://tools.ietf.org/html/rfc7807) problem. 
-This is extended to include payment provider error code and details:
+The problem response is based on the base [RFC 7807](https://tools.ietf.org/html/rfc7807) problem. This is extended to include payment provider error codes and details:
 
 ```yaml
 problem:
@@ -29,7 +28,7 @@ problem:
             type: integer
         detail:
             type: string
-        traceid:
+        traceId:
             type: string
             format: uri
         provider:
@@ -38,16 +37,16 @@ problem:
                 ref:
                     type: string
                 statusCode:
-                    type: int
+                    type: integer
                 errorCode:
                     type: string
                 errorDetail:
                     type: string
-
 ```
+
 [Specification](./providerValidationError.yaml)
 
-## Json with definition
+## JSON with Definition
 
 ```json
 {
@@ -64,6 +63,7 @@ problem:
     }
 }
 ```
+
 ## Example
 
 ```json

@@ -2,10 +2,10 @@
 
 A request failed to successfully process an order submission. Typically, this is after the request is accepted by the API and further
 processing is performed. This can include failures like:
-- Invalid prices
-- Invalid account details
-- Invalid items
 
+* Invalid prices
+* Invalid account details
+* Invalid items
 
 ## Problem Type
 
@@ -46,6 +46,7 @@ problem:
                         message:
                             type: string
 ```
+
 [Specification](./validationError.yaml)
 
 ## Example
@@ -66,6 +67,7 @@ problem:
     }
 }
 ```
+
 ## Links
 
 [E-ORD-*](./?codes=errorCodesOrdering)

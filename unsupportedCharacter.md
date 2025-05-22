@@ -1,6 +1,6 @@
-# Unsupported Character detected in request
+# Unsupported Character Detected in Request
 
-Unsupported character detected in request sent to server. Supported charset are Windows-1252 and ISO8859-1
+An unsupported character was detected in the request sent to the server. Supported charsets are Windows-1252 and ISO-8859-1.
 
 ## Problem Type
 
@@ -8,8 +8,7 @@ type = https://problem.api.bunnings.com.au?type=unsupportedCharacter
 
 ## Specification
 
-The Unsupported character problem includes no additional properties on the base [RFC 7807](https://tools.ietf.org/html/rfc7807) problem.
-so uses the base specification
+The unsupported character problem includes no additional properties on the base [RFC 7807](https://tools.ietf.org/html/rfc7807) problem, so it uses the base specification.
 
 ```yaml
 problem:
@@ -31,7 +30,8 @@ problem:
             type: string
             format: uri
 ```
-[Problem Specification](./problem.yaml)
+
+[Specification](./problem.yaml)
 
 ## Example
 

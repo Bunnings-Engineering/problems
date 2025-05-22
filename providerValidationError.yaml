@@ -13,7 +13,7 @@ validationError:
         type: integer
     detail:
         type: string
-    traceid:
+    traceId:
         type: string
         format: uri
     provider:

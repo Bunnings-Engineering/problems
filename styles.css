@@ -1,0 +1,130 @@
+/* Bunnings-inspired theme */
+:root {
+  --bunnings-red: #d8262c; /* Bunnings Red */
+  --bunnings-green: #0d5257; /* Updated Bunnings Green */
+  --bunnings-dark-grey: #333333;
+  --bunnings-medium-grey: #666666;
+  --bunnings-light-grey: #f4f4f4;
+  --bunnings-white: #ffffff;
+  --bunnings-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+
+html {
+  margin: 0; /* Basic reset */
+}
+
+body {
+  font-family: var(--bunnings-font-family);
+  color: var(--bunnings-dark-grey);
+  background-color: var(--bunnings-white);
+  box-sizing: border-box;
+  margin: 0 auto; /* Centering body content if max-width is set elsewhere, or just reset */
+  /* Padding removed from body */
+}
+
+main {
+  margin-top: 25px; /* Added margin to the top of markdown body elements */
+}
+
+header {
+  font-family: var(--bunnings-font-family);
+  font-size: 28px;
+  text-align: left;
+  position: fixed; /* Header is fixed to the top */
+  width: 100%;
+  line-height: 70px;
+  top: 0;
+  left: 0;
+  background-color: var(--bunnings-green);
+  color: var(--bunnings-white);
+  padding: 0 30px; /* Internal padding for header content */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000; /* Ensure header stays on top of other content */
+  /* Removed properties related to flex layout (width calc, margins) */
+}
+
+header > a > img {
+  padding-right: 15px; /* Adjusted padding */
+  vertical-align: middle; /* Align image nicely with text */
+  width: 35px; /* Control logo width via CSS */
+  height: 35px; /* Control logo height via CSS */
+}
+
+header > a:link,
+header > a:visited,
+header > a:hover,
+header > a:active {
+  font-family: var(--bunnings-font-family);
+  font-size: 28px; /* Match header font size */
+  color: var(--bunnings-white);
+  text-decoration: none;
+  display: inline-flex; /* Helps with vertical alignment of image and text */
+  align-items: center;
+}
+
+/* General link styling */
+a {
+  color: var(--bunnings-green);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* Markdown body styling */
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3 {
+  color: var(--bunnings-green);
+  border-bottom: 1px solid var(--bunnings-light-grey);
+  padding-bottom: 0.3em;
+}
+
+@media (max-width: 767px) {
+  header {
+    font-size: 20px;
+    line-height: 55px;
+    padding: 0 20px;
+  }
+  header > a > img {
+    height: 28px;
+    width: 28px;
+    padding-right: 10px;
+  }
+  #main-content {
+    padding: 15px; /* Padding for main content on smaller screens */
+    padding-top: 65px; /* Space for fixed header on smaller screens (header height + desired space) */
+  }
+}
+
+/* Footer styling */
+.footer {
+  font-family: var(--bunnings-font-family);
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+  background-color: var(--bunnings-light-grey);
+  color: var(--bunnings-dark-grey);
+  font-size: 14px;
+  border-top: 1px solid #e0e0e0;
+  /* Footer will now naturally respect body padding. Removed negative margins and width calc. */
+}
+
+/* Main content area styling */
+#main-content {
+  padding: 25px; /* Overall padding for the main content area */
+  padding-top: 80px; /* Space for the fixed header (header height + desired space) */
+}
+
+.footer p {
+  margin: 0;
+}
+
+.footer a {
+  color: var(--bunnings-green);
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
