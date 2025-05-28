@@ -2,14 +2,14 @@
 
 A request didn't pass validation stage of processing. Typically, this is after the request was accepted by the API and further
 validation was performed. This can include checks like:
+
 - Mutually exclusive fields
 - Conditionally mandatory fields
 - Field value range checks
 
-
 ## Problem Type
 
-type = https://problem.api.bunnings.com.au?type=validationError
+type = <https://problem.api.bunnings.com.au?type=validationError>
 
 ## Specification
 
@@ -46,6 +46,7 @@ problem:
                         message:
                             type: string
 ```
+
 [Specification](./validationError.yaml)
 
 ## Example
@@ -96,3 +97,4 @@ problem:
 [E-PAY-*](./?codes=errorCodesPayment)
 [E-VCH-*](./?codes=errorCodesVoucher)
 [E-BSK-*](./?codes=errorCodesBasket)
+[E-CON-*](./?codes=errorCodesConsumer)
