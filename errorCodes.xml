@@ -4,6 +4,7 @@
 <problem title="Basket API" href="./?codes=errorCodesBasket" />
 <problem title="Checkout API" href="./?codes=errorCodesCheckout" />
 <problem title="CommercialCustomer API" href="./?codes=errorCodesCommercialCustomer" />
+<problem title="Consumer API" href="./?codes=errorCodesConsumer" />
 <problem title="Input Schema Errors" href="./?codes=errorCodesInputSchemaErrors" />
 <problem title="Ordering API" href="./?codes=errorCodesOrdering" />
 <problem title="Payment API" href="./?codes=errorCodesPayment" />
