@@ -27,3 +27,12 @@ providerErrors:
                 type: string
             errorDetail:
                 type: string
+            paymentNumber:
+                type: integer
+    outcomes:
+        type: array
+        properties:
+            outcome:
+                type: string
+            paymentNumber:
+                type: integer
