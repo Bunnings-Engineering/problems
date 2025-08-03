@@ -9,14 +9,14 @@
 | E-CHK-0003                 | MarketplaceNotValidForNZ                      | Marketplace purchases are not supported in New Zealand.                                                                                                            |
 | E-CHK-0004                 | MarketplaceNotValidForInstore                 | Marketplace purchases can only be made on-line and not in-store.                                                                                                   |
 | E-CHK-0005                 | MarketplaceWithoutDetail                      | Marketplace orders must include the details of the specified offer.                                                                                                |
-| E-CHK-0006                 | PreferredDeliveryTypeInvalidForContext        | It is not possile to specify this preffered delivery type for this context, for example: courier delivery with on-line orders.                                     |
+| E-CHK-0006                 | PreferredDeliveryTypeInvalidForContext        | It is not possible to specify this preferred delivery type for this context, for example: courier delivery with on-line orders.                                    |
 | E-CHK-0009                 | MarketplaceMustBeDelivery                     | Marketplace items must have a delivery fulfilment type.                                                                                                            |
 | E-CHK-0010                 | InvalidAddressRef                             | A fulfilment requirements has an invalid address references.                                                                                                       |
 | E-CHK-0011                 | DuplicateFulfilmentIds                        | Multiple fulfilment requirements share the same ID.                                                                                                                |
 | E-CHK-0012                 | DuplicateDeliveryAddressIds                   | Multiple addresses share the same ID.                                                                                                                              |
 | E-CHK-0013                 | InvalidFulfilmentRef                          | A line has an invalid fulfilment requirements references.                                                                                                          |
-| E-CHK-0014                 | InvalidQuantity                               | The line's quantity was less than 1.                                                                                                                               | 
-| E-CHK-0015                 | InvalidGiftQuantity                           | The line's quantity must be 1 for gifts.                                                                                                                           | 
+| E-CHK-0014                 | InvalidQuantity                               | The line's quantity was less than 1.                                                                                                                               |
+| E-CHK-0015                 | InvalidGiftQuantity                           | The line's quantity must be 1 for gifts.                                                                                                                           |
 | E-CHK-0016                 | MissingQuantity                               | The quantity field is required for the line type.                                                                                                                  |
 | E-CHK-0017                 | InvalidSize                                   | The size value is less than 0.                                                                                                                                     |
 | E-CHK-0018                 | MissingFulfilmentRequirementRef               | The line requires a fulfilment requirement reference.                                                                                                              |
@@ -32,7 +32,7 @@
 | E-CHK-0029                 | LineNumberInvalid                             | The line number is must be greater than 0.                                                                                                                         |
 | E-CHK-0030                 | StreetOrLotMustBeProvided                     | A street or lot number must be included with an address.                                                                                                           |
 | E-CHK-0031                 | DeliveryAddressRequired                       | An address is required for delivery fulfilments unless they are an estimate.                                                                                       |
-| E-CHK-0032                 | EstimatePostcodeRequired                      | If an estimate is requested then a EstimatePostcodeRequired must be provided.                                                                                      | 
+| E-CHK-0032                 | EstimatePostcodeRequired                      | If an estimate is requested then a EstimatePostcodeRequired must be provided.                                                                                      |
 | E-CHK-0033                 | ItemNotFound                                  | The item was not found.                                                                                                                                            |
 | E-CHK-0035                 | MarketplaceOfferNotFound                      | The Offer passed was not found in the Marketplace.                                                                                                                 |
 | E-CHK-0036                 | MarketplaceShippingZoneNotAllowed             | The Offer cannot be delivered to the requested address.                                                                                                            |
@@ -120,7 +120,7 @@
 
 ## General
 
-| Short&nbsp;error&nbsp;code | Name           | Description                                               |
-|----------------------------|----------------|-----------------------------------------------------------|
-| E-CHK-0300                 | InvalidRequest | A bad request was passed. One or more fields wre invalid. |
-| E-CHK-0301                 | SystemError    | External API resonded with Problem details                |
+| Short&nbsp;error&nbsp;code | Name           | Description                                                |
+|----------------------------|----------------|------------------------------------------------------------|
+| E-CHK-0300                 | InvalidRequest | A bad request was passed. One or more fields were invalid. |
+| E-CHK-0301                 | SystemError    | External API responded with Problem details                |
