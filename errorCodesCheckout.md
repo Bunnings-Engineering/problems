@@ -1,5 +1,7 @@
 # Checkout API error codes
 
+## Checkout call
+
 | Short&nbsp;error&nbsp;code | Name                                          | Description                                                                                                                                                        |
 |----------------------------|-----------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | E-CHK-0001                 | InvalidStreetType                             | The address' street type is not one of the standard values. Note that both full and abbreviated names can be used, for example: "st" or "street."                  |
@@ -96,7 +98,7 @@
 | E-CHK-0096                 | ItemMissingSellingTaxCodeConfiguration        | An item in the basket has a purchasing tax code which is not mapped to a selling tax code in Checkout                                                              |
 | E-CHK-0097                 | OnePassIdWhenProvidedMustBeGuid               | OnePass identity when provided must be a GUID                                                                                                                      |
 
-# Shipment call:
+## Shipment call
 
 | Short&nbsp;error&nbsp;code | Name                          | Description                                                         |
 |----------------------------|-------------------------------|---------------------------------------------------------------------|
@@ -105,7 +107,7 @@
 | E-CHK-0202                 | ShipmentsJwtInvalid           | Something was wrong with the token. Refer to logs for more details. |
 | E-CHK-0203                 | ShipmentsTokensMixLocations   | Shipment request's tokens mix shopping locations.                   |
 
-# Validation call:
+## Validation call
 
 | Short&nbsp;error&nbsp;code | Name                                     | Description                                                      |
 |----------------------------|------------------------------------------|------------------------------------------------------------------|
@@ -116,7 +118,7 @@
 | E-CHK-0254                 | PriceNotFound                            | Price was not found for a specified PriceId                      |
 | E-CHK-0255                 | ValidationFulfilmentLinesDuplicated      | Duplicate line numbers have been provided for fulfilfment lines. |
 
-# General:
+## General
 
 | Short&nbsp;error&nbsp;code | Name           | Description                                               |
 |----------------------------|----------------|-----------------------------------------------------------|
