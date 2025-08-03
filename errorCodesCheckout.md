@@ -98,6 +98,19 @@
 | E-CHK-0096                 | ItemMissingSellingTaxCodeConfiguration        | An item in the basket has a purchasing tax code which is not mapped to a selling tax code in Checkout                                                              |
 | E-CHK-0097                 | OnePassIdWhenProvidedMustBeGuid               | OnePass identity when provided must be a GUID                                                                                                                      |
 
+## Checkout Basket call
+
+| Short&nbsp;error&nbsp;code | Name                       | Description                                                |
+|----------------------------|----------------------------|------------------------------------------------------------|
+| E-CHK-0100                 | BasketRefMissing           | The BasketRef value is required                            |
+| E-CHK-0101                 | BasketNotFound             | No basket can be found matching the basketRef supplied     |
+| E-CHK-0102                 | BasketApiUnexpectedStatus  | Basket API returned an unexpected status                   |
+| E-CHK-0103                 | BasketApiBadRequest        | Basket API didn't understand the request from Checkout API |
+| E-CHK-0104                 | BasketShoppingNotSpecified | The basket does not include shopping details               |
+| E-CHK-0105                 | BasketCountryNotSpecified  | The basket does not have a specified country code          |
+| E-CHK-0106                 | BasketInvalidField         | The basket has an invalid {field-name}                     |
+| E-CHK-0107                 | BasketNoEnteredDetails     | The basket does not have any entered details               |
+
 ## Shipment call
 
 | Short&nbsp;error&nbsp;code | Name                          | Description                                                         |
