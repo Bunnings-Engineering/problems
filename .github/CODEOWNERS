@@ -1,0 +1,5 @@
+*.md    @Bunnings-Engineering/technicalwriters
+*.yaml    @Bunnings-Engineering/technicalwriters
+*.yml    @Bunnings-Engineering/technicalwriters
+
+#*.go docs@example.com
