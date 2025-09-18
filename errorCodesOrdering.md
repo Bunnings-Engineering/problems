@@ -1,91 +1,147 @@
-# Ordering API error codes
+# Ordering Error Messages for API & BKG
 
-| Short&nbsp;error&nbsp;code | Name | Description |
-| -------- | -------- | -------- |
-| E-ORD-0006 | ServiceHttpResponse | Downstream service is unavailabe. Please check the error message or investigate the logs for futher information. |
-| E-ORD-0007 | LocationValidation | Location is invalid. Please check the error message or investigate the logs for futher information. |
-| E-ORD-0008 | PriceValidation | Pricing in invalid. Please check the error message or investigate the logs for futher information. |
-| E-ORD-0009 | CheckoutValidation | Checkout validation failed. Please check the error message or investigate the logs for futher information. |
-| E-ORD-2000 | BasketSubmission | Basket processing has failed. Please check the error message or investigate the logs for futher information. |
-| E-ORD-1030 | DataStore | Basket processing has failed due to an error in the downstream data store. Please check the error message or investigate the logs for futher information. |
-| E-ORD-0025 | FlybuysValidation | Flybuys information is incorrect for order, please reverify and try again. |
-| E-ORD-0026 | OnePassValidation | OnePass information is incorrect for order, please reverify and try again. |
+This catalogue of error codes are generated from the Ordering Domain.  
 
-# General:
+**Ordering API** error messages are returned synchronously when performing a request action 
 
-| Short&nbsp;error&nbsp;code | Name | Description |
-| -------- | -------- | -------- |
-| E-ORD-0010 | GeneralValidation | A bad request was passed. One or more fields were invalid. |
+**Ordering BKG** error messages are triggered asynchronously.  
+ * When the data passes all validation & verification steps it is successfully passed onto COS
+ * When an issue is found this is recorded as an error message in the COS staging tables and the data is stopped from progressing to COS.  
+ 
+A caller can access this outcome of the Ordering BKG process (e.g. success or error) by calling a GET results end point.   This choice is determined by which Ordering API end point was used to submit the data. 
 
-# Validation Errors:
+|Data submitted on Ordering API&nbsp;&nbsp;|&nbsp;Ordering BKG outcome available on|
+|------------------|---------------------|
+|PUT/basket/{serverState}/order|*GET /basket/{serverState}/results*|
+|PUT /basketRef/{basketRef}/order| *GET /basketRef/{basketRef}/results*|
 
-| Short&nbsp;error&nbsp;code | Name | Description |
-| -------- | -------- | -------- |
-| E-ORD-0018 | NoMatchingEnteredLine | Basket doesn't have a matching entered line item for computed line. |
-| E-ORD-0027 | InvalidLoyaltyRef | The loyalty type(s): {Types} is/are duplicated, only one type is permitted for an order, please rectify and try again. |
-| E-ORD-0030 | InvalidLoyaltyProgram | The loyalty program is not supported by Ordering. Please remove and try again. |
-| E-ORD-0101 | CentraPayValidation | When submitting an order for with the payment provider Centrapay, the providerAccount must equal FARMLANDS. |
-| E-ORD-0102 | ConversionErrorDecimal | Conversion error from string to decimal |
-| E-ORD-0103 | MaxLengthExceeded | string length exceeded, maximum length permitted is {MaxLength}. |
-| E-ORD-0104 | EnumerationMismatch | Unsupported string value, valid options include {enumList}. |
-| E-ORD-0105 | RegexMismatch | Data entry does not meet Regex |
-| E-ORD-0106 | InvalidLength | Invalid Length |
+<br>
 
-# Basket Processing Errors:
+## Ordering BKG Error Messages
+This list is the generic error messages returned from the GET end point. The schema allows for additional problem description data to be returned, if this is avialable.
 
-| Short&nbsp;error&nbsp;code | Name | Description |
-| -------- | -------- | -------- |
-| E-ORD-0200 | ComputedMandatory | Basket has not passed Checkout validation, please reverify and try again. |
-| E-ORD-0201 | UnknownFulfilmentType | The basket includes a fulfilment type of Unknown. This is an invalid option. |
-| E-ORD-0202 | InvalidFulfilmentType | This end point only supports fulfilments for DeliveryToCustomer & DigitalDeliveryToCustomer. Please process this request through POST /basketRef/{basketRef}/order. |
-| E-ORD-0203 | InvalidDigitalFulfilmentType | The basket includes a fulfilment type of DigitalDeliveryToCustomer. A dispatch email address has not been provided. |
-| E-ORD-0204 | InvalidDeliveryFulfilmentType | The basket includes a fulfilment type of DeliveryToCustomer. A delivery address has not been provided. |
-| E-ORD-0205 | InvalidGiftCardOrder | The basket includes a fulfilment type of DigitalDeliveryToCustomer. The lineType must be set to GIFTCARDORDER. |
-| E-ORD-0206 | DesignTokenMandatory | The basket includes a fulfilment type of DigitalDeliveryToCustomer. A gift card digital design token has not been provided. |
-| E-ORD-0207 | FulfilmentOptionsNotResolved | The basket has not nominated a computed fulfilment option, this is mandatory for submission to ordering. Please nominate and try again. |
-| E-ORD-0208 | ItemNumberInvalid | itemNumber must equal a length of 7 numeric characters. |
-| E-ORD-0210 | ConsiderationPaymentMandatory | Payment details have not been provided. Please update and try again. |
-| E-ORD-0211 | UnsupportedPaymentProvider | Payment provider is unsupported by the ordering domain. Please nominate a different provider and try again. Valid options include: [{enumList}] |
-| E-ORD-0212 | CustomerTypeConsumer | A consumer customer has been nominated, person details are mandatory. |
-| E-ORD-0213 | CustomerTypeCommercial | A commercial customer has been nominated, account details are mandatory. |
-| E-ORD-0214 | EnteredMandatory | This basket cannot be processed by Ordering domain as entered lines are missing. Please nominate and try again. |
-| E-ORD-0215 | EnteredFulfilmentMandatory | This basket cannot be processed by Ordering domain without a fulfilment option nominated. Please nominate and try again. |
-| E-ORD-0216 | EnteredLinesItemMandatory | Items details are missing. Please nominate and try again. |
-| E-ORD-0217 | OrderNumMandatory | Order number is mandatory for all ecommerce requests. Please nominate and try again. |
-| E-ORD-0218 | GiftcardDesignTokenMandatory | A line type of GIFTCARDORDER must have a design token populated. Please nominate and try again. |
-| E-ORD-0219 | GiftcardCardNumberMandatory | A line type of GIFTCARD must have a card number populated. Please nominate and try again. |
-| E-ORD-0220 | UnsupportedLineType | This end point currently only supports lineType of GIFTCARDORDER. Please process this request through PUT /basket/{serverState}/order. |
-| E-ORD-0221 | GiftcardCustomerToCollectUnsupported | The basket includes a fulfilment type of CustomerToCollect. This option does not support the lineType of GIFTCARDORDER. |
-| E-ORD-0222 | InvalidGiftcardFulfilment | A GIFTCARDORDER must be on an independent fulfilment. It cannot be mixed with other lineTypes due to dispatch occurring from a central location. |
-| E-ORD-0223 | GiftcardDetailsMandatory | A line type of GIFTCARD/GIFTCARDORDER must have gift card details populated. Please nominate and try again. |
-| E-ORD-0224 | InvalidConcatenatedAddress | For compatibility the address input data for "premise", "lotNumber", "streetNumber" and "streetName" has been concatenated. This joined data either exceeds the allowed length of 100 characters or is empty. Please provide valid address information. |
-| E-ORD-0225 | InvalidStreetType | Basket doesn't have a valid address street type. |
-| E-ORD-0226 | InvalidOrderNumberFormat | Order number is in invalid format. It needs to start with W and follow by 9 digits. |
-| E-ORD-0228 | InvalidCountryCode | Country code is invalid. It needs to be either AU or NZ |
-| E-ORD-0229 | InvalidPaymentDetails | Person and Account details can not be defined together. |
-| E-ORD-0230 | InvalidStateCode | Invalid Australian State, allowed values: {States}. |
-| E-ORD-0231 | InvalidIdentityProvider | Invalid identity provider. the value must be: {Providers} |
-| E-ORD-0232 | InvalidIdentityId | Invalid identity id. the value must be a GUID |
-| E-ORD-0233 | InvalidContactEmail | The contact email is invalid |
-| E-ORD-0234 | InvalidCommercialAccount | A commercial customer has been nominated, commercial account number is mandatory. |
-| E-ORD-0235 | InvalidGiftCardSize | Invalid GC size. |
-| E-ORD-0236 | InvalidPaymentProvider | Payment provider is unsupported by the ordering domain. Please nominate a different provider and try again. Valid options include: [ BPOINT, BRAINTREE, PAYPAL, ZIPPAY, CLICK, AFTERPAY, CENTRAPAY, VOUCHER ] |
-| E-ORD-0237 | InvalidPaymentAmount | Invalid payment amount for {paymentType}. |
-| E-ORD-0238 | MissingCustomerAccForBasketCredit | Customer Account is required for Basket Credit. |
-| E-ORD-0239 | InvalidBalanceOnCredit | When balance on credit is set, amount of credit cannot be 0. |
-| E-ORD-0240 | InvalidAmountOfCredit | Credit. Amount of credit cannot be empty when no balance on credit specified. |
-| E-ORD-0241 | InvalidIpAddress | Invalid IP address. |
-| E-ORD-0242 | InvalidVoucherPaymentDetails | When submitting an order with the payment provider VOUCHER, the providerAccount must equal Bunnings and the referenceType must equal PREAUTH. |
-| E-ORD-0250 | MissingMandatoryData | Mandatory field and not present. |
 
-# Marketplace Specific Errors:
+|Short&nbsp;error&nbsp;code|Name|Description|Where used|
+|------------------|---------------------|-----------------------------------------------------------------------------|----------------------------------------------------------------------------|
+|E-ORD-0006|ServiceHttpResponse|Downstream service is unavailable. Please check the error message or investigate the logs for further information.|GET&nbsp;/basket/{serverState}/results<br>GET&nbsp;/basketRef/{basketRef}/results|
+|E-ORD-0007|LocationValidation|Location is invalid. Please check the error message or investigate the logs for further information.|GET&nbsp;/basket/{serverState}/results<br>GET&nbsp;/basketRef/{basketRef}/results|
+|E-ORD-0008|PriceValidation|Pricing is invalid. Please check the error message or investigate the logs for further information.|GET&nbsp;/basket/{serverState}/results<br>GET&nbsp;/basketRef/{basketRef}/results|
+|E-ORD-0009|CheckoutValidation|Checkout validation failed. Please check the error message or investigate the logs for further information.|GET&nbsp;/basket/{serverState}/results<br>GET&nbsp;/basketRef/{basketRef}/results|
+<BR>
 
-| Short&nbsp;error&nbsp;code | Name | Description |
-| -------- | -------- | -------- |
-| E-ORD-0243 | MissingContactEmailForTradeMarketPlace | Contact email is required for marketplace orders. |
-| E-ORD-0244 | ProvideContactFirstAndLastNameForTradeMarketPlace | Please provide both first and last name for marketplace orders. |
-| E-ORD-0245 | AllTradeMarketPlaceFulfilmentsShareContactInfo | All fulfilments must use the same contact information. |
-| E-ORD-0246 | InvalidContactInfo | Provide either contact name or first and last name, but not both. |
-| E-ORD-0247 | MarketPlaceNotSupportedForPowerPassCredit | PowerPass credit cannot be used for Marketplace items. |
-| E-ORD-0251 | OnlyMarketplaceLinesInMarketplaceFulfilments | Marketplace fulfilments can only contain marketplace lines. |
-| E-ORD-0252 | MarketplaceFulfilmentsMustHaveDeliveryTypeDirect | Marketplace fulfilments must have a delivery type of Direct. |
+## Ordering API Error Messages
+
+### General Validation
+
+This set of validation rules can be applied to any schema attribute, using the same error code and message. The JSON path is included in the problem definition to pinpoint which attribute has encountered the error.
+
+|&nbsp;Short&nbsp;error&nbsp;code&nbsp;| Name | JSON Path | Description | Where used |
+| --- | --- | --- | --- | --- |
+|&nbsp;E-ORD-0010&nbsp;| GeneralValidation | Return the JSON path to the ```Ordering Domain API ```| A bad request was passed. One or more fields were invalid. | PUT&nbsp;/basket/{serverState}/enquiry <br>PUT&nbsp;/basket/{serverState}/order |
+
+|&nbsp;Short&nbsp;error&nbsp;code&nbsp;| Name | JSON Path | Description | Where used |
+| --- | --- | --- | --- | --- |
+|&nbsp;E-ORD-0250&nbsp;| MandatoryData | Return the JSON path to the ```Basket Domain API ```| Mandatory field and not present | POST&nbsp;/basketRef/{basketRef}/order |
+| E-ORD-0101 | ConversionErrorDateTime | Return the JSON path to the ```Basket Domain API ```| Conversion error from string to date time | POST&nbsp;/basketRef/{basketRef}/order |
+| E-ORD-0102 | ConversionErrorDecimal | Return the JSON path to the ```Basket Domain API ```| Conversion error from string to decimal | POST&nbsp;/basketRef/{basketRef}/order |
+| E-ORD-0103 | MaxLengthExceeded | Return the JSON path to the ```Basket Domain API ```| string length exceeded, maximum length permitted is {value} | POST&nbsp;/basketRef/{basketRef}/order |
+| E-ORD-0104 | EnumerationMismatch | Return the JSON path to the ```Basket Domain API ```| Unsupported string value, valid options include {enumList} | POST&nbsp;/basketRef/{basketRef}/order |
+| E-ORD-0105 | RegexMismatch | Return the JSON path to the ```Basket Domain API ```| Data entry does not meet Regex | POST&nbsp;/basketRef/{basketRef}/order |
+| E-ORD-0106 | LegacyErrorCode | Return the JSON path to the ```Basket Domain API ```| message is independent for each instance of this error | POST&nbsp;/basketRef/{basketRef}/order |
+<br>
+### Domain Validation
+    
+
+This set of validation rules is specific to a JSON path and is only triggered when an error is detected in the received data.
+
+|&nbsp;Short&nbsp;error&nbsp;code&nbsp;| Name | Error&nbsp;Trigger | JSON Path | Business Rule | Description | Where used |
+| --- | --- | --- | --- | --- | --- | --- |
+|E-ORD-0025| InvalidFlybuys | ***Loyality***| Ordering JSON Path<br>```customer.loyaltyReferences.identifier```<br>Basket JSON Path<br>```customer.loyaltyReferences.id``` | Return error when ```customer.loyaltyReferences.id``` does not meet Flybuys validation rules, being<br> * must contain content<br> * meets regex pattern<br> * check digit is verified | Flybuys information is incorrect for order, please reverify and try again. | PUT&nbsp;/basket/{serverState}/enquiry <br> PUT&nbsp;/basket/{serverState}/order<br>POST&nbsp;/basketRef/{basketRef}/order |
+| E-ORD-0026 | InvalidOnePass | ***Loyality*** | Ordering JSON Path<br>```customer.loyaltyReferences.identifier```<br>Basket JSON Path<br>```customer.loyaltyReferences.id``` | Return error when ```customer.loyaltyReferences.id``` does not meet OnePass validation rules, being<br> * string input can convert to guid | OnePass information is incorrect for order, please reverify and try again. | PUT&nbsp;/basket/{serverState}/enquiry <br> PUT&nbsp;/basket/{serverState}/order<br>POST&nbsp;/basketRef/{basketRef}/order |
+| E-ORD-0027 | InvalidLoyaltyRef |***Loyality*** | Ordering JSON Path<br>```customer.loyaltyReferences[].type```<br>Basket JSON Path<br>```customer.loyaltyReferences[].type```<br><br>*The same JSON path for both schemas* | Return an error when ```customer.loyaltyReferences.type``` is repeated within a single Basket.<br>The data entry is a string value with regex ^[a-zA-Z]*$. <br><br>When assessing the input data, compare without white space and case insensitive.<br><br>For example<br> * a customer can have two loyalty references such as OnePass and Flybuys. These are different loyalty types<br> * a customer cannot assign two Flybuys loyalty references. This will return a validation error<br><br> *This error is returned for each array instance which has been duplicated* | The loyalty type: {customer.loyaltyReferences[].type} is duplicated, only one type is permitted for an order, please reverify and try again.<br>Dynamically add the type name in the error message | PUT&nbsp;/basket/{serverState}/enquiry <br> PUT&nbsp;/basket/{serverState}/order<br>POST&nbsp;/basketRef/{basketRef}/order |
+| E-ORD-0030 | InvalidLoyaltyProgram |***Loyality*** | Ordering JSON Path<br>```customer.loyaltyReferences.type```<br>Basket JSON Path<br>```customer.loyaltyReferences.type```<br><br>*The same JSON path for both schemas* | Return an error when the loyalty program is nominated and not one of<br> * FlyBuys<br> * OnePass<br><br> *The data assessment is case insensitive* | The loyalty program is not supported by Ordering. Please remove and try again | PUT&nbsp;/basket/{serverState}/enquiry <br> PUT&nbsp;/basket/{serverState}/order<br>POST&nbsp;/basketRef/{basketRef}/order |
+| E-ORD-0200 | ComputedMandatory |***All&nbsp;Baskets*** | Basket JSON Path<br>```computed``` | The basket schema must include a ```computed``` object on the root level. Return an error if not present as the Checkout rules have not been executed and this data cannot be submitted to ordering domain<br><br> *This error is only returned once* | The basket has not passed Checkout validation, please reverify and try again | POST&nbsp;/basketRef/{basketRef}/order |
+| E-ORD-0207 | FulfilmentOptionsNotResolved |***All&nbsp;Baskets*** | Basket JSON Path<br>```entered.fulfilmentOptionSelected``` | Return an error when ```entered.fulfilmentOptionSelected``` does not reference an entry within one of<br>```computed.fulfilmentOptions.fulfilmentId```<br>OR<br>```computed.fulfilmentOptions.rank``` | The basket has not nominated a computed fulfilment option, this is mandatory for submission to ordering. Please nominate and try again. | POST&nbsp;/basketRef/{basketRef}/order |
+| E-ORD-0201 | UnknownFulfilmentType |***All&nbsp;Baskets*** | Basket JSON Path<br>```computed.fulfilmentOptions[].```<br>```fulfilments[].fulfilmentType``` | If the selected fulfilmentOption contains an array record with ```computed.fulfilmentOptions[].```<br>```fulfilments[].fulfilmentType``` = **Unknown** <br>And at least one line in<br>```entered.lines[].fulfilmentRequirementReference```<br><br>*This error is only returned once for the fulfilmentType<br>This enumeration assessment is case insensitive* | The basket includes a fulfilment type of Unknown. This is an invalid option. | POST&nbsp;/basketRef/{basketRef}/order |
+| E-ORD-0202 | InvalidFulfilmentType |***All&nbsp;Baskets*** | Basket JSON Path<br>```computed.fulfilmentOptions[].```<br>```fulfilments[].fulfilmentType``` | If the selected fulfilmentOption contains an array record with ```computed.fulfilmentOptions[].```<br>```fulfilments[].fulfilmentType``` = **PickedByCustomer**<br>And at least one line in<br>```entered.lines[].fulfilmentRequirementReference```<br><br>*This error is only returned once for the fulfilmentType* | The basket includes a fulfilment type of PickedByCustomer. This is currently not supported. | POST&nbsp;/basketRef/{basketRef}/order |
+| E-ORD-0203 | InvalidDigitalFulfilmentType |***Voucher*** | Basket JSON Path<br>```entered.lines[].digitalDeliveryDispatch```<br>```entered.lines[].digitalDeliveryDispatch.email```<br><br>*Can be triggered from two different JSON paths* | If the selected fulfilmentOption contains an array record with ```computed.fulfilmentOptions[]```<br>```.fulfilments[].fulfilmentType``` = **DigitalDeliveryToCustomer**<br>And the matching basket schema fulfilment must have object ```entered.lines[].digitalDeliveryDispatch.email``` populated<br><br> *This error is returned for each array instance* | The basket includes a fulfilment type of DigitalDeliveryToCustomer. A dispatch email address has not been provided | POST&nbsp;/basketRef/{basketRef}/order |
+| E-ORD-0204 | InvalidDeliveryFulfilmentType |***All&nbsp;Baskets*** | Basket JSON Path<br>```entered.fulfilmentRequirements[].delivery``` | If the selected fulfilmentOption contains an array record with ```computed.fulfilmentOptions[].```<br>```fulfilments[].fulfilmentType``` = **DeliveryToCustomer**<br>And the matching basket schema fulfilment must have object ```entered.fulfilmentRequirements[].delivery``` populated<br>And the cross reference to address must be populated<br>```entered.fulfilmentRequirements[].```<br>```delivery.addressReference``` & ```addresses[].address```<br><br>*This error is returned for each array instance* | The basket includes a fulfilment type of DeliveryToCustomer. A delivery address has not been provided. | POST&nbsp;/basketRef/{basketRef}/order |
+| E-ORD-0205 | InvalidGiftCardOrder |***Voucher***  | Basket JSON Path<br>```entered.lines[].lineType``` | If the selected fulfilmentOption contains an array record with ```computed.fulfilmentOptions[]```<br>```.fulfilments[].fulfilmentType``` = **DigitalDeliveryToCustomer**<br>And<br>The matching basket schema data ```entered.lines[].lineType``` does not equal **GIFTCARDORDER**<br><br>*This error is returned for each array instance<br>This enumeration assessment is case insensitive* | The basket includes a fulfilment type of DigitalDeliveryToCustomer. The lineType must be set to GIFTCARDORDER | POST&nbsp;/basketRef/{basketRef}/order |
+| E-ORD-0206 | DesignTokenMandatory |***Voucher***  | Basket JSON Path<br>```entered.lines[].giftCard.designToken``` | If the selected fulfilmentOption contains an array record with ```computed.fulfilmentOptions[].```<br>```fulfilments[].fulfilmentType``` = **DigitalDeliveryToCustomer**<br>And the matching basket schema ```entered``` data must have ```entered.lines[].giftCard.designToken``` populated<br><br>*This error is returned for each array instance* | The basket includes a fulfilment type of DigitalDeliveryToCustomer. A gift card digital design token has not been provided. | POST&nbsp;/basketRef/{basketRef}/order |
+| E-ORD-0208 | ItemNumberInvalid | ***All&nbsp;Baskets*** | Basket JSON Path<br>```entered.lines[].item.number``` | When an itemNumber is provided it must<br> * have no white space<br> * be set to a length of 7 digits<br> * only allow numeric digits <br><br>e.g. no alphabetical text or symbols allowed<br><br>*This error is returned for each array instance* | itemNumber must equal a length of 7 numeric characters | POST&nbsp;/basketRef/{basketRef}/order |
+| E-ORD-0210 | ConsiderationPaymentMandatory |***All&nbsp;Baskets***  | Basket JSON Path<br>```consideration.payment.payments[]``` | Return an error when ```consideration``` OR ```consideration.payment``` is not populated<br><br>*This error is only returned once* | Payment details have not been provided. Please update and try again | POST&nbsp;/basketRef/{basketRef}/order |
+| E-ORD-0211 | UnsupportedPaymentProvider |***All&nbsp;Baskets***  | Ordering JSON Path<br>```payment.payments[].provider```<br>Basket JSON Path<br>```consideration.payment.payments[].provider``` | Return an error when ```payments[].provider``` does not match a known supported payment provider<br><br>*This error is returned for each array instance<br>This enumeration assessment is case insensitive* | Payment provider is unsupported by the ordering domain. Please nominate a different provider and try again. Valid options include: [ UNKNOWN, BAMBORA, BPOINT, BRAINTREE, OPENPAY, PAYPAL, ZIPPAY, CLICK, AFTERPAY, CENTRAPAY, VOUCHER ] | PUT&nbsp;/basket/{serverState}/enquiry<br>PUT&nbsp;/basket/{serverState}/enquiry <br> PUT&nbsp;/basket/{serverState}/order<br>POST&nbsp;/basketRef/{basketRef}/order |
+| E-ORD-0212 | CustomerTypeConsumer |***All&nbsp;Baskets***  | Basket JSON Path<br>```customer.person``` | Return an error when ```customer.type``` = **CONSUMER**<br>And <br>```customer.person``` is not populated<br><br>*This error is only returned once<br>This enumeration assessment is case insensitive* | A consumer customer has been nominated, person details are mandatory | POST&nbsp;/basketRef/{basketRef}/order |
+| E-ORD-0213 | CustomerTypeCommerical | ***All&nbsp;Baskets*** | Basket JSON Path<br>```customer.account``` | Return an error when ```customer.type``` = **COMMERICAL**<br>And <br>```customer.account``` is not populated<br><br>*This error is only returned once<br>This enumeration assessment is case insensitive* | A commercial customer has been nominated, account details are mandatory | POST&nbsp;/basketRef/{basketRef}/order |
+| E-ORD-0214 | EnteredMandatory | ***All&nbsp;Baskets*** | Basket JSON Path<br>```entered``` | Return an error when ```entered``` is not populated <br><br> *This error is only returned once*| This basket cannot be processed by Ordering domain as entered lines are missing. Please nominate and try again. | POST&nbsp;/basketRef/{basketRef}/order |
+| E-ORD-0215 | EnteredFulfilmentMandatory | ***All&nbsp;Baskets*** | Basket JSON Path<br>```entered.fulfilmentOptionSelected``` | Return an error when ```entered.fulfilmentOptionSelected``` is not populated<br><br>*This error is only returned once* | This basket cannot be processed by Ordering domain without a fulfilment option nominated. Please nominate and try again. | POST&nbsp;/basketRef/{basketRef}/order |
+| E-ORD-0216 | EnteredLinesItemMandatory |***All&nbsp;Baskets***  | Basket JSON Path<br>```entered.lines[].item``` | Return an error when ```entered.lines[].item``` is not populated<br><br>*This error is returned for each array instance* | Items details are missing. Please nominate and try again. | POST&nbsp;/basketRef/{basketRef}/order |
+| E-ORD-0217 | OrderNumMandatory |***Voucher*** | Basket JSON Path<br>```transactionInfo.orderNumber``` | Return an error when Ordering Domain API input basketProcessRuleSet = **ECOMMERCE**<br>And Basket schema ```transactionInfo.orderNumber``` is not populated<br><br>*This error is only returned once<br>This enumeration assessment is case insensitive* | Order number is mandatory for all ecommerce requests. Please nominate and try again. | POST&nbsp;/basketRef/{basketRef}/order |
+| E-ORD-0218 | GiftcardDesignTokenMandatory |***Voucher*** | Basket JSON Path<br>```entered.lines[].giftCard.designToken``` | Return an error when ```entered.lines[].lineType``` = **GIFTCARDORDER**<br>And <br>```entered.lines[].giftCard.designToken``` is not populated<br><br>*This error is returned for each array instance<br>This enumeration assessment is case insensitive* | A line type of GIFTCARDORDER must have a design token populated. Please nominate and try again. | POST&nbsp;/basketRef/{basketRef}/order |
+| E-ORD-0219 | GiftcardCardNumberMandatory |***Voucher***  | Basket JSON Path<br>```entered.lines[].giftCard.cardNumber``` | Return an error when ```entered.lines[].lineType``` = **GIFTCARD**<br>And ```entered.lines[].giftCard.cardNumber``` is not populated<br><br>*This error is returned for each array instance<br>This enumeration assessment is case insensitive* | A line type of GIFTCARD must have a card number populated. Please nominate and try again. | POST&nbsp;/basketRef/{basketRef}/order |
+| E-ORD-0220 | TypeUnsupported |***All&nbsp;Baskets*** | Basket JSON Path<br>```entered.lines[].lineType``` | When any fulfilment is received with ```entered.lines[].lineType``` not equal to **GIFTCARDORDER** return an error<br><br>*This error is returned for each array instance*<br><br>This error message is being introduced on <br>```POST&nbsp;/basketRef/{basketRef}/order```, as testing & validation rules for anything outside of **GIFTCARDORDER** has not been conducted.<br>This error is intended to be removed once adequate testing has been conducted and a mixed card of **ITEM** (with fulfilment through a store) & **GIFTCARDORDER** (with fulfilment centralised) is proven to be working.<br><br>Until this is resolved an order with line types of ITEM , MARKETPLACE, TIMBERTALLY etc. are expected to flow through <br> **PUT&nbsp;/basket/{serverState}/order** | This end point currently only supports lineType of GIFTCARDORDER. Please process this request through **PUT&nbsp;/basket/{serverState}/order** | POST&nbsp;/basketRef/{basketRef}/order |
+| E-ORD-0221 | GiftcardCustomerToCollectUnsupported |***Voucher*** | Basket JSON Path<br>```entered.lines[].lineType``` | If the selected fulfilmentOption contains an array record with ```computed.fulfilmentOptions[].```<br>```fulfilments[].fulfilmentType``` = **CustomerToCollect**<br>And the matching basket schema entered data ```entered.lines[].lineType``` equals **GIFTCARDORDER**<br><br>*This error is returned for each array instance<br>This enumeration assessment is case insensitive* | The basket includes a fulfilment type of CustomerToCollect. This option does not support the lineType of GIFTCARDORDER | POST&nbsp;/basketRef/{basketRef}/order |
+| E-ORD-0222 | InvalidGiftcardFulfilment |***Voucher*** | Ordering JSON Path<br>```fulfilments[]```<br>Basket JSON Path<br>```computed.fulfilmentOptions[].fulfilments[]``` | When ```lines[].lineType``` equals **GIFTCARDORDER** it must never be mixed with any other lineTypes in the same ``fulfilments[]`` instance.<br><br>For example:<br> * lineType = ITEM cannot be in the same fulfilment as lineType = GIFTCARDORDER<br> * lineType = GIFT cannot be in the same fulfilment as lineType = GIFTCARDORDER<br> * GIFTCARDORDER must always be in a independent fulfilment (due to being fulfilled by IPC team)<br><br>*This error is returned for each array instance* | A GIFTCARDORDER must be on an independent fulfilment. It cannot be mixed with other lineTypes due to dispatch occurring from a central location | PUT&nbsp;/basket/{serverState}/enquiry <br> PUT&nbsp;/basket/{serverState}/order<br>POST&nbsp;/basketRef/{basketRef}/order |
+| E-ORD-0223 | GiftcardDetailsMandatory | ***Voucher***| Basket JSON Path<br>```entered.lines[].lineType``` | A lineType of **GIFTCARDORDER** must have an associated GiftCardDetails object. | A line type of GIFTCARD/GIFTCARDORDER must have gift card details populated. Please nominate and try again. | POST&nbsp;/basketRef/{basketRef}/order |
+| E-ORD-0254 | GiftcardOrderUnsupported | ***Voucher***| Ordering JSON Path<br>```fulfilments[].lines[].lineType``` | When any fulfilment is received with ```fulfilments[].`lines[].lineType``` equal to **GIFTCARDORDER** return an error<br><br>*This error is returned for each array instance*<br><br>This error message is being introduced on <br>```PUT&nbsp;/basket/{serverState}/order```, as testing & validation rules for **GIFTCARDORDER** has not been conducted.<br>This can be removed once adequate testing has been conducted. | This end point does not support lineType of GIFTCARDORDER. Please process this request through **POST&nbsp;/basketRef/{basketRef}/order** | PUT&nbsp;/basket/{serverState}/enquiry <br> PUT&nbsp;/basket/{serverState}/order |
+| E-ORD-0224 | ConcatenatedAddressLegthExceeded | ***All&nbsp;Baskets***| Basket JSON Path<br>```addresses[].address``` | To support addresses being successfully received in COS, data within the Basket address are concatenated into Ordering ```streetName```. *This includes premise, lotNumber, streetNumber & streetName*<br><br>Return an error when this concatenated data exceeds the 100 character max length allowed for streetName<br><br>*This error is returned for each array instance.<br>If the error exists within “customer” object it is returned once.* | For compatibility the address input data for “premise”, “lotNumber”, “streetNumber” and “streetName” has been concatenated. This joined data exceeds the allowed length of 100 characters. Please reduce the input and resubmit. | POST&nbsp;/basketRef/{basketRef}/order |
+| E-ORD-0202 | UnsupportedFulfilmentType |***All&nbsp;Baskets*** | Basket JSON Path<br>```computed.fulfilmentOptions[]```<br>```.fulfilments[].type``` | When a fulfilment is received not set to one of ```fulfilments[].fulfilmentType``` one of the following<br>* **DeliveryToCustomer**<br> * **DigitalDeliveryToCustomer** | This end point only supports fulfilments for DeliveryToCustomer & DigitalDeliveryToCustomer. Please process this request through **POST&nbsp;/basketRef/{basketRef}/order** | POST&nbsp;/basketRef/{basketRef}/order |
+| E-ORD-0228 | InvalidCountryCode | ***All&nbsp;Baskets***| Basket JSON Path<br>```shopping.countrycode``` | ```shopping.countrycode``` can only be AU or NZ | Country code is invalid. It needs to be either AU or NZ | POST&nbsp;/basketRef/{basketRef}/order |
+| E-ORD-0229 | InvalidPaymentDetails |***All&nbsp;Baskets*** | Basket JSON Path<br>```customer``` | Customer type should either be retail or trade. Retail customer should only have person, trade customer should only have account. | Person and Account details can not be defined together. | POST&nbsp;/basketRef/{basketRef}/order |
+| E-ORD-0230 | InvalidStateCode |***All&nbsp;Baskets*** | Basket JSON Path<br>```addresses[].stateCode``` | AU state code needs to be a valid state code i.e. WA, VIC, NSW etc<br>NZ should not have state code. | AU<br>Invalid Australian State, allowed values: WA, SA, NT, QLD, NSW, ACT, VIC, TAS.<br>NZ<br>The state cannot be supplied for this country. | POST&nbsp;/basketRef/{basketRef}/order |
+| E-ORD-0231 | InvalidIdentityProvider |***All&nbsp;Baskets*** | Basket JSON Path<br>**Retail**<br>```customer.person.customerIdentity.idp```<br>**Trade**<br>```customer.account.userIdentity.idp``` | Accepted Idp values are<br>```Retail```: **Customer**, **Guest**<br>```Trade```: **POWERPASS** | Retail<br>Invalid identity provider. the value must be: Customer<br>Trade<br>Invalid identity provider. the value must be: POWERPASS | POST&nbsp;/basketRef/{basketRef}/order |
+| E-ORD-0232 | InvalidIdentityId |***All&nbsp;Baskets*** | Basket JSON Path<br>**Retail**<br>```customer.person.customerIdentity.id```<br>**Trade**<br>```customer.account.userIdentity.id``` | The user ID should be a valid GUID | Invalid identity id. the value must be a GUID | POST&nbsp;/basketRef/{basketRef}/order |
+| E-ORD-0233 | InvalidContactEmail |***All&nbsp;Baskets*** | Basket JSON Path<br>```entered.fulfilmentRequirements[].contact.email```<br>```customer.contact.email``` | Email has to be a valid email address | The contact email is invalid | POST&nbsp;/basketRef/{basketRef}/order |
+| E-ORD-0234 | InvalidCommercialAccount |***All&nbsp;Baskets*** | Basket JSON Path<br>```customer.account.accountNumber``` | Account number is mandatory for trade customer. | A commercial customer has been nominated, commercial account number is mandatory. | POST&nbsp;/basketRef/{basketRef}/order |
+| E-ORD-0235 | InvalidGiftCardSize |***Voucher*** | Basket JSON Path<br>```entered.lines[].size``` | When lineType is **GIFTCARDORDER**, it cannot have a size. | 'Size' must be null, empty, or zero for gift card lines. | POST&nbsp;/basketRef/{basketRef}/order |
+| E-ORD-0236 | InvalidPaymentProvider |***All&nbsp;Baskets*** | Basket JSON Path<br>```consideration.payment.payments[].provider``` | Payment provider cannot be **UNKNOWN** | Payment provider is unsupported by the ordering domain. Please nominate a different provider and try again. Valid options include: [ BPOINT, BRAINTREE, PAYPAL, ZIPPAY, CLICK, AFTERPAY, CENTRAPAY, VOUCHER ] | POST&nbsp;/basketRef/{basketRef}/order |
+| E-ORD-0237 | InvalidPaymentAmount |***All&nbsp;Baskets*** | Basket JSON Path<br>```consideration.payment.payments[].amount``` | Payment amount should be a numeric value | Invalid payment amount | POST&nbsp;/basketRef/{basketRef}/order |
+| E-ORD-0238 | MissingCustomerAccForBasketCredit |***All&nbsp;Baskets*** | Basket JSON Path<br>```customer.account``` | To use account credit for trade customer, account information must be supplied | Customer Account is required for Basket Credit. | POST&nbsp;/basketRef/{basketRef}/order |
+| E-ORD-0239 | InvalidBalanceOnCredit | ***All&nbsp;Baskets*** | Basket JSON Path<br>```consideration.payment.credit.amountOnCredit``` | Amount on credit has to be a positive number | When balance on credit is set, amount of credit cannot be 0. | POST&nbsp;/basketRef/{basketRef}/order |
+| E-ORD-0240 | InvalidAmountOfCredit |***All&nbsp;Baskets***  | Basket JSON Path<br>```consideration.payment.credit.amountOnCredit``` | For fixed credit, amount must be positive | Credit. Amount of credit cannot be empty when no balance on credit specified. | POST&nbsp;/basketRef/{basketRef}/order |
+| E-ORD-0241 | InvalidIpAddress | ***All&nbsp;Baskets*** | Basket JSON Path<br>```agentDetails.ipAddress``` | Ip address needs to be a valid ip address | Invalid IP address. | POST&nbsp;/basketRef/{basketRef}/order |
+| E-ORD-0242<br>E-ORD-0100 (for PUT end point) | InvalidVoucherPaymentDetails | ***All&nbsp;Baskets*** | Basket JSON Path<br>```consideration.payment.payments[]``` | For voucher payment, ```providerAccount``` must be **BUNNINGS**,  ```referenceType``` must be **PREAUTH** | When submitting an order for with the payment provider VOUCHER, the providerAccount must equal Bunnings and the referenceType must equal PREAUTH. | PUT&nbsp;/basket/{serverState}/enquiry <br> PUT&nbsp;/basket/{serverState}/order<br>POST&nbsp;/basketRef/{basketRef}/order |
+| E-ORD-0243 | MissingContactEmailForTradeMarketPlace |***MarketPlace*** | Ordering JSON Path<br>```fulfilment.contact.contactDetails.email``` | When established that the customer is a commercial/trade use and the basket consists of Marketplace item then the marketplace fulfilment must include a contact “e-mail address” else return a validation error | Contact email is required for marketplace orders | PUT&nbsp;/basket/{serverState}/enquiry <br> PUT&nbsp;/basket/{serverState}/order |
+| E-ORD-0244 | ProvideContactFirstAndLastNameForTradeMarketPlace | ***MarketPlace***| Ordering JSON Path<br> ```fulfilments[].contactFirstName``` <br> ```fulfilments[].contactLastName``` | When established that the customer is a commercial/trade use and the basket consists of Marketplace item then the marketplace fulfilment must include a contact first name and last name  | Please provide both first and last name for marketplace orders. | PUT&nbsp;/basket/{serverState}/enquiry <br> PUT&nbsp;/basket/{serverState}/order |
+| E-ORD-0245 | AllTradeMarketPlaceFulfilmentsShareContactInfo | ***MarketPlace***| Ordering JSON Path<br>```fulfilments[].contactFirstName``` <br> ```fulfilments[].contactLastName``` | All marketplace fulfilments for trade customers must have the same shipping contact first name and last name | All fulfilments must use the same contact information. | PUT&nbsp;/basket/{serverState}/enquiry <br> PUT&nbsp;/basket/{serverState}/order |
+| E-ORD-0246 | InvalidContactInfo | ***All&nbsp;Baskets***| Ordering JSON Path<br>```fulfilments[].contactName``` <br> ```fulfilments[].contactFirstName``` <br> ```fulfilments[].contactLastName``` | Only pass either contact first name and last name or contactName for each fulfilment in any orders. | Provide either contact name or first and last name, but not both. | PUT&nbsp;/basket/{serverState}/enquiry <br> PUT&nbsp;/basket/{serverState}/order |
+| E-ORD-0247 | MarketPlaceNotSupportedForPowerPassCredit | ***All&nbsp;Baskets***|  Ordering JSON Path<br>```credit``` | Trade customers can have details in the ```credit``` object, that determines the how the account payment is managed.<br><br>When ```balanceOnCredit``` is **True** && ```amountOfCredit``` **!= 0** then return the unsupported error.<br><br>Allowed Condition:<br> * Credit object is **null**<br> * When ```balanceOnCredit``` is **False** && ```amountOfCredit``` = **0** | PowerPass credit cannot be used for Marketplace items. | PUT&nbsp;/basket/{serverState}/enquiry <br> PUT&nbsp;/basket/{serverState}/order |
+| E-ORD-0248 | PaymentProviderUnknown | ***All&nbsp;Baskets***| PaymentRef/PaymentProvider | Payment provider must not be **UNKNOWN**, or the equivalent of **0** in the deprecated Enumeration. | Payment provider is unknown. Please provide a valid payment provider. | PUT&nbsp;/basket/{serverState}/enquiry <br> PUT&nbsp;/basket/{serverState}/order |
+| E-ORD-0249 | PaymentProviderInvalid |***All&nbsp;Baskets*** |PaymentRef/PaymentProvider | Payment Provider must be one of the valid values. | Payment provider is invalid. Please provide a valid payment provider. | PUT&nbsp;/basket/{serverState}/enquiry <br> PUT&nbsp;/basket/{serverState}/order|
+| E-ORD-0251 | OnlyMarketplaceLinesInMarketplaceFulfilments |***MarketPlace*** | Ordering JSON Path <br>```fulfilments[].lines``` | Validate the line type is MARKETPLACE for a marketplace fulfilment | Marketplace fulfilments can only contain marketplace lines. | PUT&nbsp;/basket/{serverState}/enquiry <br> PUT&nbsp;/basket/{serverState}/order|
+| E-ORD-0252 | MarketplaceFulfilmentsMustHaveDeliveryTypeDirect |***MarketPlace***  | Ordering JSON Path<br>```fulfilments[].delivery.deliveryType``` | Validate that the Delivery Type = DIRECT for MarketPlace fulfilments | Marketplace fulfilments must have a delivery type of Direct. | PUT&nbsp;/basket/{serverState}/enquiry <br> PUT&nbsp;/basket/{serverState}/order|
+| E-ORD-0253 | ContactPreferredMethod |***Voucher*** | Basket JSON Path<br>```entered.fulfilmentRequirements[].```<br>```contact.preferredMethod``` | When an order only has line items with **GIFTCARDORDER** then validate the preferred method of contact is acceptable.<br><br>This validation rule applies for each of the following enumeration<br>**EMAIL**<br>mandatory data ```entered.fulfilmentRequirements[].contact.email```<br>**SMS**<br>mandatory data ```entered.fulfilmentRequirements[].contact.mobile```<br>**PHONE**<br>one of is mandatory data ```entered.fulfilmentRequirements[].contact.mobile```<br>```entered.fulfilmentRequirements[].contact.phone```<br><br>This validation rule does not apply for each of the following enumeration. <br>E.g. it is never returned when these are used<br>UNKNOWN<br>NONE | One of the following are returned<br>EMAIL<br>Customer must have an email address<br>MOBILE<br>Customer must have a mobile number<br>PHONE<br>Customer must have at least one phone number | POST&nbsp;/basketRef/{basketRef}/order |
+| E-ORD-0254 | BillingPersonName | ***All&nbsp;Baskets***| Basket JSON Path<br>```payments[].provider.billingPerson``` | The combined data entry from the following two data fields must not exceed 100 characters<br>```payments[].provider.billingPerson.firstName```<br>```payments[].provider.billingPerson.lastName``` | The data entered for billing person firstName & lastName exceeds 100 characters | POST&nbsp;/basketRef/{basketRef}/order |
+<br>
+### Submission errors
+
+This set of validation rules indicates that the data has successfully passed API validation, attempted submission to Ordering BKG, but ultimately failed.
+
+|&nbsp;Short&nbsp;error&nbsp;code&nbsp;| Name | JSON Path | Business Rule | Description | Where used |
+| --- | --- | --- | --- | --- | --- |
+| E-ORD-1030 | Oracle | basketRef | Returned when the data has failed submission | Basket processing has failed due to an error in the downstream data store. Please check the error message or investigate the logs for further information. |PUT&nbsp;/basket/{serverState}/order<br>POST&nbsp;/basketRef/{basketRef}/order |
+| E-ORD-2000 | BasketSubmission | basketRef | Returned when the data has failed submission | Basket processing has failed. Please check the error message or investigate the logs for further information. |PUT&nbsp;/basket/{serverState}/order<br>POST&nbsp;/basketRef/{basketRef}/order |
+<br>
+## Order/Enquiry/Quote retrieval
+
+|&nbsp;Error&nbsp;Code&nbsp;| Error Message | Condition | Where used |
+| --- | --- | --- | --- |
+| GO01 | Multiple Orders were retrieved with search criteria specified <Action Type> | Retrieving an Order, Enquiry, Quote |  |
+| GO02 | No Orders were retrieved with search criteria specified <Action Type> | Retrieving an Order, Enquiry, Quote |  |
+| VE02 | Order ID, Order GUID or Order Number is required | Retrieving an Enquiry |  |
+<br>
+## Enquiry Creation
+
+|&nbsp;Error&nbsp;Code&nbsp;| Error Message | Condition | Where used |
+| --- | --- | --- | --- |
+| VE02 | Enquiry Actions may only be performed on an Order of type ENQUIRY not ORDER | Wrong action |  |
+| VE03 | Location Code is required | location code is null |  |
+| VE04 | Organization ID is required | organization is is null |  |
+| VE05 | Org ID is required | org id is null |  |
+| VE12 | Store Location ID <organization id> is not a valid <country code> Store | org id for the store location is different to the country org id |  |
+<br>
+## Enquiry Update
+
+|&nbsp;Error&nbsp;Code&nbsp;| Error Message | Condition | Where used |
+| --- | --- | --- | --- |
+| VE06 | Line items may not be added to an order with status | Line items may not be added to cancelled, credited or invoiced orders |  |
