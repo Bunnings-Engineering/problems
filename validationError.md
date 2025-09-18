@@ -97,4 +97,5 @@ problem:
 [E-PAY-*](./?codes=errorCodesPayment)
 [E-VCH-*](./?codes=errorCodesVoucher)
 [E-BSK-*](./?codes=errorCodesBasket)
+[E-COM-*](./?codes=errorCodesCommunications)
 [E-CON-*](./?codes=errorCodesConsumer)
