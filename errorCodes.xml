@@ -9,6 +9,7 @@
 <problem title="Input Schema Errors" href="./?codes=errorCodesInputSchemaErrors" />
 <problem title="Ordering API" href="./?codes=errorCodesOrdering" />
 <problem title="Payment API" href="./?codes=errorCodesPayment" />
+<problem title="Pricing API" href="./?codes=errorCodesPricing" />
 <problem title="Transaction API" href="./?codes=errorCodesTransaction" />
 <problem title="Voucher API" href="./?codes=errorCodesVoucher" />
 </index>
