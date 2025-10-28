@@ -42,7 +42,7 @@ This repository contains shared API problem definitions for Bunnings APIs, compl
            type: string
            format: uri
    ```
-   Note: Use 2 spaces per indentation level, but properties use 4 additional spaces for their nested values to match existing files
+   Note: Indentation uses 2 spaces per level. Property values under each property name use 8 spaces total from the left margin.
 3. **Extensions**: Additional properties can be added under `properties`, commonly including an `errors` object for detailed error information
 4. **Formatting**: Maintain consistent spacing and alignment with existing files
 
@@ -138,4 +138,4 @@ This repository is a static documentation site with no build process. Changes ca
 
 ## Code Ownership
 
-All `.md` and `.yaml` files are owned by `@Bunnings-Engineering/technicalwriters` (see `.github/CODEOWNERS`)
+All `.md`, `.yaml`, and `.yml` files are owned by `@Bunnings-Engineering/technicalwriters` (see `.github/CODEOWNERS`)
