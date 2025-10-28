@@ -30,18 +30,19 @@ This repository contains shared API problem definitions for Bunnings APIs, compl
      - type
      properties:
        type:
-         type: string
-         format: uri
+           type: string
+           format: uri
        title:
-         type: string
+           type: string
        status:
-         type: integer
+           type: integer
        detail:
-         type: string
+           type: string
        instance:
-         type: string
-         format: uri
+           type: string
+           format: uri
    ```
+   Note: Use 2 spaces per indentation level, but properties use 4 additional spaces for their nested values to match existing files
 3. **Extensions**: Additional properties can be added under `properties`, commonly including an `errors` object for detailed error information
 4. **Formatting**: Maintain consistent spacing and alignment with existing files
 
@@ -94,7 +95,10 @@ When adding a new problem type:
 2. Follow the existing documentation structure in the `.md` file
 3. Ensure YAML schema is RFC 7807 compliant
 4. Include at least one realistic JSON example
-5. Update `index.xml` if needed to include the new problem in navigation
+5. Add a new `<problem>` entry to `index.xml` with the title and href to make it browsable on the website:
+   ```xml
+   <problem title="Your Problem Title" href="./?type=yourProblemName" />
+   ```
 6. Use error codes following the pattern: `E-<DOMAIN>-<NUMBER>` (e.g., `E-CHK-0001`)
 
 ## Error Codes
@@ -134,4 +138,4 @@ This repository is a static documentation site with no build process. Changes ca
 
 ## Code Ownership
 
-All `.md`, `.yaml`, and `.yml` files are owned by `@Bunnings-Engineering/technicalwriters` (see `.github/CODEOWNERS`)
+All `.md` and `.yaml` files are owned by `@Bunnings-Engineering/technicalwriters` (see `.github/CODEOWNERS`)
