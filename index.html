@@ -37,12 +37,41 @@
   <body>
     <!-- Page Header with logo and title -->
     <header class="header">
-      <a href="./"
-        ><img src="./bunnings-logo.png" alt="Bunnings Logo" /><span
-          >Bunnings API Problems</span
-        ></a
-      >
+      <div class="header-content">
+        <a href="./" class="header-title"
+          ><img src="./bunnings-logo.png" alt="Bunnings Logo" /><span
+            >Bunnings API Problems</span
+          ></a
+        >
+        <div class="search-container">
+          <input 
+            type="text" 
+            id="searchInput" 
+            placeholder="Search problems or error codes..." 
+            aria-label="Search problems and error codes"
+          />
+          <button id="clearSearch" class="clear-btn" aria-label="Clear search" style="display: none;">✕</button>
+        </div>
+      </div>
     </header>
+
+    <!-- Navigation bar for domains -->
+    <nav class="domain-nav" id="domainNav">
+      <div class="nav-content">
+        <a href="./" class="nav-link active">All</a>
+        <a href="./?codes=errorCodesBasket" class="nav-link">Basket</a>
+        <a href="./?codes=errorCodesCheckout" class="nav-link">Checkout</a>
+        <a href="./?codes=errorCodesCommercialCustomer" class="nav-link">Commercial</a>
+        <a href="./?codes=errorCodesCommunications" class="nav-link">Communications</a>
+        <a href="./?codes=errorCodesConsumer" class="nav-link">Consumer</a>
+        <a href="./?codes=errorCodesInputSchemaErrors" class="nav-link">Schema</a>
+        <a href="./?codes=errorCodesOrdering" class="nav-link">Ordering</a>
+        <a href="./?codes=errorCodesPayment" class="nav-link">Payment</a>
+        <a href="./?codes=errorCodesPricing" class="nav-link">Pricing</a>
+        <a href="./?codes=errorCodesTransaction" class="nav-link">Transaction</a>
+        <a href="./?codes=errorCodesVoucher" class="nav-link">Voucher</a>
+      </div>
+    </nav>
 
     <main id="main-content">
       <!-- Container for dynamically loaded Markdown content based on URL parameters -->
