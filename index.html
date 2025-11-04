@@ -81,7 +81,7 @@
         margin: 0 auto;
       }
       
-      p.markdown-body {
+      .markdown-body {
         max-width: 1200px;
         margin: 0 auto;
         padding: 0;
@@ -185,12 +185,6 @@
           min-height: 400px;
         }
       }
-      
-      @media (min-width: 768px) and (max-width: 1024px) {
-        body {
-          padding: 32px 24px;
-        }
-      }
     </style>
   </head>
   <body>
@@ -198,14 +192,14 @@
     <div id="docContainer">
         <!--<zero-md id="docPort" src="./index.md"></zero-md>-->
     </div>
-    <p class="markdown-body">
+    <div class="markdown-body">
         <div id="index" class="markdown-body">
         </div>
         <div id="errorCodesHeading" class="md-html">
         </div>
         <div id="errorCodes" class="md-html">
         </div>
-    </p>
+    </div>
 
     <header class="header" ><a href="./"><img src="./bunnings-logo.png" width="20" height="20" /><span>Bunnings API Problems</span></a></header>
 
