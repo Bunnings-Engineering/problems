@@ -209,10 +209,6 @@
 
 ## General
 
-| Short&nbsp;error&nbsp;code | Name | Description |
-| -------- | -------- | -------- |
-| E-CHK-0300 | InvalidRequest | A bad request was passed. One or more fields were invalid. |
-| E-CHK-0301 | SystemError | External API responded with Problem details. |
 | Short&nbsp;error&nbsp;code | Name                       | Description                                                |
 |----------------------------|----------------------------|------------------------------------------------------------|
 | E-CHK-0100                 | BasketRefMissing           | The BasketRef value is required                            |
