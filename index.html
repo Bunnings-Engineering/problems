@@ -80,13 +80,18 @@
       </div>
 
       <!-- Container for the main page content (problem type lists and error code lists) -->
-      <div>
-        <!-- Container for the list of API problem types, populated by script.js from index.xml and index.xsl -->
-        <div id="index" class="markdown-body"></div>
-        <!-- Container for the heading of the error codes section, populated by script.js from errorCodes.md -->
-        <div id="errorCodesHeading" class="md-html"></div>
-        <!-- Container for the list of API error codes, populated by script.js from errorCodes.xml and index.xsl -->
-        <div id="errorCodes" class="markdown-body"></div>
+      <div id="mainPageContent">
+        <!-- Container for the Problems section -->
+        <section class="content-section">
+          <div id="indexHeading" class="md-html"></div>
+          <div id="index" class="markdown-body"></div>
+        </section>
+
+        <!-- Container for the Error Codes section -->
+        <section class="content-section error-codes-section">
+          <div id="errorCodesHeading" class="md-html"></div>
+          <div id="errorCodes" class="markdown-body"></div>
+        </section>
       </div>
     </main>
 

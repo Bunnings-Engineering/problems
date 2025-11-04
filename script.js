@@ -153,7 +153,10 @@ function filterList(list, query) {
                 highlightText(link, query);
             } else if (link) {
                 // Remove highlights if no query
-                link.innerHTML = link.textContent;
+                const originalText = link.getAttribute('data-original-text');
+                if (originalText) {
+                    link.textContent = originalText;
+                }
             }
         } else {
             item.classList.add('search-hidden');
@@ -173,7 +176,7 @@ function highlightText(element, query) {
     }
     
     if (!query) {
-        element.innerHTML = originalText;
+        element.textContent = originalText;
         return;
     }
     
@@ -193,40 +196,41 @@ function escapeRegex(str) {
  * Update section visibility based on search results
  */
 function updateSectionVisibility() {
-    const indexContainer = document.getElementById('index');
-    const errorCodesContainer = document.getElementById('errorCodes');
-    const errorCodesHeading = document.getElementById('errorCodesHeading');
+    const indexSection = document.querySelector('.content-section:first-child');
+    const errorCodesSection = document.querySelector('.error-codes-section');
     
-    if (indexContainer) {
-        const indexList = indexContainer.querySelector('ul');
+    if (indexSection) {
+        const indexList = document.querySelector('#index ul');
         const visibleItems = indexList ? indexList.querySelectorAll('li:not(.search-hidden)').length : 0;
         
         if (visibleItems === 0 && indexList) {
-            if (!indexContainer.querySelector('.search-no-results')) {
+            const existingNoResults = indexSection.querySelector('.search-no-results');
+            if (!existingNoResults) {
                 const noResults = document.createElement('div');
                 noResults.className = 'search-no-results';
                 noResults.innerHTML = '<p>No problem types match your search.</p>';
-                indexContainer.appendChild(noResults);
+                indexSection.appendChild(noResults);
             }
         } else {
-            const noResults = indexContainer.querySelector('.search-no-results');
+            const noResults = indexSection.querySelector('.search-no-results');
             if (noResults) noResults.remove();
         }
     }
     
-    if (errorCodesContainer) {
-        const errorCodesList = errorCodesContainer.querySelector('ul');
+    if (errorCodesSection) {
+        const errorCodesList = document.querySelector('#errorCodes ul');
         const visibleItems = errorCodesList ? errorCodesList.querySelectorAll('li:not(.search-hidden)').length : 0;
         
         if (visibleItems === 0 && errorCodesList) {
-            if (!errorCodesContainer.querySelector('.search-no-results')) {
+            const existingNoResults = errorCodesSection.querySelector('.search-no-results');
+            if (!existingNoResults) {
                 const noResults = document.createElement('div');
                 noResults.className = 'search-no-results';
                 noResults.innerHTML = '<p>No error code domains match your search.</p>';
-                errorCodesContainer.appendChild(noResults);
+                errorCodesSection.appendChild(noResults);
             }
         } else {
-            const noResults = errorCodesContainer.querySelector('.search-no-results');
+            const noResults = errorCodesSection.querySelector('.search-no-results');
             if (noResults) noResults.remove();
         }
     }
@@ -315,12 +319,24 @@ async function loadAndTransformXml(xmlPath, xsltPath, targetElementId) {
  * This block runs if the URL does not contain 'type' or 'codes' parameters,
  * indicating that the main index page with problem types and error codes lists should be displayed.
  * It calls `loadAndTransformXml` to populate the 'index' and 'errorCodes' divs,
- * and loads 'errorCodes.md' into the 'errorCodesHeading' div.
+ * and loads 'index.md' and 'errorCodes.md' for the headings.
  */
 if (!urlParams.has('type') && !urlParams.has('codes')) {
+    // Load the heading and introduction from index.md
+    document.getElementById('indexHeading').innerHTML = "<zero-md src='index.md'></zero-md>";
+    // Load the problem types list
     loadAndTransformXml('./index.xml', './index.xsl', 'index');
+    
+    // Load the error codes heading from errorCodes.md
     document.getElementById('errorCodesHeading').innerHTML = "<zero-md src='errorCodes.md'></zero-md>";
+    // Load the error codes list
     loadAndTransformXml('./errorCodes.xml', './index.xsl', 'errorCodes');
+    
+    // Show the main page content
+    document.getElementById('mainPageContent').style.display = 'block';
+} else {
+    // Hide the main page content when viewing specific problem or error code
+    document.getElementById('mainPageContent').style.display = 'none';
 }
 
 // Initialize search functionality when DOM is ready
