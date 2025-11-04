@@ -1,26 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="./index.xsl"?>
 <index>
-<problem title="Request Error" href="./?type=requestError" />
-<problem title="Validation Error" href="./?type=validationError" />
-<problem title="Problems" href="./?type=problems" />
-<problem title="Marketplace Error" href="./?type=marketplaceError" />
-<problem title="Invalid Server State" href="./?type=invalidServerState" />
-<problem title="Invalid Authorisation Token" href="./?type=invalidAuthorisationToken" />
-<problem title="Forbidden" href="./?type=forbidden" />
-<problem title="Missing Resource" href="./?type=missingResource" />
-<problem title="Dirty Resource" href="./?type=dirtyResource" />
-<problem title="Unhandled Error" href="./?type=unhandled" />
-<problem title="Unsupported Character" href="./?type=unsupportedCharacter" />
-<problem title="Resource Not Found" href="./?type=resourceNotFound" />
-<problem title="Resource Error" href="./?type=resourceError" />
-<problem title="Invalid Scope" href="./?type=invalidScope" />
-<problem title="Invalid Audience" href="./?type=invalidAudience" />
-<problem title="Basket Submission Error" href="./?type=basketSubmissionError" />
-<problem title="Provider Not Supported" href="./?type=providerNotSupported" />
-<problem title="Payment Provider Error" href="./?type=paymentProviderError" />
-<problem title="Payment Provider Errors" href="./?type=paymentProviderErrors" />
-<problem title="Voucher Validation" href="./?type=voucherValidationError" />
-<problem title="Spike Arrest Limit Exceeded" href="./?type=rateLimitExceeded" />
-<problem title="Quota Limit Exceeded" href="./?type=quotaLimitExceeded" />
+    <problem title="Basket Submission Error" href="./?type=basketSubmissionError" />
+    <problem title="Dirty Resource" href="./?type=dirtyResource" />
+    <problem title="Forbidden" href="./?type=forbidden" />
+    <problem title="Invalid Audience" href="./?type=invalidAudience" />
+    <problem title="Invalid Authorisation Token" href="./?type=invalidAuthorisationToken" />
+    <problem title="Invalid Scope" href="./?type=invalidScope" />
+    <problem title="Invalid Server State" href="./?type=invalidServerState" />
+    <problem title="Marketplace Error" href="./?type=marketplaceError" />
+    <problem title="Missing Resource" href="./?type=missingResource" />
+    <problem title="Payment Provider Error" href="./?type=paymentProviderError" />
+    <problem title="Payment Provider Errors" href="./?type=paymentProviderErrors" />
+    <problem title="Problems" href="./?type=problems" />
+    <problem title="Provider Not Supported" href="./?type=providerNotSupported" />
+    <problem title="Quota Limit Exceeded" href="./?type=quotaLimitExceeded" />
+    <problem title="Request Error" href="./?type=requestError" />
+    <problem title="Resource Error" href="./?type=resourceError" />
+    <problem title="Resource Not Found" href="./?type=resourceNotFound" />
+    <problem title="Reused Idempotency Key" href="./?type=reusedIdempotencyKey" />
+    <problem title="Spike Arrest Limit Exceeded" href="./?type=rateLimitExceeded" />
+    <problem title="Unhandled Error" href="./?type=unhandled" />
+    <problem title="Unsupported Character" href="./?type=unsupportedCharacter" />
+    <problem title="Validation Error" href="./?type=validationError" />
+    <problem title="Voucher Validation" href="./?type=voucherValidationError" />
 </index>

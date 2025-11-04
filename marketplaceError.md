@@ -1,8 +1,6 @@
-# Marketplace problems found
+# Marketplace Error
 
-An external Marketplace API raised an error. Bunnings integrates with external APIs to manage its Marketplace,
-these errors encapsulate problems caused due to deliberate decisions (limits on shipping) or configuration
-problems.
+An external Marketplace API raised an error. Bunnings integrates with external APIs to manage its Marketplace; these errors encapsulate problems caused by deliberate decisions (such as shipping limits) or configuration issues.
 
 ## Problem Type
 
@@ -10,8 +8,7 @@ type = https://problem.api.bunnings.com.au?type=marketplaceError
 
 ## Specification
 
-The problems response is based on the base [RFC 7807](https://tools.ietf.org/html/rfc7807) problem.
-This is extended to include code/description collection
+The problem response is based on the base [RFC 7807](https://tools.ietf.org/html/rfc7807) problem. This is extended to include a collection of specific error details under the `errors` property.
 
 ```yaml
 problem:
@@ -43,6 +40,7 @@ problem:
                         message:
                             type: string
 ```
+
 [Problem Specification](./marketplaceError.yaml)
 
 ## Example

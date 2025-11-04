@@ -1,10 +1,8 @@
-# Voucher Validation problems found
+# Voucher Validation Problems Found
 
-This indicates that voucher error(s) were found in the incoming request, they can be issues such as 
-- invalid values or missing mandatory data OR 
-- after the request was accepted by the API and further validation was performed. 
+This error indicates that voucher-related problems were found in the incoming request. These errors can occur due to invalid values, missing mandatory data, or issues found during further validation after the API initially accepted the request.
 
-An error code is used to describe the request problem, with a link to this library below
+An error code describes the specific request problem, with further details available in the linked error code documentation.
 
 ## Problem Type
 
@@ -12,8 +10,8 @@ type = https://problem.api.bunnings.com.au?type=voucherValidationError
 
 ## Specification
 
-The response is based on the base [RFC 7807](https://tools.ietf.org/html/rfc7807) problem.
-This is extended to include code/description collection
+The problem response is based on the [RFC 7807](https://tools.ietf.org/html/rfc7807) problem.
+This is extended to include a collection of codes and descriptions.
 
 ```yaml
 problem:
@@ -36,12 +34,15 @@ problem:
             format: uri
         errors:
             type: array
-            properties:
-                code:
-                    type: string
-                message:
-                    type: string        
+            items:
+                type: object
+                properties:
+                    code:
+                        type: string
+                    message:
+                        type: string        
 ```
+
 [Specification](./voucherValidationError.yaml)
 
 ## Example
@@ -49,7 +50,7 @@ problem:
 ```json
 {
     "type": "https://problem.api.bunnings.com.au?type=voucherValidationError",
-    "title": "Bad request",
+    "title": "Bad Request",
     "status": 400,
     "detail": "Voucher 9318757000053236902083568 not found.",
     "traceId": "00-2dd0cda44d2b7df0b0ca6b545cacad7b-1c49459d7805780b-00",

@@ -1,87 +1,81 @@
-<!doctype html>
-<html lang="">
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Specify language for accessibility -->
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Edit your site info here -->
-    <meta name="Bunnings API Problems" content="problem definitions for bunnings api's">
+    <!-- Site Information -->
+    <meta name="description" content="Problem definitions for Bunnings APIs" />
+    <!-- Changed name to description for better SEO -->
     <title>Bunnings API Problems</title>
 
+    <!-- Web Components Polyfill for broader browser support -->
     <script src="https://cdn.jsdelivr.net/npm/@webcomponents/webcomponentsjs@2/webcomponents-loader.min.js"></script>
-    
+
+    <!-- PrismJS for syntax highlighting in markdown -->
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1/prism.min.js"></script>
-    <!-- The Auto loader dose not work as zero-md check if the lang exists before loading there for the auto loader dose not get run to add the language. -->
-    <!-- Load languages required staticaly-->
+    <!-- 
+      PrismJS languages are loaded statically.
+      The autoloader doesn't work as expected with zero-md, 
+      as zero-md checks for language existence before Prism's autoloader can add it.
+    -->
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-csharp.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-json.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-json5.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-markdown.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-yaml.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-typescript.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-typescript.min.js"></script>
 
+    <!-- zero-md: Web component for rendering Markdown with PrismJS highlighting -->
     <script src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@1/src/zero-md.min.js"></script>
 
-    <!--<script src="https://cdn.jsdelivr.net/gh/PrismJS/prism@1/plugins/autoloader/prism-autoloader.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/PrismJS/prism@1/components/prism-csharp.min.js"></script>-->
-
-    <style>
-      /* Edit your header styles here */
-      header { font-family: sans-serif; font-size: 20px; text-align: center; position: fixed; width: 100%; line-height: 42px; top: 0; left: 0; background-color: #424242; color: white; }
-	  header>a>img { padding-right: 10px; }
-      header>a:link {font-family: sans-serif; font-size: 20px; text-align: center; background-color: #424242; color: white;text-decoration: none;}
-      header>a:visited {font-family: sans-serif; font-size: 20px; text-align: center; background-color: #424242; color: white;text-decoration: none;}
-      header>a:hover {font-family: sans-serif; font-size: 20px; text-align: center; background-color: #424242; color: white;text-decoration: none;}
-      header>a:active {font-family: sans-serif; font-size: 20px; text-align: center; background-color: #424242; color: white;text-decoration: none;}
-      body { box-sizing: border-box; margin: 56px auto 0 auto; padding: 45px; }
-      @media (max-width: 767px) {
-        header { font-size: 15px; }
-        body { padding: 15px; }
-      }
-      iframe { margin: 0em; padding: 0em; border: 0em;width: 400px; height: 440px;}
-    </style>
+    <!-- Link to the main stylesheet -->
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <!-- Page Header with logo and title -->
+    <header class="header">
+      <a href="./"
+        ><img src="./bunnings-logo.png" alt="Bunnings Logo" /><span
+          >Bunnings API Problems</span
+        ></a
+      >
+    </header>
 
-    <div id="docContainer">
-        <!--<zero-md id="docPort" src="./index.md"></zero-md>-->
-    </div>
-    <p class="markdown-body">
-        <div id="index" class="markdown-body">
-        </div>
-        <div id="errorCodesHeading" class="md-html">
-        </div>
-        <div id="errorCodes" class="md-html">
-        </div>
-    </p>
+    <main id="main-content">
+      <!-- Container for dynamically loaded Markdown content based on URL parameters -->
+      <div id="docContainer">
+        <!-- Content is injected here by script.js using <zero-md> -->
+      </div>
 
-    <header class="header" ><a href="./"><img src="./bunnings-logo.png" width="20" height="20" /><span>Bunnings API Problems</span></a></header>
+      <!-- Container for the main page content (problem type lists and error code lists) -->
+      <div>
+        <!-- Container for the list of API problem types, populated by script.js from index.xml and index.xsl -->
+        <div id="index" class="markdown-body"></div>
+        <!-- Container for the heading of the error codes section, populated by script.js from errorCodes.md -->
+        <div id="errorCodesHeading" class="md-html"></div>
+        <!-- Container for the list of API error codes, populated by script.js from errorCodes.xml and index.xsl -->
+        <div id="errorCodes" class="markdown-body"></div>
+      </div>
+    </main>
 
-    
-  <script type="application/javascript">
-    var urlParams = new URLSearchParams(location.search);
-    
-    var doc = "./index.md";
-    if(urlParams.has('type')){
-        var doc = "./" + urlParams.get('type') + ".md";
-    }
-    if(urlParams.has('codes')){
-        var doc = "./" + urlParams.get('codes') + ".md";
-    }
-    var docContainer = document.getElementById('docContainer');
-    docContainer.innerHTML = "<zero-md src='"+doc+"'></zero-md>";
+    <!-- Link to the external JavaScript file -->
+    <script src="script.js" type="application/javascript"></script>
 
-    if(!urlParams.has('type') && !urlParams.has('codes')){
-        var index = document.getElementById('index');
-//        index.innerHTML = "<zero-md src='./index.xml'/>"
-        index.innerHTML = "<iframe src='./index.xml'/>"
-		document.getElementById('errorCodesHeading').innerHTML = "<zero-md src='errorCodes.md'></zero-md>";;
-        var errorCodes = document.getElementById('errorCodes');
-        errorCodes.innerHTML = "<iframe src='./errorCodes.xml'/>"
-    }
-
-  </script>
+    <footer class="footer">
+      <p>
+        Contact us at:
+        <a href="mailto:developer@bunnings.com.au">developer@bunnings.com.au</a>
+        | Visit our
+        <a
+          href="https://developer.live.bunnings.com.au/"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Developer Portal</a
+        >
+      </p>
+    </footer>
   </body>
 </html>

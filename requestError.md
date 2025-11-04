@@ -1,7 +1,7 @@
 # Request problems found
 
-This indicates that error(s) were found in the incoming request, they are likely to be a low-level issues such as invalid values 
-for the type or missing fields. A generic high-level error code is used to describe all request problems as the problem represents 
+This indicates that error(s) were found in the incoming request, they are likely to be low-level issues such as invalid values
+for the type or missing fields. A generic, high-level error code is used to describe all request problems. These problems indicate
 an issue with the caller.
 
 ## Problem Type
@@ -11,7 +11,7 @@ type = https://problem.api.bunnings.com.au?type=requestError
 ## Specification
 
 The response is based on the base [RFC 7807](https://tools.ietf.org/html/rfc7807) problem.
-This is extended to include code/description collection
+This is extended to include a collection of codes and descriptions.
 
 ```yaml
 problem:
@@ -43,6 +43,7 @@ problem:
                         message:
                             type: string
 ```
+
 [Specification](./requestError.yaml)
 
 ## Example
@@ -68,8 +69,6 @@ problem:
     }
 }
 ```
-
-
 
 ## Links
 

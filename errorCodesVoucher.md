@@ -1,8 +1,10 @@
 # Voucher API error codes
-This catalogue of error codes are generated exclusively from the Voucher Domain
+
+This catalog of error codes is generated exclusively from the Voucher Domain.
 
 ## Voucher & Events Errors
-The following list of error codes relate to the **Voucher & Events** end points and can be used across many end points. 
+
+The following list of error codes relates to the **Voucher & Events** endpoints and can be used across many endpoints.
 
 | Short&nbsp;error&nbsp;code | Constant Name | Business Rules | Message | Error type |
 | -------- | -------- | -------- | -------- | -------- |
@@ -102,9 +104,10 @@ The following list of error codes relate to the **Digital Gift Card** end points
 <br><br>
 
 ## Voucher Design Errors
-The following list of error codes relate to the **Design** end points within the Voucher API. 
 
-| Short&nbsp;error&nbsp;code | JSON Path | Business Rule | Message | Error Type | Where Used |
+The following list of error codes relates to the **Design** endpoints within the Voucher API.
+
+| Short&nbsp;error&nbsp;code | JSON Path | Business Rule | Message | Error Type | Where&nbsp;used |
 | -------- | -----------|--------- | --------| --------|  --------|
 | E-VCH-0501 | ```rendering/templateParameters``` |Returned when a request is received with <ul><li>applicableFilters/medium set to **Digital** AND</li><li>rendering/templateParameters is **empty**</li></ul>  | For a digital voucher the rendering template details are mandatory. | <a target="_blank" href="https://problem.api.bunnings.com.au/?type=validationError">validationError</a>|PUT&nbsp;/design/{serverState}
 | E-VCH-0502 | ```rendering/template``` |Returned when a request is received with <ul><li> the rendering collection is **populated** AND</li><li>rendering/template is **empty**</li></ul> | A rendering template name is mandatory.  This needs to align with a template name in the Rendering API. | <a target="_blank" href="https://problem.api.bunnings.com.au/?type=validationError">validationError</a>|PUT&nbsp;/design/{serverState}
@@ -127,27 +130,25 @@ The following list of error codes relate to the **Design** end points within the
 | E-VCH-0520 | ```code``` |Returned when the incoming payload exceeds the maximum payload limit.  Using the boolean reuseImage flag with an increases payload may also trigger this error code | The maximum blob size has been reached and the incoming data cannot be saved.  Please reduce the image sizes and try again | <a target="_blank" href="https://problem.api.bunnings.com.au/?type=validationError">validationError</a>|PUT&nbsp;/design/{serverState}
 | E-VCH-0521 | ```code``` |Returned when the incoming payload exceeds an unknown limit.  | The maximum blob size has been reached and the incoming data cannot be saved.  Please reduce the image sizes and try again | <a target="_blank" href="https://problem.api.bunnings.com.au/?type=validationError">validationError</a>|PUT&nbsp;/design/{serverState}
 
-<br><br>
+### Test Cases for **E-VCH-0514**, **E-VCH-0515**, **E-VCH-0516** & **E-VCH-0517**
 
-#### Test Cases for **E-VCH-0514**, **E-VCH-0515**, **E-VCH-0516** & **E-VCH-0517**
-The following outlines the patterns which are accepted or errored for the design audience input data
+The following table outlines the accepted and errored patterns for the design audience input data.
 
 | | |  |
 | -------- | -----------|----------
-|audience/target = All<br>userParameters/isRequired = true<br>userParameters/targetAudience = RetailOnly<br>**RETURN** error **E-VCH-0514**|audience/target = All<br>userParameters/isRequired = true<br>userParameters/targetAudience = CorporateOnly<br>**RETURN** error **E-VCH-0514**|audience/target = All<br>userParameters/isRequired = true<br>userParameters/targetAudience = All<br>**RETURN SUCCESS**
-|audience/target = All<br>userParameters/isRequired = false<br>userParameters/targetAudience = RetailOnly<br>**RETURN SUCCESS** | audience/target = All<br>userParameters/isRequired = false<br>userParameters/targetAudience = CorporateOnly<br>**RETURN SUCCESS** |audience/target = All<br>userParameters/isRequired = false<br>userParameters/targetAudience = All<br>**RETURN SUCCESS** |
-|audience/target = RetailOnly<br>userParameters/isRequired = true<br>userParameters/targetAudience = RetailOnly<br>**RETURN SUCCESS** |audience/target = RetailOnly<br>userParameters/isRequired = true<br>userParameters/targetAudience = CorporateOnly<br>**RETURN** error **E-VCH-0515** | audience/target = RetailOnly<br>userParameters/isRequired = true<br>userParameters/targetAudience = All<br>**RETURN SUCCESS**|
-|audience/target = RetailOnly<br>userParameters/isRequired = false<br>userParameters/targetAudience = RetailOnly<br>**RETURN SUCCESS** |audience/target = RetailOnly<br>userParameters/isRequired = false<br>userParameters/targetAudience = CorporateOnly<br>**RETURN** error **E-VCH-0515**|audience/target = RetailOnly<br>userParameters/isRequired = false<br>userParameters/targetAudience = All<br>**RETURN SUCCESS** |
-|audience/target = CorporateOnly<br>userParameters/isRequired = true<br>userParameters/targetAudience = RetailOnly<br>**RETURN** error **E-VCH-0516** | audience/target = CorporateOnly<br>userParameters/isRequired = true<br>userParameters/targetAudience = CorporateOnly<br>**RETURN SUCCESS** |audience/target = CorporateOnly<br>userParameters/isRequired = true<br>userParameters/targetAudience = All<br>**RETURN SUCCESS** |
-| audience/target = CorporateOnly<br>userParameters/isRequired = false<br>userParameters/targetAudience = RetailOnly<br>**RETURN** error **E-VCH-0516** | audience/target = CorporateOnly<br>userParameters/isRequired = false<br>userParameters/targetAudience = CorporateOnly<br>**RETURN SUCCESS** |audience/target = CorporateOnly<br>userParameters/isRequired = false<br>userParameters/targetAudience = All<br>**RETURN SUCCESS** |
-|audience/target = All<br>audience/commercialCustomers/accountNumber is populated<br>**RETURN** error **E-VCH-0517** | audience/target = RetailOnly<br>audience/commercialCustomers/accountNumber is populated<br>**RETURN** error **E-VCH-0517** | audience/target = CorporateOnly<br>audience/commercialCustomers/accountNumber is populated<br>**RETURN SUCCESS** |
-
-<br><br>
+|`audience/target` = All `userParameters/isRequired` = true `userParameters/targetAudience` = RetailOnly **RETURN** error **E-VCH-0514**|`audience/target` = All `userParameters/isRequired` = true `userParameters/targetAudience` = CorporateOnly **RETURN** error **E-VCH-0514**|`audience/target` = All `userParameters/isRequired` = true `userParameters/targetAudience` = All **RETURN SUCCESS**
+|`audience/target` = All `userParameters/isRequired` = false `userParameters/targetAudience` = RetailOnly **RETURN SUCCESS** | `audience/target` = All `userParameters/isRequired` = false `userParameters/targetAudience` = CorporateOnly **RETURN SUCCESS** |`audience/target` = All `userParameters/isRequired` = false `userParameters/targetAudience` = All **RETURN SUCCESS** |
+|`audience/target` = RetailOnly `userParameters/isRequired` = true `userParameters/targetAudience` = RetailOnly **RETURN SUCCESS** |`audience/target` = RetailOnly `userParameters/isRequired` = true `userParameters/targetAudience` = CorporateOnly **RETURN** error **E-VCH-0515** | `audience/target` = RetailOnly `userParameters/isRequired` = true `userParameters/targetAudience` = All **RETURN SUCCESS**|
+|`audience/target` = RetailOnly `userParameters/isRequired` = false `userParameters/targetAudience` = RetailOnly **RETURN SUCCESS** |`audience/target` = RetailOnly `userParameters/isRequired` = false `userParameters/targetAudience` = CorporateOnly **RETURN** error **E-VCH-0515**|`audience/target` = RetailOnly `userParameters/isRequired` = false `userParameters/targetAudience` = All **RETURN SUCCESS** |
+|`audience/target` = CorporateOnly `userParameters/isRequired` = true `userParameters/targetAudience` = RetailOnly **RETURN** error **E-VCH-0516** | `audience/target` = CorporateOnly `userParameters/isRequired` = true `userParameters/targetAudience` = CorporateOnly **RETURN SUCCESS** |`audience/target` = CorporateOnly `userParameters/isRequired` = true `userParameters/targetAudience` = All **RETURN SUCCESS** |
+| `audience/target` = CorporateOnly `userParameters/isRequired` = false `userParameters/targetAudience` = RetailOnly **RETURN** error **E-VCH-0516** | `audience/target` = CorporateOnly `userParameters/isRequired` = false `userParameters/targetAudience` = CorporateOnly **RETURN SUCCESS** |`audience/target` = CorporateOnly `userParameters/isRequired` = false `userParameters/targetAudience` = All **RETURN SUCCESS** |
+|`audience/target` = All `audience/commercialCustomers/accountNumber` is populated **RETURN** error **E-VCH-0517** | `audience/target` = RetailOnly `audience/commercialCustomers/accountNumber` is populated **RETURN** error **E-VCH-0517** | `audience/target` = CorporateOnly `audience/commercialCustomers/accountNumber` is populated **RETURN SUCCESS** |
 
 ## Voucher Design Encode & Decode Errors
-The following list of error codes relate to encoding and decoding a Voucher Design for use within Bunnings eco-system
 
-| Short&nbsp;error&nbsp;code | JSON Path | Business Rule | Message | Error Type | Where Used |
+The following list of error codes relates to encoding and decoding a Voucher Design for use within the Bunnings ecosystem.
+
+| Short&nbsp;error&nbsp;code | JSON Path | Business Rule | Message | Error Type | Where&nbsp;used |
 | -------- | -----------|--------- | --------| --------|  --------|
 | E-VCH-0601 | ```countryCode``` | Returned when data entry is not one of<ul><li>AU</li><li>NZ</li></ul>Note:  This data is not case sensitive, however all data entry for this attribute is set to capitals to align with ISO standards | countryCode must be either AU or NZ. The input provided did not match. | <a target="_blank" href="https://problem.api.bunnings.com.au/?type=validationError">validationError</a>|POST&nbsp;/design/encode <br>PUT&nbsp;/digital/giftcard/{serverState} 
 | E-VCH-0602 | ```itemNumber``` | Returned when data entry is not a seven digit integer  | The itemNumber provided must be exactly seven digits to allow for validation by the item domain.  The data entry did not meet this criteria | <a target="_blank" href="https://problem.api.bunnings.com.au/?type=validationError">validationError</a>|POST&nbsp;/design/encode <br>PUT&nbsp;/digital/giftcard/{serverState}
@@ -216,3 +217,4 @@ The following list of error codes relate to the **Fulfilment** endpoints within 
 | E-VCH-0739 | ```limitToLines``` | Returned when both ```limitToVouchers``` & ```limitToLines``` are populated.  | This request includes data for limitToVouchers & limitToLines.  Only one of these options can be populated | <a target="_blank" href="https://problem.api.bunnings.com.au/?type=validationError">validationError</a> |  PUT /fulfilment/{serverState}/operatorDispatch |
 | E-VCH-0740 | ```#serverState``` | The selected ```fulfilmentType```  is not DigitalDeliveryToCustomer. This request can only proceed on digital vouchers | This fulfilment is not set to DigitalDeliveryToCustomer.  This request cannot be processed | <a target="_blank" href="https://problem.api.bunnings.com.au/?type=validationError">validationError</a> |  PUT /fulfilment/{serverState}/operatorDispatch |
 | E-VCH-0741 | ```customer.contact.email``` | Returned when ```sendToPurchaser``` = **true** and the fulfilment does not have a purchaser email address   | The purchaser email is required to resend the voucher to the customer | <a target="_blank" href="https://problem.api.bunnings.com.au/?type=validationError">validationError</a> |  PUT /fulfilment/{serverState}/operatorDispatch |
+

@@ -1,6 +1,6 @@
 # Missing Resource
 
-This is  used to indicate the requested item was not found.
+This problem type is used to indicate that the requested resource was not found.
 
 ## Problem Type
 
@@ -8,8 +8,7 @@ type = https://problem.api.bunnings.com.au?type=missingResource
 
 ## Specification
 
-The problem includes no additional properties on the base [RFC 7807](https://tools.ietf.org/html/rfc7807) problem.
-so uses the base specification
+This problem type includes no additional properties beyond the base [RFC 7807](https://tools.ietf.org/html/rfc7807) problem and therefore uses the base specification.
 
 ```yaml
 problem:
@@ -31,6 +30,7 @@ problem:
             type: string
             format: uri
 ```
+
 [Specification](./missingResource.yaml)
 
 ## Example
@@ -43,4 +43,4 @@ problem:
     "status": 404,
     "traceId": "|<id>."
 }
-```	
+```

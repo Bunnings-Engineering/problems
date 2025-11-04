@@ -1,20 +1,23 @@
 # Provider Not Supported
 
-This is used to indicate the requested operation was not supported by the provider.
+This problem indicates that the requested operation is not supported by the specified provider.
 
 ## Problem Type
 
 type = https://problem.api.bunnings.com.au?type=providerNotSupported
 
+## Specification
+
+The problem response is based on the [RFC 7807](https://tools.ietf.org/html/rfc7807) problem type. It includes the following structure:
+
 ```yaml
 problem:
     type: object
     description: >|
-This problem is used to describe the error received when a user
-did an invalid operation against an API. The instance will provide
-the url, the title the error and specific details around the invalid
-operation that occurred.
-This problem is based off the RFC 7807 compliant problem type.
+        Indicates that the requested operation is not supported by the provider.
+        The `instance` field may provide a URL to the specific resource or operation,
+        and `detail` can offer more specific information about why the provider
+        does not support the operation.
     required:
     - type
     properties:
@@ -30,6 +33,7 @@ This problem is based off the RFC 7807 compliant problem type.
         traceId:
             type: string
 ```
+
 [Specification](./providerNotSupported.yaml)
 
 ## Example
@@ -42,4 +46,4 @@ This problem is based off the RFC 7807 compliant problem type.
     "status": 400,
     "traceId": "|<id>."
 }
-```	
+```

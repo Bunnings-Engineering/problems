@@ -1,7 +1,7 @@
 # Conflict
 
-This is used to indicate a request conflict with current state of the target resource.
-Conflicts are most likely to occur when target resource has changed since the last load.
+This is used to indicate a request conflict with the current state of the target resource.
+Conflicts are most likely to occur when the target resource has changed since the last load.
 
 ## Problem Type
 
@@ -9,8 +9,7 @@ type = https://problem.api.bunnings.com.au?type=conflict
 
 ## Specification
 
-The problem includes no additional properties on the base [RFC 7807](https://tools.ietf.org/html/rfc7807) problem.
-so uses the base specification
+The problem includes no additional properties on the base [RFC 7807](https://tools.ietf.org/html/rfc7807) problem, so it uses the base specification
 
 ```yaml
 problem:
@@ -32,6 +31,7 @@ problem:
             type: string
             format: uri
 ```
+
 [Specification](./conflict.yaml)
 
 ## Example
@@ -43,4 +43,4 @@ problem:
     "status": 409,
     "traceId": "|<id>."
 }
-```	
+```

@@ -1,6 +1,6 @@
-# Spike Arrest Limit Exceeded 
+# Spike Arrest Limit Exceeded
 
-The number of requests sent to the server have exceeded the permitted rate limit. 
+The number of requests sent to the server has exceeded the permitted rate limit.
 
 ## Problem Type
 
@@ -30,6 +30,7 @@ problem:
             type: string
             format: uri
 ```
+
 [Specification](./problem.yaml)
 
 ## Example

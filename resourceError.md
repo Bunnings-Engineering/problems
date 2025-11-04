@@ -1,7 +1,6 @@
 # Resource error
 
-This is used to return status information after an error with a dependent resource.  It is safe to retry after a short delay.
-
+This error indicates a problem with a dependent resource. It is safe to retry after a short delay.
 
 ## Problem Type
 
@@ -9,7 +8,7 @@ type = https://problem.api.bunnings.com.au?type=resourceError
 
 ## Specification
 
-The resource error is based on the base [RFC 7807](https://tools.ietf.org/html/rfc7807) problem. This is extended to include code/description collection
+The resource error is based on the base [RFC 7807](https://tools.ietf.org/html/rfc7807) problem. This is extended to include a collection of codes and descriptions.
 
 ```yaml
 resourceError:
@@ -41,6 +40,7 @@ resourceError:
                         message:
                             type: string            
 ```
+
 [Specification](./resourceError.yaml)
 
 ## Example
@@ -61,4 +61,4 @@ resourceError:
         ]
     }    
 }
-```	
+```

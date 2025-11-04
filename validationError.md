@@ -1,6 +1,6 @@
 # Validation problems found
 
-A request didn't pass validation stage of processing. Typically, this is after the request was accepted by the API and further
+A request did not pass the validation stage of processing. Typically, this is after the request was accepted by the API and further
 validation was performed. This can include checks like:
 
 - Mutually exclusive fields
@@ -13,8 +13,8 @@ type = <https://problem.api.bunnings.com.au?type=validationError>
 
 ## Specification
 
-The problems response is based on the base [RFC 7807](https://tools.ietf.org/html/rfc7807) problem.
-This is extended to include code/description collection
+The problem response is based on the [RFC 7807](https://tools.ietf.org/html/rfc7807) problem.
+This is extended to include a collection of codes and descriptions.
 
 ```yaml
 problem:
@@ -38,7 +38,7 @@ problem:
         errors:
             type: object
             properties:
-                <field name>:
+                <field>:
                     type: array
                     properties:
                         code:
@@ -82,7 +82,7 @@ problem:
     "errors": {
         "Currency": [
             {
-                "message": "Currency must be either aud or nzd and is not case sensitive. The input provided did not match.",
+                "message": "Currency must be 'aud' or 'nzd' (case-insensitive). The provided input did not match.",
                 "code": "E-PAY-0001"
             }
         ]
