@@ -37,12 +37,41 @@
   <body>
     <!-- Page Header with logo and title -->
     <header class="header">
-      <a href="./"
-        ><img src="./bunnings-logo.png" alt="Bunnings Logo" /><span
-          >Bunnings API Problems</span
-        ></a
-      >
+      <div class="header-content">
+        <a href="./" class="header-title"
+          ><img src="./bunnings-logo.png" alt="Bunnings Logo" /><span
+            >Bunnings API Problems</span
+          ></a
+        >
+        <div class="search-container">
+          <input 
+            type="text" 
+            id="searchInput" 
+            placeholder="Search problems or error codes..." 
+            aria-label="Search problems and error codes"
+          />
+          <button id="clearSearch" class="clear-btn" aria-label="Clear search" style="display: none;">✕</button>
+        </div>
+      </div>
     </header>
+
+    <!-- Navigation bar for domains -->
+    <nav class="domain-nav" id="domainNav">
+      <div class="nav-content">
+        <a href="./" class="nav-link active">All</a>
+        <a href="./?codes=errorCodesBasket" class="nav-link">Basket</a>
+        <a href="./?codes=errorCodesCheckout" class="nav-link">Checkout</a>
+        <a href="./?codes=errorCodesCommercialCustomer" class="nav-link">Commercial</a>
+        <a href="./?codes=errorCodesCommunications" class="nav-link">Communications</a>
+        <a href="./?codes=errorCodesConsumer" class="nav-link">Consumer</a>
+        <a href="./?codes=errorCodesInputSchemaErrors" class="nav-link">Schema</a>
+        <a href="./?codes=errorCodesOrdering" class="nav-link">Ordering</a>
+        <a href="./?codes=errorCodesPayment" class="nav-link">Payment</a>
+        <a href="./?codes=errorCodesPricing" class="nav-link">Pricing</a>
+        <a href="./?codes=errorCodesTransaction" class="nav-link">Transaction</a>
+        <a href="./?codes=errorCodesVoucher" class="nav-link">Voucher</a>
+      </div>
+    </nav>
 
     <main id="main-content">
       <!-- Container for dynamically loaded Markdown content based on URL parameters -->
@@ -51,13 +80,18 @@
       </div>
 
       <!-- Container for the main page content (problem type lists and error code lists) -->
-      <div>
-        <!-- Container for the list of API problem types, populated by script.js from index.xml and index.xsl -->
-        <div id="index" class="markdown-body"></div>
-        <!-- Container for the heading of the error codes section, populated by script.js from errorCodes.md -->
-        <div id="errorCodesHeading" class="md-html"></div>
-        <!-- Container for the list of API error codes, populated by script.js from errorCodes.xml and index.xsl -->
-        <div id="errorCodes" class="markdown-body"></div>
+      <div id="mainPageContent">
+        <!-- Container for the Problems section -->
+        <section class="content-section">
+          <div id="indexHeading" class="md-html"></div>
+          <div id="index" class="markdown-body"></div>
+        </section>
+
+        <!-- Container for the Error Codes section -->
+        <section class="content-section error-codes-section">
+          <div id="errorCodesHeading" class="md-html"></div>
+          <div id="errorCodes" class="markdown-body"></div>
+        </section>
       </div>
     </main>
 
