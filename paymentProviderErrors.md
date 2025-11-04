@@ -42,12 +42,30 @@ problem:
                         type: string
                     errorDetail:
                         type: string
+            properties:
+                ref:
+                    type: string
+                statusCode:
+                    type: int
+                errorCode:
+                    type: string
+                errorDetail:
+                    type: string
+                paymentNumber:
+                    type: integer
+        outcomes:
+            type: array
+            properties:
+                outcome:
+                    type: string
+                paymentNumber:
+                    type: integer 
+
 ```
 
 [Specification](./paymentProviderErrors.yaml)
 
-## Example
-
+## JSON Example - Payment Provider Errors
 ```json
 {
     "type": "https://problem.api.bunnings.com.au?type=paymentProviderErrors",
@@ -69,6 +87,36 @@ problem:
             "errorDetail": "posTerminalNumber is required"
         }        
     ]  
+}
+```
+
+## JSON Example - Payment Provider Errors - '/captures' endpoint (batch processing)
+```json  
+{
+    "type": "https://problem.api.bunnings.com.au?type=paymentProviderErrors",
+    "title": "Bad Request",
+    "status": 400,
+    "detail": "Captures API Error",
+    "traceid": "00-758a2ee6af6029a4af86afb1e8b802a7-f3e03c7e8d1e1fa1-00",
+    "providerErrors": [
+        {
+            "ref": "BPoint",
+            "statusCode": 400,
+            "errorCode": "CapturesFailed",
+            "errorDetail": "Exception of type 'HttpException' was thrown.",
+            "paymentNumber": 2
+        }
+    ],
+    "outcomes": [
+        {
+            "paymentNumber": 1,
+            "outcome": "Refunded",
+        },
+        {
+            "paymentNumber": 2,
+            "outcome": "Voided",
+        }
+    ]
 }
 ```
 

@@ -32,6 +32,8 @@ problem:
             type: integer
         detail:
             type: string
+        basketRef:
+            type: string
         instance:
             type: string
             format: uri
@@ -57,6 +59,7 @@ problem:
     "title": "Basket submission error",
     "status": 400,
     "detail": "Please refer to the errors for additional details.",
+    "basketRef": "B1:0f019b58-9fa4-4800-92d3-b1635d70025f",
     "errors": {        
         "submissionAttempt": [                    
             {
@@ -72,3 +75,4 @@ problem:
 
 [E-ORD-*](./?codes=errorCodesOrdering)
 [E-CHK-*](./?codes=errorCodesCheckout)
+[E-TRA-*](./?codes=errorCodesTransaction)
