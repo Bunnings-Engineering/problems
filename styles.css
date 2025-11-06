@@ -40,7 +40,6 @@ body {
 }
 
 main {
-  max-width: 1200px;
   margin: 0 auto;
   padding: 30px 20px;
   background-color: var(--bg-white);
@@ -62,7 +61,6 @@ header {
 }
 
 .header-content {
-  max-width: 1200px;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -149,7 +147,7 @@ header {
 /* Domain Navigation Bar */
 .domain-nav {
   position: fixed;
-  top: 62px;
+  top: 74px;
   left: 0;
   right: 0;
   background-color: var(--bg-white);
@@ -159,7 +157,6 @@ header {
 }
 
 .nav-content {
-  max-width: 1200px;
   margin: 0 auto;
   display: flex;
   overflow-x: auto;
@@ -220,7 +217,7 @@ a:hover {
 
 /* Main content area */
 #main-content {
-  padding-top: 130px;
+  padding-top: 142px;
 }
 
 /* Content sections */
@@ -412,7 +409,6 @@ a:hover {
   color: var(--text-medium);
   text-align: center;
   padding: 24px 20px;
-  margin-top: 60px;
   border-top: 1px solid var(--border-color);
   font-size: 14px;
 }
