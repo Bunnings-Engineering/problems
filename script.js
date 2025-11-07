@@ -10,11 +10,15 @@
  */
 var urlParams = new URLSearchParams(location.search);
 var docContainer = document.getElementById('docContainer');
+var doc = null;
+
 if (urlParams.has('type')) {
-    var doc = "./" + urlParams.get('type') + ".md";
-    docContainer.innerHTML = "<zero-md src='" + doc + "'></zero-md>";
+    doc = "./" + urlParams.get('type') + ".md";
 } else if (urlParams.has('codes')) {
-    var doc = "./" + urlParams.get('codes') + ".md";
+    doc = "./" + urlParams.get('codes') + ".md";
+}
+
+if (doc) {
     docContainer.innerHTML = "<zero-md src='" + doc + "'></zero-md>";
 }
 
