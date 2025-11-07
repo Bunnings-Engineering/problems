@@ -4,19 +4,19 @@
 
 /**
  * Handles URL parameters to determine which markdown document to display.
- * It defaults to 'index.md' if no specific parameters are found.
- * The selected markdown document is loaded into the 'docContainer' element using the zero-md web component.
+ * Only loads content into docContainer when viewing a specific problem type or error code page.
+ * When on the main page (no parameters), docContainer remains empty to avoid duplication
+ * since index.md is loaded separately into indexHeading.
  */
 var urlParams = new URLSearchParams(location.search);
-var doc = "./index.md";
-if (urlParams.has('type')) {
-    doc = "./" + urlParams.get('type') + ".md";
-}
-if (urlParams.has('codes')) {
-    doc = "./" + urlParams.get('codes') + ".md";
-}
 var docContainer = document.getElementById('docContainer');
-docContainer.innerHTML = "<zero-md src='" + doc + "'></zero-md>";
+if (urlParams.has('type')) {
+    var doc = "./" + urlParams.get('type') + ".md";
+    docContainer.innerHTML = "<zero-md src='" + doc + "'></zero-md>";
+} else if (urlParams.has('codes')) {
+    var doc = "./" + urlParams.get('codes') + ".md";
+    docContainer.innerHTML = "<zero-md src='" + doc + "'></zero-md>";
+}
 
 /**
  * Search state management
