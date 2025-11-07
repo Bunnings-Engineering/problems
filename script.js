@@ -13,9 +13,13 @@ var docContainer = document.getElementById('docContainer');
 var doc = null;
 
 if (urlParams.has('type')) {
-    doc = "./" + urlParams.get('type') + ".md";
+    // Sanitize the type parameter to prevent XSS by allowing only alphanumeric characters and hyphens
+    var type = urlParams.get('type').replace(/[^a-zA-Z0-9-]/g, '');
+    doc = "./" + type + ".md";
 } else if (urlParams.has('codes')) {
-    doc = "./" + urlParams.get('codes') + ".md";
+    // Sanitize the codes parameter to prevent XSS by allowing only alphanumeric characters and hyphens
+    var codes = urlParams.get('codes').replace(/[^a-zA-Z0-9-]/g, '');
+    doc = "./" + codes + ".md";
 }
 
 if (doc) {
