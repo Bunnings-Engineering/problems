@@ -8,7 +8,7 @@ The below can be found across any endpoint which uses a price id as an input.
 
 | Short&nbsp;error&nbsp;code | Name                                                     | Description                                                                 |
 | -------------------------- | -------------------------------------------------------- | --------------------------------------------------------------------------- |
-| E-PRI-GEN-0001              | InvalidPriceId                                        | Price Id is invalid.                                                     |
+| E-PRI-GEN-0001             | InvalidPriceId                                           | Price Id is invalid.                                                        |
 
 
 ## Markdown Pricing Error Codes
@@ -25,6 +25,7 @@ The below can be found across any endpoint which uses a price id as an input.
 | E-PRI-MD-0008              | HostnameRequiredWhenPOSRequest                           | Hostname is required when it's a POS request.                               |
 | E-PRI-MD-0009              | ServerStateRequired                                      | ServerState is required.                                                    |
 | E-PRI-MD-0010              | PriceMustBeGreaterThanZero                               | Price must be greater than 0.                                               |
-| E-PRI-MD-0011              | PriceCannotBeNegative                                    | Price cannot be negative.                                               |
+| E-PRI-MD-0011              | PriceCannotBeNegative                                    | Price cannot be negative.                                                   |
+| E-PRI-MD-0012              | PriceMustExist                                           | Price cannot be null.                                                       |
 
 
