@@ -99,3 +99,4 @@ problem:
 [E-BSK-*](./?codes=errorCodesBasket)
 [E-COM-*](./?codes=errorCodesCommunications)
 [E-CON-*](./?codes=errorCodesConsumer)
+[E-LOY-*](./?codes=errorCodesLoyalty)

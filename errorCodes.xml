@@ -7,6 +7,7 @@
 <problem title="Communications API" href="./?codes=errorCodesCommunications" />
 <problem title="Consumer API" href="./?codes=errorCodesConsumer" />
 <problem title="Input Schema Errors" href="./?codes=errorCodesInputSchemaErrors" />
+<problem title="Loyalty API" href="./?codes=errorCodesLoyalty" />
 <problem title="Ordering API" href="./?codes=errorCodesOrdering" />
 <problem title="Payment API" href="./?codes=errorCodesPayment" />
 <problem title="Pricing API" href="./?codes=errorCodesPricing" />

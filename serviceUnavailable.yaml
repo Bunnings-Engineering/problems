@@ -1,0 +1,27 @@
+serviceUnavailable:
+  type: object
+  description: RFC 7807 compliant problem.
+  required:
+  - type
+  properties:
+    type:
+        type: string
+        format: uri
+    title:
+        type: string
+    status:
+        type: integer
+    detail:
+        type: string
+    instance:
+        type: string
+        format: uri
+    errors:
+        type: object
+        properties:
+            message:
+                type: string
+            code:
+                type: string
+    traceId:
+        type: string
