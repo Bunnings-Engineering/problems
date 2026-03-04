@@ -19,6 +19,7 @@
     <problem title="Resource Error" href="./?type=resourceError" />
     <problem title="Resource Not Found" href="./?type=resourceNotFound" />
     <problem title="Reused Idempotency Key" href="./?type=reusedIdempotencyKey" />
+    <problem title="Service Unavailable" href="./?type=serviceUnavailable" />
     <problem title="Spike Arrest Limit Exceeded" href="./?type=rateLimitExceeded" />
     <problem title="Unhandled Error" href="./?type=unhandled" />
     <problem title="Unsupported Character" href="./?type=unsupportedCharacter" />
