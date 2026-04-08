@@ -8,6 +8,7 @@
     <problem title="Invalid Authorisation Token" href="./?type=invalidAuthorisationToken" />
     <problem title="Invalid Scope" href="./?type=invalidScope" />
     <problem title="Invalid Server State" href="./?type=invalidServerState" />
+    <problem title="Invalid Version Number" href="./?type=invalidVersionNumber" />
     <problem title="Marketplace Error" href="./?type=marketplaceError" />
     <problem title="Missing Resource" href="./?type=missingResource" />
     <problem title="Payment Provider Error" href="./?type=paymentProviderError" />
