@@ -38,7 +38,7 @@ problem:
 ```json
 {
     "type": "https://problem.api.bunnings.com.au?type=invalidVersionNumber",
-    "title": "'x-version-api' is not a valid version number. Format should be [Major].[Minor] e.g. 1.0",
+    "title": "'x-version-api' must be Major.Minor (e.g., 1.0).",
     "status": 400
 }
 ```
