@@ -45,9 +45,25 @@ problem:
                             type: string
                         message:
                             type: string
+                        context:
+                            type: object
+                            description: Optional metadata describing the error. Simple key-value pairs only.
+                            nullable: true
+                            additionalProperties: true
 ```
 
 [Specification](./validationError.yaml)
+
+## Context
+
+Each error may include an optional `context` object. It carries additional metadata about the failure, such as the
+minimum and maximum lengths that were expected, so that generic error codes can be reused across use cases without
+creating domain-specific variations.
+
+`context` is optional and holds simple JSON key-value pairs. It is omitted entirely when there is no metadata to
+report, so existing consumers are unaffected, and consumers that do not understand `context` can safely ignore it.
+
+Refer to the [context property registry](./?type=contextProperties) for the approved property names.
 
 ## Example
 
@@ -84,6 +100,29 @@ problem:
             {
                 "message": "Currency must be 'aud' or 'nzd' (case-insensitive). The provided input did not match.",
                 "code": "E-PAY-0001"
+            }
+        ]
+    }
+}
+```
+
+An example including the optional `context` metadata:
+
+```json
+{
+    "type": "https://problem.api.bunnings.com.au?type=validationError",
+    "title": "Bad Request",
+    "status": 400,
+    "detail": "Please refer to the errors for additional details.",
+    "errors": {
+        "Basket.Lines[4].Quantity": [
+            {
+                "message": "The value was outside the allowed range.",
+                "code": "E-CHK-0014",
+                "context": {
+                    "min": 1,
+                    "max": 999
+                }
             }
         ]
     }

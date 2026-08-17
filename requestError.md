@@ -42,9 +42,25 @@ problem:
                             type: string
                         message:
                             type: string
+                        context:
+                            type: object
+                            description: Optional metadata describing the error. Simple key-value pairs only.
+                            nullable: true
+                            additionalProperties: true
 ```
 
 [Specification](./requestError.yaml)
+
+## Context
+
+Each error may include an optional `context` object. It carries additional metadata about the failure, such as the
+minimum and maximum lengths that were expected, so that generic error codes can be reused across use cases without
+creating domain-specific variations.
+
+`context` is optional and holds simple JSON key-value pairs. It is omitted entirely when there is no metadata to
+report, so existing consumers are unaffected, and consumers that do not understand `context` can safely ignore it.
+
+Refer to the [context property registry](./?type=contextProperties) for the approved property names.
 
 ## Example
 
@@ -64,6 +80,29 @@ problem:
             {
                 "message": "The field is under its minimum length",
                 "code": "E-0003"
+            }
+        ]
+    }
+}
+```
+
+An example including the optional `context` metadata:
+
+```json
+{
+    "type": "https://problem.api.bunnings.com.au?type=requestError",
+    "title": "One or more validation errors occurred",
+    "status": 400,
+    "errors": {
+        "name": [
+            {
+                "message": "The field is under its minimum length",
+                "code": "E-0003",
+                "context": {
+                    "min": 3,
+                    "max": 50,
+                    "length": 1
+                }
             }
         ]
     }

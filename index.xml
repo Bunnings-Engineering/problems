@@ -2,6 +2,7 @@
 <?xml-stylesheet type="text/xsl" href="./index.xsl"?>
 <index>
     <problem title="Basket Submission Error" href="./?type=basketSubmissionError" />
+    <problem title="Context Property Registry" href="./?type=contextProperties" />
     <problem title="Dirty Resource" href="./?type=dirtyResource" />
     <problem title="Forbidden" href="./?type=forbidden" />
     <problem title="Invalid Audience" href="./?type=invalidAudience" />

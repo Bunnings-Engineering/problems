@@ -41,9 +41,25 @@ problems:
                                 type: string
                             message:
                                 type: string
+                            context:
+                                type: object
+                                description: Optional metadata describing the error. Simple key-value pairs only.
+                                nullable: true
+                                additionalProperties: true
 ```
 
 [Problem Specification](./problems.yaml)
+
+## Context
+
+Each problem may include an optional `context` object. It carries additional metadata about the failure, such as the
+minimum and maximum lengths that were expected, so that generic error codes can be reused across use cases without
+creating domain-specific variations.
+
+`context` is optional and holds simple JSON key-value pairs. It is omitted entirely when there is no metadata to
+report, so existing consumers are unaffected, and consumers that do not understand `context` can safely ignore it.
+
+Refer to the [context property registry](./?type=contextProperties) for the approved property names.
 
 ## Example
 
@@ -57,6 +73,28 @@ problems:
             {
                 "message": "Pricing API did not find a price for item: 3314001",
                 "code": "E-CHK-0027"
+            }
+        ]
+    }
+}
+```
+
+An example including the optional `context` metadata:
+
+```json
+{
+    "type": "https://problem.api.bunnings.com.au?type=problems",
+    "title": "Bad Request",
+    "status": 400,
+    "errors": {
+        "problems": [
+            {
+                "message": "The requested quantity was outside the allowed range.",
+                "code": "E-CHK-0014",
+                "context": {
+                    "min": 1,
+                    "max": 999
+                }
             }
         ]
     }
