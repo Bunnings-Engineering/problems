@@ -48,7 +48,6 @@ problem:
                         context:
                             type: object
                             description: Optional metadata describing the error. Simple key-value pairs only.
-                            nullable: true
                             additionalProperties: true
 ```
 
