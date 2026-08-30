@@ -28,6 +28,15 @@ validationError:
                         type: string
                     context:
                         type: object
-                        description: Optional metadata describing the error. Simple key-value pairs only.
-                        additionalProperties: true
+                        description: Optional metadata describing the error. Scalar values are supported; arrays are reserved for allowedValues.
+                        properties:
+                            allowedValues:
+                                type: array
+                            disallowedValues:
+                                type: array
+                        additionalProperties:
+                            oneOf:
+                            - type: string
+                            - type: number
+                            - type: boolean
         

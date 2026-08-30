@@ -11,8 +11,9 @@ new ones, so that consumers can interpret metadata consistently across all Bunni
 
 1. `context` is always optional. It is omitted from the response when there is no metadata to report, so existing
    consumers are unaffected.
-2. `context` is a map of simple JSON key-value pairs. Nested objects and arrays are not supported.
-3. Property names are lowercase and reuse the registry entries below wherever they apply.
+2. `context` is a map of simple JSON key-value pairs. Scalar values are supported; arrays are only supported for
+    `allowedValues`. Nested objects are not supported.
+3. Property names use the registered lower-camel-case names below wherever they apply.
 4. `context` is supplementary. The `code` and `message` must remain meaningful on their own, and consumers must be able
    to ignore `context` entirely.
 5. Never place personally identifiable information, credentials or other sensitive data in `context`.
@@ -25,6 +26,9 @@ new ones, so that consumers can interpret metadata consistently across all Bunni
 | `length` | number | The length of the supplied value. |
 | `max` | number | The maximum permitted value or length, inclusive. |
 | `min` | number | The minimum permitted value or length, inclusive. |
+| `pattern` | string | The regular expression used to validate the supplied value. |
+| `allowedValues` | array | The values accepted by a set-membership constraint. |
+| `disallowedValues` | array | The values rejected by a set-membership constraint. |
 
 ## Example
 
@@ -46,6 +50,18 @@ new ones, so that consumers can interpret metadata consistently across all Bunni
                 }
             }
         ]
+    }
+}
+```
+
+## allowedValues Example
+
+`allowedValues` is the only registered context value that is an array:
+
+```json
+{
+    "context": {
+        "allowedValues": ["Consumer", "Commercial"]
     }
 }
 ```

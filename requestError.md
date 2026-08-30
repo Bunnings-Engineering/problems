@@ -44,8 +44,17 @@ problem:
                             type: string
                         context:
                             type: object
-                            description: Optional metadata describing the error. Simple key-value pairs only.
-                            additionalProperties: true
+                            description: Optional metadata describing the error. Scalar values are supported; arrays are reserved for allowedValues.
+                            properties:
+                                allowedValues:
+                                    type: array
+                                disallowedValues:
+                                    type: array
+                            additionalProperties:
+                                oneOf:
+                                - type: string
+                                - type: number
+                                - type: boolean
 ```
 
 [Specification](./requestError.yaml)
@@ -56,8 +65,9 @@ Each error may include an optional `context` object. It carries additional metad
 minimum and maximum lengths that were expected, so that generic error codes can be reused across use cases without
 creating domain-specific variations.
 
-`context` is optional and holds simple JSON key-value pairs. It is omitted entirely when there is no metadata to
-report, so existing consumers are unaffected, and consumers that do not understand `context` can safely ignore it.
+`context` is optional and holds simple JSON key-value pairs. Scalar values are supported, and arrays are reserved for
+`allowedValues`. Nested objects are not supported. It is omitted entirely when there is no metadata to report, so
+existing consumers are unaffected, and consumers that do not understand `context` can safely ignore it.
 
 Refer to the [context property registry](./?type=contextProperties) for the approved property names.
 
