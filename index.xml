@@ -1,30 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="./index.xsl"?>
 <index>
+    <problem title="Bad Gateway" href="./?type=badGateway" />
     <problem title="Basket Submission Error" href="./?type=basketSubmissionError" />
     <problem title="Context Property Registry" href="./?type=contextProperties" />
+    <problem title="Conflict" href="./?type=conflict" />
     <problem title="Dirty Resource" href="./?type=dirtyResource" />
+    <problem title="Expectation Failed" href="./?type=expectationFailed" />
+    <problem title="Failed Dependency" href="./?type=failedDependency" />
     <problem title="Forbidden" href="./?type=forbidden" />
+    <problem title="Gateway Timeout" href="./?type=gatewayTimeout" />
+    <problem title="Gone" href="./?type=gone" />
+    <problem title="HTTP Version Not Supported" href="./?type=httpVersionNotSupported" />
     <problem title="Invalid Audience" href="./?type=invalidAudience" />
     <problem title="Invalid Authorisation Token" href="./?type=invalidAuthorisationToken" />
     <problem title="Invalid Scope" href="./?type=invalidScope" />
     <problem title="Invalid Server State" href="./?type=invalidServerState" />
     <problem title="Invalid Version Number" href="./?type=invalidVersionNumber" />
+    <problem title="Length Required" href="./?type=lengthRequired" />
+    <problem title="Locked" href="./?type=locked" />
+    <problem title="Loop Detected" href="./?type=loopDetected" />
     <problem title="Marketplace Error" href="./?type=marketplaceError" />
+    <problem title="Method Not Allowed" href="./?type=methodNotAllowed" />
+    <problem title="Misdirected Request" href="./?type=misdirectedRequest" />
     <problem title="Missing Resource" href="./?type=missingResource" />
+    <problem title="Not Acceptable" href="./?type=notAcceptable" />
+    <problem title="Not Implemented" href="./?type=notImplemented" />
+    <problem title="Payload Too Large" href="./?type=payloadTooLarge" />
     <problem title="Payment Provider Error" href="./?type=paymentProviderError" />
     <problem title="Payment Provider Errors" href="./?type=paymentProviderErrors" />
+    <problem title="Payment Required" href="./?type=paymentRequired" />
+    <problem title="Precondition Failed" href="./?type=preconditionFailed" />
+    <problem title="Precondition Required" href="./?type=preconditionRequired" />
     <problem title="Problems" href="./?type=problems" />
     <problem title="Provider Not Supported" href="./?type=providerNotSupported" />
+    <problem title="Proxy Authentication Required" href="./?type=proxyAuthenticationRequired" />
     <problem title="Quota Limit Exceeded" href="./?type=quotaLimitExceeded" />
+    <problem title="Range Not Satisfiable" href="./?type=rangeNotSatisfiable" />
     <problem title="Request Error" href="./?type=requestError" />
+    <problem title="Request Header Fields Too Large" href="./?type=requestHeaderFieldsTooLarge" />
+    <problem title="Request Timeout" href="./?type=requestTimeout" />
     <problem title="Resource Error" href="./?type=resourceError" />
     <problem title="Resource Not Found" href="./?type=resourceNotFound" />
     <problem title="Reused Idempotency Key" href="./?type=reusedIdempotencyKey" />
     <problem title="Service Unavailable" href="./?type=serviceUnavailable" />
     <problem title="Spike Arrest Limit Exceeded" href="./?type=rateLimitExceeded" />
+    <problem title="Too Early" href="./?type=tooEarly" />
+    <problem title="Unauthorized" href="./?type=unauthorized" />
     <problem title="Unhandled Error" href="./?type=unhandled" />
     <problem title="Unsupported Character" href="./?type=unsupportedCharacter" />
+    <problem title="Unsupported Media Type Detected in Request" href="./?type=unsupportedMediaType" />
+    <problem title="URI Too Long" href="./?type=uriTooLong" />
     <problem title="Validation Error" href="./?type=validationError" />
     <problem title="Voucher Validation" href="./?type=voucherValidationError" />
 </index>
