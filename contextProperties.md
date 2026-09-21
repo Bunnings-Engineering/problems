@@ -45,8 +45,7 @@ new ones, so that consumers can interpret metadata consistently across all Bunni
                 "code": "E-0003",
                 "context": {
                     "min": 2,
-                    "max": 50,
-                    "length": 1
+                    "max": 50
                 }
             }
         ]
@@ -60,8 +59,19 @@ new ones, so that consumers can interpret metadata consistently across all Bunni
 
 ```json
 {
-    "context": {
-        "allowedValues": ["Consumer", "Commercial"]
+    "type": "https://problem.api.bunnings.com.au?type=requestError",
+    "title": "One or more validation errors occurred",
+    "status": 400,
+    "errors": {
+        "countryCode": [
+            {
+                "message": "The field is over its maximum length",
+                "code": "E-PAY-0201",
+                "context": {
+                    "allowedValues": ["AU", "NZ"]
+                }
+            }
+        ]
     }
 }
 ```
