@@ -65,8 +65,8 @@ new ones, so that consumers can interpret metadata consistently across all Bunni
     "errors": {
         "countryCode": [
             {
-                "message": "The field is over its maximum length",
-                "code": "E-PAY-0201",
+                "message": "The selected item is invalid.",
+                "code": "E-PAY-1234",
                 "context": {
                     "allowedValues": ["AU", "NZ"]
                 }
