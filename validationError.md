@@ -138,6 +138,25 @@ An example including the optional `context` metadata:
 }
 ```
 
+```json
+{
+    "type": "https://problem.api.bunnings.com.au?type=validationError",
+    "title": "One or more validation errors occurred",
+    "status": 400,
+    "errors": {
+        "basket.lines[1].lineType": [
+            {
+                "message": "The selected item is invalid.",
+                "code": "E-PAY-0203",
+                "context": {
+                    "allowedValues": ["Item", "GiftCard", "MarketPlace", "Other"]
+                }
+            }
+        ]
+    }
+}
+```
+
 ## Links
 
 [E-CHK-*](./?codes=errorCodesCheckout)

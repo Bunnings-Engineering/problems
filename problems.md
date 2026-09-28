@@ -109,3 +109,22 @@ An example including the optional `context` metadata:
     }
 }
 ```
+
+```json
+{
+    "type": "https://problem.api.bunnings.com.au?type=problems",
+    "title": "Bad Request",
+    "status": 400,
+    "errors": {
+        "problems": [
+            {
+                "message": "The requested orderNumber is over its maximum length.",
+                "code": "E-0002",
+                "context": {
+                    "length": 10
+                }
+            }
+        ]
+    }
+}
+```
