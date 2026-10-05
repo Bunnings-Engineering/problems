@@ -125,7 +125,7 @@ An example including the optional `context` metadata:
     "errors": {
         "name": [
             {
-                "message": "The field is outside the valid length.",
+                "message": "The length is invalid.",
                 "code": "E-0007",
                 "context": {
                     "length": 50
