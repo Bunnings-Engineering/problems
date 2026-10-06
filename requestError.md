@@ -109,8 +109,26 @@ An example including the optional `context` metadata:
                 "code": "E-0003",
                 "context": {
                     "min": 3,
-                    "max": 50,
-                    "length": 1
+                    "max": 50
+                }
+            }
+        ]
+    }
+}
+```
+
+```json
+{
+    "type": "https://problem.api.bunnings.com.au?type=requestError",
+    "title": "One or more validation errors occurred",
+    "status": 400,
+    "errors": {
+        "name": [
+            {
+                "message": "The length is invalid.",
+                "code": "E-0007",
+                "context": {
+                    "length": 50
                 }
             }
         ]
