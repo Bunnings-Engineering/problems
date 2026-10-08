@@ -40,7 +40,9 @@ problem:
                     code:
                         type: string
                     message:
-                        type: string        
+                        type: string
+                    path:
+                        type: string          
 ```
 
 [Specification](./voucherValidationError.yaml)
@@ -57,7 +59,8 @@ problem:
     "errors": [
         {
             "message": "Voucher barcode number does not exist",
-            "code": "E-VCH-0001"
+            "code": "E-VCH-0001",
+            "path": "example.path"
         }
     ]
 }
