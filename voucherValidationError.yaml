@@ -1,3 +1,4 @@
+
 problem:
     type: object
     description: RFC 7807 superset problem.
@@ -18,8 +19,13 @@ problem:
             format: uri
         errors:
             type: array
-            properties:
-                code:
-                    type: string
-                message:
-                    type: string        
+            items:
+                type: object
+                properties:
+                    code:
+                        type: string
+                    message:
+                        type: string
+                    path:
+                        description: Optional metadata describing the path of the error.
+                        type: string
