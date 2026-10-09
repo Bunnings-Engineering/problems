@@ -19,11 +19,13 @@ problem:
             format: uri
         errors:
             type: array
-            properties:
-                code:
-                    type: string
-                message:
-                    type: string     
-                path:
-                    description: Optional metadata describing the path of the error.
-                    type: string   
+            items:
+                type: object
+                properties:
+                    code:
+                        type: string
+                    message:
+                        type: string
+                    path:
+                        description: Optional metadata describing the path of the error.
+                        type: string

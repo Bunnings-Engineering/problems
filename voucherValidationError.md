@@ -42,7 +42,8 @@ problem:
                     message:
                         type: string
                     path:
-                        type: string          
+                        description: Optional metadata describing the path of the error.
+                        type: string       
 ```
 
 [Specification](./voucherValidationError.yaml)
