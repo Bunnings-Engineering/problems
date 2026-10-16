@@ -1,0 +1,17 @@
+{
+    "pageId": "16273084121",
+    "constantNameSourceFile": "errorCodesVoucher.md",
+    "tableColumns": [
+        "Error Code",
+        "Business Rule",
+        "Path",
+        "Endpoint",
+        "Rule Type",
+        "Error Message"
+    ],
+    "targetFiles": [
+        "errorCodesVoucher.md"
+    ],
+    "sectionStart": "<!-- confluence-sync:start -->",
+    "sectionEnd": "<!-- confluence-sync:end -->"
+}

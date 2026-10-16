@@ -2,6 +2,8 @@
 
 This catalog of error codes is generated exclusively from the Voucher Domain.
 
+<!-- confluence-sync:start -->
+
 ## Voucher & Events Errors
 
 The following list of error codes relates to the **Voucher & Events** endpoints and can be used across many endpoints.
@@ -219,3 +221,4 @@ The following list of error codes relate to the **Fulfilment** endpoints within 
 | E-VCH-0740 | ```#serverState``` | The selected ```fulfilmentType```  is not DigitalDeliveryToCustomer. This request can only proceed on digital vouchers | This fulfilment is not set to DigitalDeliveryToCustomer.  This request cannot be processed | <a target="_blank" href="https://problem.api.bunnings.com.au/?type=validationError">validationError</a> |  PUT /fulfilment/{serverState}/operatorDispatch |
 | E-VCH-0741 | ```customer.contact.email``` | Returned when ```sendToPurchaser``` = **true** and the fulfilment does not have a purchaser email address   | The purchaser email is required to resend the voucher to the customer | <a target="_blank" href="https://problem.api.bunnings.com.au/?type=validationError">validationError</a> |  PUT /fulfilment/{serverState}/operatorDispatch |
 
+<!-- confluence-sync:end -->
