@@ -118,6 +118,8 @@ This catalogue of error codes are generated from the Checkout Domain which is co
 | E-CHK-0122                 | BasketFulfilmentSaleActivity                  | The `PickedByCustomer`, `CustomerToCollect`, `DeliveryToCustomer`, and `DigitalDeliveryToCustomer` fulfilment types are only supported for sale baskets.              |
 | E-CHK-0123                 | BasketFulfilmentReturnActivity                | The `ReturnedByCustomer` and `CollectedFromCustomer` fulfilment types are only supported for return baskets.                                                        |
 | E-CHK-0124                 | ActivityMisMatch                              | The activity type must be compatible with the basket.                                                                                                               |
+| E-CHK-0127                 | InStoreSelfCheckoutCartTotalItems                 | Exceeds maximum number of items in the cart. Current maximum items: {0}                                                                             |
+| E-CHK-0128                 | InStoreSelfCheckoutCartTotalPrice            | Exceeds maximum total price in the cart. Current maximum price: {0}                                                                                 |
 
 ## Checkout Basket call
 
