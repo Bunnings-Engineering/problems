@@ -102,7 +102,8 @@ This catalogue of error codes are generated from the Checkout Domain which is co
 | E-CHK-0095                 | MaxLineQuantityTimesLength                    | This is additional validation when selected length or packet for timber or PktSplit product. Current maximum value: 9999.99                                        |
 | E-CHK-0096                 | ItemMissingSellingTaxCodeConfiguration        | An item in the basket has a purchasing tax code which is not mapped to a selling tax code in Checkout                                                              |
 | E-CHK-0097                 | OnePassIdWhenProvidedMustBeGuid               | OnePass identity when provided must be a GUID                                                                                                                      |
-| E-CHK-0098                 | MarketplaceCurrencyNotMatchingCountry         | Marketplace order currency does not match expected basket currency.                                                                                                |
+| E-CHK-0098                 | MarketplaceCurrencyNotMatchingCountry         | Marketplace order currency does not match expected basket currency.
+| E-CHK-0108                 | BasketContainsAgeRestrictedItem               | This item can't be purchased at self-checkout. Please complete your purchase at a staffed lane.
 | E-CHK-0110                 | GiftCardDesignTokenAndCardNumber              | For `GiftCard` lines, provide `cardNumber` and omit `designToken`.                                                                                                  |
 | E-CHK-0111                 | GiftCardBulkDesignTokenAndCardNumber          | For `GiftCardBulk` lines, omit both `cardNumber` and `designToken`.                                                                                                 |
 | E-CHK-0112                 | GiftCardLineType                              | Voucher items must use the `GiftCard`, `GiftCardOrder`, or `GiftCardBulk` line type.                                                                                |
@@ -118,8 +119,8 @@ This catalogue of error codes are generated from the Checkout Domain which is co
 | E-CHK-0122                 | BasketFulfilmentSaleActivity                  | The `PickedByCustomer`, `CustomerToCollect`, `DeliveryToCustomer`, and `DigitalDeliveryToCustomer` fulfilment types are only supported for sale baskets.              |
 | E-CHK-0123                 | BasketFulfilmentReturnActivity                | The `ReturnedByCustomer` and `CollectedFromCustomer` fulfilment types are only supported for return baskets.                                                        |
 | E-CHK-0124                 | ActivityMisMatch                              | The activity type must be compatible with the basket.                                                                                                               |
-| E-CHK-0127                 | InStoreSelfCheckoutCartTotalItems                 | Exceeds maximum number of items in the cart. Current maximum items: {0}                                                                             |
-| E-CHK-0128                 | InStoreSelfCheckoutCartTotalPrice            | Exceeds maximum total price in the cart. Current maximum price: {0}                                                                                 |
+| E-CHK-0129                 | InStoreSelfCheckoutCartTotalItems                 | Exceeds maximum number of items in the cart. Current maximum items: {0}                                                                             |
+| E-CHK-0130                 | InStoreSelfCheckoutCartTotalPrice            | Exceeds maximum total price in the cart. Current maximum price: {0}                                                                                 |
 
 ## Checkout Basket call
 
